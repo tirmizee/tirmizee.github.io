@@ -3,6 +3,15 @@
   <script src="jquery-3.2.0.min.js"></script>
   <title>Hello world</title>
   <body>
-    <h1>Hello</h1>
+    <button>Hello</button>
+    <div id = "div1">kfmadklfmads</div> 
   </body>
+  </script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#div1").fadeOut();
+    });
+});
+</script>
 </html>
