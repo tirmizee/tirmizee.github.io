@@ -10,102 +10,48 @@
 <script src="js/jquery-3.2.1.min.js" ></script>
 <script src="js/bootstrap.min.js" ></script>
 <script src="js/bootstrap-select.min.js" ></script>
+<script src="https://www.w3schools.com/lib/w3.js"></script>
 <style>
 @font-face {
   font-family: 'super';
   src: url('font/supermarket.ttf');
 }
-.navbar {
-	font-family: 'super';
-    margin-bottom: 0;
-}
 #y1,#y2,#y3,#y4 { visibility: hidden; }
 .animated { visibility: visible !important; }
+/*div{
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+}*/
+
+
 </style>
-<title>Insert title here</title>
+<title>Muslim WU</title>
 </head>
 <body>
-<div style="margin-bottom: 0 !important;">
-	<nav class="navbar navbar-default navbar-static-top" >
-	  <div class="container-fluid">
-	    <!-- Brand and toggle get grouped for better mobile display -->
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand" href="#"><center><img src="resource/img/logo.png" style="max-width:130px; margin-top: -10px;"></center></a>
-	    </div>
-
-	    <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="#"><label>News</label></a></li>
-	        <li><a href="#">ภาษา c</a></li>
-	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-	          <ul class="dropdown-menu">
-	            <li><a href="#">ffsd</a></li>
-	            <li><a href="#">Another action</a></li>
-	            <li><a href="#">Something else here</a></li>
-	            <li role="separator" class="divider"></li>
-	            <li><a href="#">Separated link</a></li>
-	            <li role="separator" class="divider"></li>
-	            <li><a href="#">One more separated link</a></li>
-	          </ul>
-	        </li>
-	      </ul>
-	      
-	      <ul class="nav navbar-nav navbar-right">
-	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Option <span class="caret"></span></a>
-	          <ul class="dropdown-menu">
-	            <li><a href="#">color</a></li>
-	            <li role="separator" class="divider"></li>
-	             <li><a href="#"><div>Red</div></a></li>
-	             <li><a href="#"><div>Red</div></a></li>
-	          </ul>
-	        </li>
-	      </ul>
-	    </div><!-- /.navbar-collapse -->
-	  </div><!-- /.container-fluid -->
-	</nav>	
-</div>
+	<div id="header"></div>
 
 
-<div  style="background-color:#00FA9A;height:400px;-moz-filter: blur(5px);">
-	<div id="y1">ssss</div>
-	<div id="y2">ssss</div>
-	<div id="y3">ssss</div>
-	<div id="y4">ssss</div>
-</div>
+
+
+
 <script>
 $(document).ready(function(){
+
+	w3.includeHTML();
 	
+	$('#header').load(";ayout/header.html"); 
+
+	$('#y1').bind('copy paste',function(e) {
+    	e.preventDefault(); return false; 
+	});
 
 	
-		setTimeout(function(){ 
-			$('#y'+1).addClass('animated bounceInRight');
-		 }, 200);
-		 setTimeout(function(){ 
-			$('#y'+2).addClass('animated bounceInRight');
-		 }, 400);
-		 setTimeout(function(){ 
-			$('#y'+3).addClass('animated bounceInRight');
-		 }, 600);
-		 setTimeout(function(){ 
-			$('#y'+4).addClass('animated bounceInRight');
-		 }, 800);	
-	
-		
-	
-	
-	
-   
+
+
 });
 </script>
+
 </body>
 </html>
 </body>
