@@ -16,6 +16,27 @@
   font-family: 'super';
   src: url('font/supermarket.ttf');
 }
+.navbar {
+	font-family: 'super';
+    margin-bottom: 0;
+}	
+.li-border{
+		border-right: 1px solid rgba(0,0,0,.1);
+		box-shadow: 1px 0 0 rgba(255,255,255,.25);
+}
+.navbar-nav > li > a, .navbar-brand {
+    padding-top:20px !important; 
+    padding-bottom:0 !important;
+    height: 60px;
+}
+.navbar {min-height:60px !important;}
+
+#nav ul li:hover a{ 
+     color:red;
+}
+.nav > li > a:hover{
+    background-color:#FCC;
+}
 #y1,#y2,#y3,#y4 { visibility: hidden; }
 .animated { visibility: visible !important; }
 /*div{
@@ -41,6 +62,15 @@ $(document).ready(function(){
 	w3.includeHTML();
 	
 	$('#header').load("layout/header.html"); 
+	
+	$(".nav a").on("click", function(){
+  		$(".nav").find(".active").removeClass("active");
+   		$(this).parent().addClass("active");
+	});
+	$(".nav ul a").on("click", function(){
+		$(".nav").find(".active").removeClass("active");
+  		$(this).parent().parent().parent().addClass("active");
+	});
 
 	$('#y1').bind('copy paste',function(e) {
     	e.preventDefault(); return false; 
