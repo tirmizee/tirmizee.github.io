@@ -50,7 +50,7 @@
 <title>Muslim WU</title>
 </head>
 <body>
-	<div id="header"></div>
+	<div w3-include-html="layout/header.html"></div>
 
 
 
@@ -58,11 +58,10 @@
 
 <script>
 $(document).ready(function(){
-
 	w3.includeHTML();
 	
-	$('#header').load("layout/header.html"); 
 	
+
 	$(".nav a").on("click", function(){
   		$(".nav").find(".active").removeClass("active");
    		$(this).parent().addClass("active");
