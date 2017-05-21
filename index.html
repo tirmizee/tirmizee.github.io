@@ -69,7 +69,7 @@ $(document).ready(function(){
 	
 
 	
-	$.get("layout/header.html", function(data) {
+	$( "#header" ).load("layout/header.html", function(data) {
     	$("#header").html(data);
     	$(".nav a").on("click", function(){
   		$(".nav").find(".active").removeClass("active");
