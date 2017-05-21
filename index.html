@@ -76,15 +76,6 @@ $( "#header" ).load( "layout/header.html" );
     	e.preventDefault(); return false; 
 	});
 
-	$(".nav a").on("click", function(){
-  		$(".nav").find(".active").removeClass("active");
-   		$(this).parent().addClass("active");
-	});
-	$(".nav ul a").on("click", function(){
-		$(".nav").find(".active").removeClass("active");
-  		$(this).parent().parent().parent().addClass("active");
-	});
-
 
 	var a = function() {
     var defer = $.Deferred();
