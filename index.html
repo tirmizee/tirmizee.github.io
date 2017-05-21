@@ -15,11 +15,15 @@
   font-family: 'super';
   src: url('font/supermarket.ttf');
 }
+/*body {
+-webkit-filter: grayscale(90%);
+filter: grayscale(100%); 
+}*/
 .navbar {
 	font-family: 'super';
     margin-bottom: 0;
 }
-#y1,#y2,#y3,#y4,nav { visibility: hidden; }
+#y1,#y2,#y3,#y4,nav,#body1,#s { visibility: hidden; }
 .animated { visibility: visible !important; }
 /*div{
 -webkit-user-select: none;
@@ -35,15 +39,26 @@
     padding-bottom:0 !important;
     height: 60px;
 }
-li{
 
+.navbar-default .navbar-nav > .active{
+   color: #000;
+   background:#7AC5CD;
+ }
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+      color: #000;
+      background: #7AC5CD;
+ }
+
+
+.active a :not(.dropdown-menu){
+    color: black !important;
 }
+
+
 .navbar {min-height:60px !important;}
-.select{
-	background-color: #87CEEB;
-	
-	 
-}
+
 #nav ul li:hover a{ 
      color:red;
 }
@@ -51,66 +66,45 @@ li{
     background-color:#FCC;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </style>
 <title>Muslim WU</title>
 </head>
 <body>
-<div id="header" style="margin-bottom: 0 !important;">
-	<nav class="navbar navbar-default navbar-static-top" >
-	  <div class="container-fluid " style="font-size:18px">
-	    <!-- Brand and toggle get grouped for better mobile display -->
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand li-border" href="#"><center><img src="resource/img/logo.png" style="max-width:190px;height:70px; margin-top: -24px;"></center></a>
-	    </div>
 
-	    <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav">
-	      <li class="li-border active"><a href="#" class="text-center"><label>หน้าหลัก</label></a></li>
-	       
-	        <li  class="li-border"><a href="#" class="text-center"><label>ข่าวสาร</label></a></li>
-	        <li class="li-border dropdown" id="li_menu">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><label>บทความ</label><span class="caret"></span></a>
-	          <ul class="dropdown-menu">
-	            <li id="li_menu1"><a href="#">ffsd</a></li>
-	            <li id="li_menu2"><a href="#">Another action</a></li>
-	            <li id="li_menu3"><a href="#">Something else here</a></li>
-	            <li id="li_menu4" role="separator" class="divider"></li>
-	            <li id="li_menu5"><a href="#">Separated link</a></li>
-	            <li id="li_menu6" role="separator" class="divider"></li>
-	            <li id="li_menu7"><a href="#">One more separated link</a></li>
-	          </ul>
-	        </li>
-	      </ul>
-	      
-	      <ul class="nav navbar-nav navbar-right">
-	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Option <span class="caret"></span></a>
-	          <ul class="dropdown-menu">
-	            <li><a href="#">color</a></li>
-	            <li role="separator" class="divider"></li>
-	             <li><a href="#"><div>Red</div></a></li>
-	             <li><a href="#"><div>Red</div></a></li>
-	          </ul>
-	        </li>
-	      </ul>
-	    </div><!-- /.navbar-collapse -->
-	  </div><!-- /.container-fluid -->
-	</nav>	
+<div id="header" style="margin-bottom: 0 !important;">
+	
 </div>
 
+<div id="body1" style="background-color:#FFD700">
+	<img src="resource/img/body.png" height="400px" width="100%">
+</div>
 
 
 
 <script>
 $(document).ready(function(){
+	
 
+
+
+
+$( "#header" ).load( "layout/header.html" );
 	$('#y1').bind('copy paste',function(e) {
     	e.preventDefault(); return false; 
 	});
@@ -125,13 +119,50 @@ $(document).ready(function(){
 	});
 
 
-	setTimeout(function(){ 
-		$('nav').addClass('animated bounceInDown');
-	 }, 50);
+	var a = function() {
+    var defer = $.Deferred();
 
-	setTimeout(function(){ 
-		$('#y'+1).addClass('animated fadeInUp');
-	 }, 200);
+    console.log('a() called');
+
+    setTimeout(function() {
+        defer.resolve();
+        $('nav').addClass('animated bounceInDown');
+		$('#body1').addClass('animated bounceInUp');
+    }, 50);
+
+    return defer;
+	};
+
+	var b = function() {
+	    var defer = $.Deferred();
+
+	    console.log('b() called');
+
+	    setTimeout(function () {
+	        defer.resolve();
+	        $('#s').addClass('animated slideInDown');
+	    }, 200);
+
+	    return defer;
+	};
+
+	var c = function() {
+	    var defer = $.Deferred();
+
+	    console.log('c() called');
+
+	    setTimeout(function () {
+	        defer.resolve();
+	    }, 100);
+
+	    return defer;
+	};
+
+	a().then(b).then(c);
+	
+
+
+	
 
 	 setTimeout(function(){ 
 		$('#y'+2).addClass('animated fadeInUp');
