@@ -68,13 +68,12 @@ filter: grayscale(100%);
 $(document).ready(function(){
 	
 
+	
+	$.get("layout/header.html", function(data) {
+    	$("#header").html(data);
+  	});
 
 
-
-$( "#header" ).load( "layout/header.html" );
-	$('#y1').bind('copy paste',function(e) {
-    	e.preventDefault(); return false; 
-	});
 
 
 	var a = function() {
