@@ -72,7 +72,15 @@ $(document).ready(function(){
 	$.get("layout/header.html", function(data) {
     	$("#header").html(data);
   	});
-
+  	
+	$(".nav a").on("click", function(){
+  		$(".nav").find(".active").removeClass("active");
+   		$(this).parent().addClass("active");
+	});
+	$(".nav ul a").on("click", function(){
+		$(".nav").find(".active").removeClass("active");
+  		$(this).parent().parent().parent().addClass("active");
+	});
 
 
 
