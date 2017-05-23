@@ -1,30 +1,40 @@
 <!DOCTYPE>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="icon" href="resource/ico/ImageFactory.ico" />
-<link rel="stylesheet" href="css/bootstrap.min.css" >
-<link rel="stylesheet" href="css/bootstrap-theme.min.css" >
-<link rel="stylesheet" href="css/bootstrap-select.min.css" >
-<link rel="stylesheet" href="css/animate.css" >
-<link rel="stylesheet" href="css/header.css" >
-<script src="js/jquery-3.2.1.min.js" ></script>
-<script src="js/bootstrap.min.js" ></script>
-<script src="js/bootstrap-select.min.js" ></script>
-<style>
-@font-face {
-  font-family: 'super';
-  src: url('font/supermarket.ttf');
-}
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="icon" href="resource/ico/ImageFactory.ico" />
+	<link rel="stylesheet" href="css/bootstrap.min.css" >
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css" >
+	<link rel="stylesheet" href="css/bootstrap-select.min.css" >
+	<link rel="stylesheet" href="css/animate.css" >
+	<link rel="stylesheet" href="css/animate.css" >
+	<link rel="stylesheet" href="css/header.css" >
+	<link rel="stylesheet" href="css/hover-min.css"  media="all">
+	<script src="js/jquery-3.2.1.min.js" ></script>
+	<script src="js/bootstrap.min.js" ></script>
+	<script src="js/bootstrap-select.min.js" ></script>
+	
+	<style>
+	@import url("css/hover-min.css");
+		@font-face {
+			font-family: 'super';
+			src: url('font/supermarket.ttf');
+		}
 /*body {
 -webkit-filter: grayscale(90%);
 filter: grayscale(100%); 
 }*/
+body{
+	background-color:#fdfdfd;
+}
+label{
+	font-family: 'super';
+}
 .navbar {
 	font-family: 'super';
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
-#y1,#y2,#y3,#y4,nav,#body1,#s { visibility: hidden; }
+nav,#body { visibility: hidden; }
 .animated { visibility: visible !important; }
 /*div{
 -webkit-user-select: none;
@@ -32,118 +42,208 @@ filter: grayscale(100%);
 -ms-user-select: none;
 }*/
 .li-border{
-		border-right: 1px solid rgba(0,0,0,.1);
-		box-shadow: 1px 0 0 rgba(255,255,255,.25);
+	border-right: 1px solid rgba(0,0,0,.1);
+	box-shadow: 1px 0 0 rgba(255,255,255,.25);
 }
 .navbar-nav > li > a, .navbar-brand {
-    padding-top:20px !important; 
-    padding-bottom:0 !important;
-    height: 60px;
+	padding-top:20px !important; 
+	padding-bottom:0 !important;
+	height: 60px;
 }
 
 .navbar-default .navbar-nav > .active{
-   color: #000;
-   background:#7AC5CD;
- }
+	color: #FF8C00;
+	background-color: transparent;
+}
 .navbar-default .navbar-nav > .active > a, 
 .navbar-default .navbar-nav > .active > a:hover, 
 .navbar-default .navbar-nav > .active > a:focus {
-      color: #000;
-      background: #7AC5CD;
- }
+	color: #FF8C00;
+	background-color: transparent;
+	border-bottom: 3px solid;
+
+}
+hr {
+			border: 0;
+    		height: 1px;
+			background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(255,255,255,255), rgba(0,0,0,0));
+		    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(255,255,255,255), rgba(0,0,0,0));
+		    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(255,255,255,255), rgba(0,0,0,0));
+		    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(255,255,255,255), rgba(0,0,0,0));
+ 		   	margin: 10px 0 30px;
+  		  	clear: both;
+	}
 
 </style>
 <title>Muslim WU</title>
 </head>
 <body>
-	<div id="header" style="margin-bottom: 0 !important;"></div>
+	<!-- header -->
+	<div class="row" style="margin-bottom: 0 !important;">
+		<nav class="navbar navbar-default navbar-fixed-top" >
+			<div class="container-fluid " style="font-size:18px">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand li-border" href="#"><center><img src="resource/img/logo.png" style="max-width:190px;height:70px; margin-top: -24px;"></center></a>
+				</div>
 
-	<div id="body1" style="background-color:#FFD700">
-		<img src="resource/img/body.png" height="400px" width="100%">
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li id="main" class="li-border active"><a href="#" class="hvr-glow text-center"><label>หน้าหลัก</label></a></li>
+						<li id="test" class="li-border"><a href="#" class="hvr-glow text-center"><label>บทความ</label></a></li>
+						<li  class="li-border"><a href="#" class="hvr-glow text-center"><label>ข่าวสาร</label></a></li>
+					</ul>  
+					<ul class="nav navbar-nav navbar-right">
+						<li id="about"  class="li-border"><a class="hvr-glow text-center"><label>เกี่ยวกับเรา</label></a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>	
 	</div>
+	<br><br><br>
 
+	<!-- menu-content -->
+	<div class="container body" style="min-height:500px"></div>
 
+	<!-- footer -->
+	<div id="footer"></div>
+	<script src="js/test.js" ></script>
+	<script>
+		$(document).ready(function(){
+			
 
-<script>
-$(document).ready(function(){
-	
+			var callPage = {
+				about : function(){
+					$(".body").load("menu-centent/about.html", function(data) {
+						$('#img_person').addClass('animated bounceInDown');
+						$('[data-toggle="tooltip"]').tooltip();
+						setTimeout(function () {
+							$('#about_fname').addClass('animated fadeInDown');
+						},500);
+						setTimeout(function () {
+							$('.style-one').addClass('animated bounceInLeft');
+						},800);
+						setTimeout(function () {
+							$('#about_sp_edu').addClass('animated fadeInDown');
+						},800);
+						setTimeout(function () {
+							$('#about_lb_bac').addClass('animated fadeInDown');
+						},1100);
+						setTimeout(function () {
+							$('#about_lb_pro').addClass('animated fadeInDown');
+						},1200);
+						setTimeout(function () {
+							$('#about_sp_add').addClass('animated fadeInDown');
+						},800);
+						setTimeout(function () {
+							$('#about_lb_song').addClass('animated fadeInDown');
+						},1100);
+						setTimeout(function () {
+							$('#about_lb_na').addClass('animated fadeInDown');
+						},1400);
+						setTimeout(function () {
+							$('#about_sp_car').addClass('animated fadeInDown');
+						},800);
+						setTimeout(function () {
+							$('#about_lb_jar').addClass('animated fadeInDown');
+						},1100);
+						$('#img_person').on('click',function(){
+							alert("s");
+						});
+					});
+				},
+				main : function(){
+					$(".body").load("menu-centent/main.html", function(data) {
+						$('#img_person').addClass('animated bounceInDown');	
+						$('#img_person').on('click',function(){
+							alert("s");
+						});
+					});
+				}		
+			};
+			var page;
+			
+			$(".nav a").on("click", function(e){	
+				e.preventDefault();
+				$(".nav").find(".active").removeClass("active");
+				$(this).parent().addClass("active");
+				page = $(this).parent().attr('id');
+				console.log('click');
+				$(".body").empty();
+				callPage[page]();
+				
+				 
+			});
 
-	
-	$("#header").load("layout/header.html", function(data) {
-    	$("#header").html(data);
-    	$(".nav a").on("click", function(){
-	  		$(".nav").find(".active").removeClass("active");
-	   		$(this).parent().addClass("active");
-	   		 console.log('click');
+			
+			
+			// callPage.about = function(){
+			// 	$(".body").load("menu-centent/about.html", function(data) {
+			// 		$('#img_person').addClass('animated bounceInDown');	
+			// 		$('#img_person').on('click',function(){
+			// 			alert("s");
+			// 		});
+			// 	});	
+			// }
+			
+			
+
+			var a = function() {
+				var defer = $.Deferred();
+				console.log('a() called');
+				setTimeout(function() {
+					defer.resolve();
+					$('nav').addClass('animated bounceInDown');
+				}, 50);
+
+				return defer;
+			};
+
+			var b = function() {
+				var defer = $.Deferred();
+				console.log('b() called');
+				setTimeout(function () {
+					defer.resolve();
+					$('#body').addClass('animated');
+					$("#body").load("menu-centent/main.html", function(data) {
+						$('.body').addClass('animated bounceInDown');
+					});
+				}, 300);
+
+				return defer;
+			};
+
+			var c = function() {
+				var defer = $.Deferred();
+				console.log('c() called');
+				setTimeout(function () {
+					defer.resolve();
+					$("#footer").load("layout/footer.html", function(data) {
+						$("#footer").html(data);
+						$('[data-toggle="tooltip"]').tooltip();
+						
+						$('#img_person').addClass('animated fadeInDownBig');
+					});
+
+				}, 100);
+				return defer;
+			};
+
+			a().then(b).then(c);
+			callPage.main();
+			
+				
+			
+
 		});
-		$(".nav ul a").on("click", function(){
-			$(".nav").find(".active").removeClass("active");
-	  		$(this).parent().parent().parent().addClass("active");
-		});
-  	});
-
-	
-
-
-
-	var a = function() {
-    var defer = $.Deferred();
-
-    console.log('a() called');
-
-    setTimeout(function() {
-        defer.resolve();
-        $('nav').addClass('animated bounceInDown');
-		$('#body1').addClass('animated bounceInUp');
-    }, 50);
-
-    return defer;
-	};
-
-	var b = function() {
-	    var defer = $.Deferred();
-
-	    console.log('b() called');
-
-	    setTimeout(function () {
-	        defer.resolve();
-	        $('#s').addClass('animated slideInDown');
-	    }, 200);
-
-	    return defer;
-	};
-
-	var c = function() {
-	    var defer = $.Deferred();
-
-	    console.log('c() called');
-
-	    setTimeout(function () {
-	        defer.resolve();
-	    }, 100);
-
-	    return defer;
-	};
-
-	a().then(b).then(c);
-	
-
-
-	
-
-	 setTimeout(function(){ 
-		$('#y'+2).addClass('animated fadeInUp');
-	 }, 400);
-
-	 setTimeout(function(){ 
-		$('#y'+3).addClass('animated fadeInUp');
-	 }, 600);
-
-	 setTimeout(function(){ 
-		$('#y'+4).addClass('animated fadeInUp');
-	 }, 800);
-
-});
+		
 </script>
 
 </body>
