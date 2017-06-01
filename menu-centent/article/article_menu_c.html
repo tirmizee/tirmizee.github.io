@@ -10,7 +10,7 @@
 #myUL li a {
   border: 1px solid #ddd;
   margin-top: -1px; /* Prevent double borders */
-  background-color: #FFF;
+  background-color: #F5F5F5;
   padding: 8px;
   text-decoration: none;
   font-size: 16px;
@@ -19,8 +19,12 @@
 }
 
 #myUL li a.header {
-  background-color: #F5F5F5;
+  background-color: #DCDCDC;
   cursor: default;
+  
+}
+#myUL{
+	visibility: hidden;
 }
 
 #myUL li a:hover:not(.header) {
@@ -30,10 +34,10 @@
 <br><br>
 <label style="font-size:25px">ภาษา C</label><hr>
 
-<input type="text" id="myInput" style="width:50%" class="form-control"  placeholder="Search for names.." title="Type in a name">
+<input type="text" id="myInput" style="width:50%;height:40px" class="form-control"  placeholder="ค้นหา..." title="Type in a name">
 <br>
 <ul id="myUL">
-  <li><a href="#" class="header">A</a></li>
+  <li><a href="#" class="header">พื้นฐาน</a></li>
   <li><a href="#">Adele</a></li>
   <li><a href="#">Agnes</a></li>
 
@@ -46,6 +50,6 @@
   <li><a href="#">Christina</a></li>
   <li><a href="#">Cindy</a></li>
 </ul>
-<br>
+<br><br>
 <button type="button" class="btn btn-success" id="article_menu_c_left">back</button>
-<br>
+<br><br><br>

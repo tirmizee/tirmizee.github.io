@@ -89,7 +89,7 @@ hr.style-two {
 </head>
 <body>
 	<!-- header -->
-	<div class="row" style="margin-bottom: 0 !important;">
+	<div id="header-top" class="row" style="margin-bottom: 0 !important;">
 		<nav class="navbar navbar-default navbar-fixed-top" >
 			<div class="container-fluid " style="font-size:18px">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -132,6 +132,7 @@ hr.style-two {
 			
 			var route = location.hash.replace('#','');
 			var page;
+			var firstLoadarticleMenuC = true;
 			var callArticleMenu = {
 				article_menu_java : function(){
 					$(".body").load("menu-centent/article/article_menu_java.html", function(data) {
@@ -139,9 +140,26 @@ hr.style-two {
 					});
 				},
 				article_menu_c : function(){
-					$(".body").load("menu-centent/article/article_menu_c.html", function(data) {						
+					$(".body").load("menu-centent/article/article_menu_c.html", function(data) {	
+						
+						// $('#myUL li').addClass('animated bounceInLeft');
+							if (firstLoadarticleMenuC) {
+								$( '#myUL li' ).each(function( index ,el) {
+								 	 console.log( index );	 
+									 setTimeout(function(){
+								     	$(el).addClass('animated bounceInLeft');
+								     },50 *  index);
+									
+								});
+							}else{
+								$( '#myUL li' ).css('visibility','visible');
+							}
+							firstLoadarticleMenuC = false;
 						$("#myInput").keyup(function(){
 							console.log('6');
+							$('#myUL li').each(function( index ,el) {							 		 
+								$(el).removeClass('bounceInLeft');							
+							});
 							var input, filter, ul, li, a, i;
 						    input = document.getElementById("myInput");
 						    filter = input.value.toUpperCase();
@@ -153,10 +171,10 @@ hr.style-two {
 						            li[i].style.display = "";
 						        } else {
 						            li[i].style.display = "none";
-
 						        }
 						    }							
 						});
+
 						$("#article_menu_c_left").on('click',function(){
 							callPage['article']();							
 						});
@@ -215,6 +233,9 @@ hr.style-two {
 				article : function(){
 					$(".body").load("menu-centent/article.html", function(data) {
 						// location.hash = 'article'
+						
+						$('html, body').animate({ scrollTop: $('#header-top').offset().top }, 'speed');
+						
 						$('#article_menus a').on('click',function(e){
 							e.preventDefault();							
 							callArticleMenu[$(this).attr('href')]();
