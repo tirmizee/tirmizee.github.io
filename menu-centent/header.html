@@ -1,0 +1,69 @@
+<style >
+
+	.navbar {
+		font-family: 'super';
+		margin-bottom: 0;
+	}
+	nav,#body { visibility: hidden; }
+	.animated { visibility: visible !important; }
+/*div{
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+}*/
+
+.li-border{
+	border-right: 1px solid rgba(0,0,0,.1);
+	box-shadow: 1px 0 0 rgba(255,255,255,.25);
+}
+
+.navbar-nav > li > a, .navbar-brand {
+	padding-top:20px !important; 
+	padding-bottom:0 !important;
+	height: 60px;
+}
+
+.navbar-default .navbar-nav > .active{
+	color: #FF8C00;
+	background-color: transparent;
+}
+
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+	color: #FF8C00;
+	background-color: transparent;
+	border-bottom: 3px solid;
+}
+</style>
+<!-- header -->
+<div class="row" style="margin-bottom: 0 !important;">
+	<nav class="navbar navbar-default navbar-fixed-top" >
+		<div class="container-fluid " style="font-size:18px">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand li-border" href="#"><center><img id="img_logo" src="resource/img/logo.png" style="max-width:190px;height:70px; margin-top: -24px;"></center></a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li id="main" class="li-border"><a href="../index.html" class="hvr-glow text-center"><label>หน้าหลัก</label></a></li>
+					<li id="article" class="li-border"><a href="menu-centent/article.html" class="hvr-glow text-center"><label>บทความ</label></a></li>
+					<li  class="li-border"><a href="#" class="hvr-glow text-center"><label>ข่าวสาร</label></a></li>
+					<li id="report" class="li-border"><a href="#" class="hvr-glow text-center"><label>รายงาน</label></a></li>
+					<li id="test" class="li-border"><a href="#" class="hvr-glow text-center"><label>ทดสอบ</label></a></li>
+				</ul>  
+				<ul class="nav navbar-nav navbar-right">
+					<li id="about"  class="li-border"><a class="hvr-glow text-center"><label>เกี่ยวกับเรา</label></a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>	
+</div>
