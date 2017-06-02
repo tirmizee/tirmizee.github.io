@@ -1,1 +1,62 @@
-<div>java</div>
+<style>
+
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #F5F5F5;
+  padding: 8px;
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+  display: block
+}
+
+#myUL li a.header {
+  background-color: #DCDCDC;
+  cursor: default;
+  
+}
+#myUL{
+	visibility: hidden;
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #FF8C00;
+}
+#myUL li a:not(.header) {
+ padding-left:3em
+}
+#bnt_back {
+    position: fixed;
+    bottom: 50px;
+    left: 0px; 
+}
+</style>
+<br><br>
+<label style="font-size:25px">ภาษา Java</label><hr>
+
+
+<br>
+<ul id="myUL">
+  <li><a href="#" class="header"><label style="font-size:18px"> พื้นฐาน</label></a></li>
+  <li><a class="hvr-forward" href="hello" > ตัวแปรและประเภทข้อมูล</a></li>
+  <li><a class="hvr-forward" href="#"> ตัวแปรและประเภทข้อมูล</a></li>
+  <li><a class="hvr-forward" href="#"> ค่าคงที่</a></li>
+  <li><a class="hvr-forward" href="#"> ตัวดำเนินการ</a></li>
+  <li><a class="hvr-forward" href="#"> ฟังก์ชัน</a></li>
+  <li><a class="hvr-forward" href="#"> อาเรย์</a></li>
+  <li><a class="hvr-forward" href="#"> โครงสร้างข้อมูล</a></li>
+  <li><a class="hvr-forward" href="#"> คำสั่งควบคุม</a></li>
+
+ 
+</ul>
+<br><br>
+<a id="bnt_back" href=""><img width="100px;" src="resource/img/back.png"></img></a>
+<br><br><br>

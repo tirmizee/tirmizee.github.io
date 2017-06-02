@@ -3,6 +3,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="สอนเกี่ยวกับคอม">
+  	<meta name="keywords" content="สอนภาาษาซี">
 	<link rel="icon" href="resource/ico/ImageFactory.ico" />
 	<link rel="stylesheet" href="css/bootstrap.min.css" >
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css" >
@@ -80,7 +82,7 @@ hr.style-two {
 		    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(255,255,255,255), rgba(0,0,0,0));
 		    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(255,255,255,255), rgba(0,0,0,0));
 		    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(255,255,255,255), rgba(0,0,0,0));
- 		   	margin: 10px 0 30px;
+ 		   	margin: 10px 0 15px;
   		  	clear: both;
 	}
 
@@ -132,29 +134,62 @@ hr.style-two {
 			
 			var route = location.hash.replace('#','');
 			var page;
+			var firstLoadArticle = true;
 			var firstLoadarticleMenuC = true;
+			var firstLoadarticleMenuJava = true;
+			var callArticleMenuJava = {
+				hello : function(){
+					$(".body").load("menu-centent/article/article_menu_java/hello.html", function(data) {
+						$("#bnt_back").on('click',function(e){
+							e.preventDefault();
+							callArticleMenu.article_menu_java();							
+						});
+					});
+
+				}
+			};
 			var callArticleMenu = {
 				article_menu_java : function(){
 					$(".body").load("menu-centent/article/article_menu_java.html", function(data) {
+						if (firstLoadarticleMenuJava) {
+							$( '#myUL li' ).each(function( index ,el) {
+							 	 console.log( index );	 
+								 setTimeout(function(){
+							     	$(el).addClass('animated bounceInLeft');
+							     },50 *  index);
+								
+							});
+						}else{
+							$( '#myUL li' ).css('visibility','visible');
+						}
+						firstLoadarticleMenuJava = false;
+						$("#bnt_back").on('click',function(e){
+							e.preventDefault();
+							callPage['article']();							
+						});
+						$( '#myUL li a' ).on('click',function(e){
+							e.preventDefault();
+							callArticleMenuJava[$(this).attr('href')]();
 
+						});
 					});
 				},
 				article_menu_c : function(){
 					$(".body").load("menu-centent/article/article_menu_c.html", function(data) {	
 						
 						// $('#myUL li').addClass('animated bounceInLeft');
-							if (firstLoadarticleMenuC) {
-								$( '#myUL li' ).each(function( index ,el) {
-								 	 console.log( index );	 
-									 setTimeout(function(){
-								     	$(el).addClass('animated bounceInLeft');
-								     },50 *  index);
-									
-								});
-							}else{
-								$( '#myUL li' ).css('visibility','visible');
-							}
-							firstLoadarticleMenuC = false;
+						if (firstLoadarticleMenuC) {
+							$( '#myUL li' ).each(function( index ,el) {
+							 	 console.log( index );	 
+								 setTimeout(function(){
+							     	$(el).addClass('animated bounceInLeft');
+							     },50 *  index);
+								
+							});
+						}else{
+							$( '#myUL li' ).css('visibility','visible');
+						}
+						firstLoadarticleMenuC = false;
 						$("#myInput").keyup(function(){
 							console.log('6');
 							$('#myUL li').each(function( index ,el) {							 		 
@@ -174,13 +209,14 @@ hr.style-two {
 						        }
 						    }							
 						});
-
-						$("#article_menu_c_left").on('click',function(){
+						$("#bnt_back").on('click',function(e){
+							e.preventDefault();
 							callPage['article']();							
 						});
 					});
 				}
 			};
+			
 			var callPage = {
 				about : function(){
 					$(".body").load("menu-centent/about.html", function(data) {
@@ -241,8 +277,9 @@ hr.style-two {
 							callArticleMenu[$(this).attr('href')]();
 						});
 						
-						$('#article_title').addClass('animated fadeInLeft');
-						setTimeout(function(){
+						
+						if (firstLoadArticle) {
+							$('#article_title').addClass('animated fadeInLeft');
 							$( '#article_menus .col-md-4 .col-margin' ).each(function( index ,el) {
 							 	 console.log( index );	 
 								 setTimeout(function(){
@@ -250,7 +287,12 @@ hr.style-two {
 							     },100 *  index);
 								
 							});
-						},200);
+						}else{
+							$( '#article_menus .col-margin').css('visibility','visible');
+							$( '#article_title').css('visibility','visible');
+						}
+						firstLoadArticle = false;
+						
 						
 					});
 				},
@@ -433,7 +475,15 @@ hr.style-two {
 
 			
 			
-			
+			/*window.onhashchange = function(){
+				var hasLocation = location.hash.replace('#','');
+				if(typeof callPage[hasLocation] == 'function'){
+					alert(hasLocation);
+					callPage[hasLocation]();
+				}else{
+
+				}    
+			}*/
 			
 
 			var a = function() {
@@ -480,14 +530,6 @@ hr.style-two {
 			a().then(b).then(c);
 			
 			
-			// if ($.isFunction(callPage[route])) {
-			// 	$(".nav").find(".active").removeClass("active");
-			// 	$(location.hash).addClass('active');
-			// 	callPage[route]();
-			// }else{
-			// 	location.hash = '';
-			// 	callPage.main();
-			// }
 			
 		});
 		

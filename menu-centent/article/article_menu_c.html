@@ -28,7 +28,15 @@
 }
 
 #myUL li a:hover:not(.header) {
-  background-color: #eee;
+  background-color: #FF8C00;
+}
+#myUL li a:not(.header) {
+ padding-left:3em
+}
+#bnt_back {
+    position: fixed;
+    bottom: 50px;
+    left: 0px; 
 }
 </style>
 <br><br>
@@ -37,11 +45,16 @@
 <input type="text" id="myInput" style="width:50%;height:40px" class="form-control"  placeholder="ค้นหา..." title="Type in a name">
 <br>
 <ul id="myUL">
-  <li><a href="#" class="header">พื้นฐาน</a></li>
-  <li><a href="#">Adele</a></li>
-  <li><a href="#">Agnes</a></li>
+  <li><a href="#" class="header"><label style="font-size:18px"> พื้นฐาน</label></a></li>
+  <li><a class="hvr-forward" href="#"> ตัวแปรและประเภทข้อมูล</a></li>
+  <li><a class="hvr-forward" href="#"> ค่าคงที่</a></li>
+  <li><a class="hvr-forward" href="#"> ตัวดำเนินการ</a></li>
+  <li><a class="hvr-forward" href="#"> ฟังก์ชัน</a></li>
+  <li><a class="hvr-forward" href="#"> อาเรย์</a></li>
+  <li><a class="hvr-forward" href="#"> โครงสร้างข้อมูล</a></li>
+  <li><a class="hvr-forward" href="#"> คำสั่งควบคุม</a></li>
 
-  <li><a href="#" class="header">B</a></li>
+  <li><a href="#" class="header"><label style="font-size:18px"> โจทย์ปัญหา</label></a></li>
   <li><a href="#">Billy</a></li>
   <li><a href="#">Bob</a></li>
 
@@ -51,5 +64,5 @@
   <li><a href="#">Cindy</a></li>
 </ul>
 <br><br>
-<button type="button" class="btn btn-success" id="article_menu_c_left">back</button>
+<a id="bnt_back" href=""><img width="100px;" src="resource/img/back.png"></img></a>
 <br><br><br>
