@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="css/header.css" >
 	<link rel="stylesheet" href="css/hover-min.css"  media="all">
 	<link rel="stylesheet" href="css/jquery.dataTables.min.css" >
+
 	<script src="js/jquery-3.2.1.min.js" ></script>
 	<script src="js/jquery.dataTables.min.js" ></script>
 	<script src="js/bootstrap.min.js" ></script>
@@ -23,6 +24,7 @@
 	<script src="js/highcharts.src.js" ></script>
 	<script src="js/exporting.js" ></script>
 	<script src="js/offline-exporting.js" ></script>
+	
 	<style>
 	@import url("css/hover-min.css");
 		@font-face {
@@ -41,6 +43,9 @@ html {
     max-width: 100%;
     overflow-x: hidden;
 }
+div.container .body{
+	margin-top: 50px;
+}
 label,p{
 	font-family: 'super';
 }
@@ -48,7 +53,7 @@ label,p{
 	font-family: 'super';
 	margin-bottom: 0;
 }
-nav,#body { visibility: hidden; }
+nav { visibility: hidden; }
 .animated { visibility: visible !important; }
 /*div{
 -webkit-user-select: none;
@@ -148,11 +153,21 @@ hr.style-two {
 						});
 					});
 
+				},
+				calGrade : function(){
+					$(".body").load("menu-centent/article/article_menu_java/calGrade.html", function(data) {
+						$("#bnt_back").on('click',function(e){
+							e.preventDefault();
+							callArticleMenu.article_menu_java();							
+						});
+					});
+
 				}
 			};
 			var callArticleMenu = {
 				article_menu_java : function(){
 					$(".body").load("menu-centent/article/article_menu_java.html", function(data) {
+
 						if (firstLoadarticleMenuJava) {
 							$( '#myUL li' ).each(function( index ,el) {
 							 	 console.log( index );	 
@@ -174,7 +189,9 @@ hr.style-two {
 							callArticleMenuJava[$(this).attr('href')]();
 
 						});
+						
 					});
+
 				},
 				article_menu_c : function(){
 					$(".body").load("menu-centent/article/article_menu_c.html", function(data) {	
@@ -266,6 +283,7 @@ hr.style-two {
 						$('#img_person').on('click',function(){
 							alert("s");
 						});
+						 SyntaxHighlighter.all();
 					});
 				},
 				article : function(){
