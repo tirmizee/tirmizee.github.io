@@ -21,7 +21,7 @@
 	<script src="js/jquery.dataTables.min.js" ></script>
 	<script src="js/bootstrap.min.js" ></script>
 	<script src="js/bootstrap-select.min.js" ></script>
-	<script src="js/highcharts.src.js" ></script>
+	
 	<script src="js/exporting.js" ></script>
 	<script src="js/offline-exporting.js" ></script>
 	
@@ -133,10 +133,37 @@ hr.style-two {
 	<!-- menu-content -->
 	<div class="container body" style="min-height:500px"></div>
 
+
+
+	<div
+	  class="container fb-like"
+	  data-share="true"
+	  data-width="450"
+	  data-show-faces="true">
+	</div>
+
 	<!-- footer -->
 	<div id="footer"></div>
-	<script src="js/test.js" ></script>
+
 	<script>
+	 window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '1721532414810864',
+		      xfbml      : true,
+		      version    : 'v2.9'
+		    });
+		    FB.AppEvents.logPageView();
+	  };
+
+	  (function(d, s, id){
+	      alert(d);
+	     var js, fjs = d.getElementsByTagName(s)[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement(s); js.id = id;
+	     js.src = "//connect.facebook.net/en_US/sdk.js";
+	     fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
+
 		$(document).ready(function(){
 			
 			var route = location.hash.replace('#','');
@@ -144,6 +171,8 @@ hr.style-two {
 			var firstLoadArticle = true;
 			var firstLoadarticleMenuC = true;
 			var firstLoadarticleMenuJava = true;
+			var calGrade = true
+ 		
 			var callArticleMenuJava = {
 				hello : function(){
 					$(".body").load("menu-centent/article/article_menu_java/hello.html", function(data) {
@@ -156,14 +185,19 @@ hr.style-two {
 				},
 				calGrade : function(){
 					$(".body").load("menu-centent/article/article_menu_java/calGrade.html", function(data) {
+
 						$("#bnt_back").on('click',function(e){
 							e.preventDefault();
 							callArticleMenu.article_menu_java();							
 						});
+						
+						 
+
 					});
 
 				}
 			};
+			
 			var callArticleMenu = {
 				article_menu_java : function(){
 					$(".body").load("menu-centent/article/article_menu_java.html", function(data) {
