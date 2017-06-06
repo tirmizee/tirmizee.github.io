@@ -147,23 +147,19 @@ hr.style-two {
 	<div id="footer"></div>
 
 	<script>
-	 window.fbAsyncInit = function() {
-		    FB.init({
-		      appId      : '1721532414810864',
 
-		      xfbml      : true,
-		      version    : 'v2.9'
-		    });
-
-		    // FB.AppEvents.logPageView();
-
-	  };
-
-
-	
+		window.fbAsyncInit = function() {
+			FB.init({
+			    appId      : '1721532414810864',
+			    xfbml      : true,
+			    version    : 'v2.9'
+			});
+		};
 
 		$(document).ready(function(){
+
 			
+
 			var route = location.hash.replace('#','');
 			var page;
 			var firstLoadArticle = true;
@@ -182,6 +178,7 @@ hr.style-two {
 
 				},
 				calGrade : function(){
+					window.location.hash = "java0001";
 					$(".body").load("menu-centent/article/article_menu_java/calGrade.html", function(data) {
 
 						$("#bnt_back").on('click',function(e){
@@ -198,6 +195,7 @@ hr.style-two {
 			
 			var callArticleMenu = {
 				article_menu_java : function(){
+
 					$(".body").load("menu-centent/article/article_menu_java.html", function(data) {
 
 						if (firstLoadarticleMenuJava) {
@@ -319,6 +317,7 @@ hr.style-two {
 					});
 				},
 				article : function(){
+					
 					$(".body").load("menu-centent/article.html", function(data) {
 						// location.hash = 'article'
 						
@@ -580,7 +579,14 @@ hr.style-two {
 			};
 
 			a().then(b).then(c);
+
+			function init(){
+				
+				// callPage[window.location.hash.replace('#','')]();
 			
+			}
+
+			init();
 			
 			
 		});
