@@ -177,8 +177,10 @@ hr.style-two {
 					});
 
 				},
-				calGrade : function(){
+				java0001 : function(){
 					window.location.hash = "java0001";
+					$("#main").removeClass("active");
+					$("#article").addClass("active");
 					$(".body").load("menu-centent/article/article_menu_java/calGrade.html", function(data) {
 
 						$("#bnt_back").on('click',function(e){
@@ -581,9 +583,12 @@ hr.style-two {
 			a().then(b).then(c);
 
 			function init(){
-				
-				// callPage[window.location.hash.replace('#','')]();
-			
+				var url = window.location.hash.replace('#','');
+				if (typeof callArticleMenuJava[url] === "function") {
+				  	callArticleMenuJava[url]();
+				}else if(){
+					
+				}
 			}
 
 			init();
