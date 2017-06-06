@@ -21,7 +21,7 @@
 	<script src="js/jquery.dataTables.min.js" ></script>
 	<script src="js/bootstrap.min.js" ></script>
 	<script src="js/bootstrap-select.min.js" ></script>
-	
+	<script src="js/highcharts.src.js" ></script>
 	<script src="js/exporting.js" ></script>
 	<script src="js/offline-exporting.js" ></script>
 	<script src="js/all.js" ></script>
@@ -136,7 +136,8 @@ hr.style-two {
 
 
 	<div
-	  class="container fb-like"
+	style="margin-left:100px"
+	  class="fb-like"
 	  data-share="true"
 	  data-width="450"
 	  data-show-faces="true">
@@ -149,20 +150,17 @@ hr.style-two {
 	 window.fbAsyncInit = function() {
 		    FB.init({
 		      appId      : '1721532414810864',
+
 		      xfbml      : true,
 		      version    : 'v2.9'
 		    });
-		    FB.AppEvents.logPageView();
+
+		    // FB.AppEvents.logPageView();
+
 	  };
 
-	  (function(d, s, id){
-	      alert(d);
-	     var js, fjs = d.getElementsByTagName(s)[0];
-	     if (d.getElementById(id)) {return;}
-	     js = d.createElement(s); js.id = id;
-	     js.src = "//connect.facebook.net/en_US/sdk.js";
-	     fjs.parentNode.insertBefore(js, fjs);
-	   }(document, 'script', 'facebook-jssdk'));
+
+	
 
 		$(document).ready(function(){
 			
