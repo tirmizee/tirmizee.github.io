@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta  content="สอน">
   	<meta  content="สอนภาาษาซี">
-  	<title>สอนโปรแกรมคอมพิวเตอร์</title>
+  	<title>บทเรียนโปรแกรมคอมพิวเตอร์ ภาษาซี , จาวา</title>
 
 	<link rel="icon" href="resource/ico/ImageFactory.ico" />
 	<link rel="stylesheet" href="css/bootstrap.min.css" >
@@ -134,13 +134,14 @@ hr.style-two {
 	<div class="container body" style="min-height:500px"></div>
 
 
-
-	<div
-	style="margin-left:100px"
-	  class="fb-like"
-	  data-share="true"
-	  data-width="450"
-	  data-show-faces="true">
+	<div class="fb-xfbml-parse-ignore">
+		<div
+		style="margin-left:100px"
+		  class="fb-like"
+		  data-share="true"
+		  data-width="450"
+		  data-show-faces="true">
+		</div>
 	</div>
 
 	<!-- footer -->
@@ -188,7 +189,7 @@ hr.style-two {
 							callArticleMenu.article_menu_java();							
 						});
 						
-						 FB.XFBML.parse();
+						  FB.XFBML.parse();
 
 					});
 
@@ -523,6 +524,7 @@ hr.style-two {
 				page = $(this).parent().attr('id');
 				console.log('click');
 				$(".body").empty();
+				
 				callPage[page]();	 
 			});
 
@@ -587,6 +589,7 @@ hr.style-two {
 				if (typeof callArticleMenuJava[url] === "function") {
 				  	callArticleMenuJava[url]();
 				}
+
 			}
 
 			init();
