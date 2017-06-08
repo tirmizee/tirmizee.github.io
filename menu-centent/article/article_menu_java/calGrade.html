@@ -38,7 +38,7 @@ public class Grade {
     System.out.print("input score : ");
     score = in.nextInt();                   <font color="red">//ทำการรับค่าจำนวนเต็มจากแป้นพิมพ์</font> 
     
-    if (score >= 0 && score < 50) {
+    if (score >= 0 && score < 50) {         
       grade = "F";
     }else if(score >= 50 && score < 55){
       grade = "D";
@@ -61,7 +61,39 @@ public class Grade {
   }
 }
 </pre>
-แต่เราก็พบว่า มันไม่จำเป็นต้องมี && ก็ได้
+
+<br>
+แต่เราก็พบว่า การเชคเงื่อนไขมันทำงานซ้ำซ้อนอยู่
+<br><br>
+<pre style="padding:20px">
+ 
+   if (score < 50) {
+      grade = "F";
+    }else if(score < 55){
+      grade = "D";
+    }else if(score < 60){
+      grade = "D+";
+    }else if(score < 65){
+      grade = "C";
+    }else if(score < 70){
+      grade = "C+";
+    }else if(score < 75){
+      grade = "B";
+    }else if(score < 80){
+      grade = "B+";
+    }else {
+      grade = "A";
+    }
+
+    
+</pre>
+<pre style="background-color:#CCFFCC">
+  <label style="font-size:16px">
+    output
+    input score : 50
+    Grade : D
+  </label>
+</pre>
 <div id="fb-root"></div>
 <div class="fb-comments" data-href="https://tirmizee.github.io/#java0001" data-width="100%" data-numposts="5"></div>
 <script>(function(d, s, id) {

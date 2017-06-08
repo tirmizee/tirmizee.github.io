@@ -193,6 +193,22 @@ hr.style-two {
 
 					});
 
+				},
+				java0002 : function(){
+					window.location.hash = "java0002";
+					$("#main").removeClass("active");
+					$("#article").addClass("active");
+					$(".body").load("menu-centent/article/article_menu_java/ceasar.html", function(data) {
+
+						$("#bnt_back").on('click',function(e){
+							e.preventDefault();
+							callArticleMenu.article_menu_java();							
+						});
+						
+						  FB.XFBML.parse();
+
+					});
+
 				}
 			};
 			
