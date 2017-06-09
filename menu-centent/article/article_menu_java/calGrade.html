@@ -35,12 +35,12 @@ public class Grade {
     int score;                              <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บจำนวนเต็ม</font> 
     String grade;                           <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บข้อความ</font> 
     Scanner in = new Scanner(System.in);    <font color="red">//ประกาศตัวแปรที่ใช้รับค่าที่แสกนจากแป้นพิมพ์</font> 
-    System.out.print("input score : ");
+    System.out.print("input score : ");     <font color="red">//แสดงข้อความ "input score"</font> 
     score = in.nextInt();                   <font color="red">//ทำการรับค่าจำนวนเต็มจากแป้นพิมพ์</font> 
     
-    if (score >= 0 && score < 50) {         
-      grade = "F";
-    }else if(score >= 50 && score < 55){
+    if (score >= 0 && score < 50) {         <font color="red">//ทำการเชคเงื่อนไขว่า score >= 0 และ score < 50 จริงไหม</font> 
+      grade = "F";                          <font color="red">//กำหนดให้ grade มีค่าเท่ากับ "F"</font> 
+    }else if(score >= 50 && score < 55){    <font color="red">//บลาๆๆ...</font> 
       grade = "D";
     }else if(score >= 55 && score < 60){
       grade = "D+";
@@ -63,7 +63,7 @@ public class Grade {
 </pre>
 
 <br>
-แต่เราก็พบว่า การเชคเงื่อนไขมันทำงานซ้ำซ้อนอยู่
+...แต่เอ๊ะ !!! ดูเหมือนว่าการเชคเงื่อนไขมันทำงานซ้ำซ้อนกันอยู่
 <br><br>
 <pre style="padding:20px">
  
@@ -93,6 +93,43 @@ public class Grade {
     input score : 50
     Grade : D
   </label>
+</pre>
+<br>
+<label style="font-size:18px"> วิธีที่ 2 <br> เป็นการใช้คำสั่ง switch-case</label><br>
+<pre style="padding:20px">
+import java.util.Scanner;
+public class Grade {
+
+  public static void main(String[] args) {
+
+    int score;                              <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บจำนวนเต็ม</font> 
+    String grade;                           <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บข้อความ</font> 
+    Scanner in = new Scanner(System.in);    <font color="red">//ประกาศตัวแปรที่ใช้รับค่าที่แสกนจากแป้นพิมพ์</font> 
+    System.out.print("input score : ");     <font color="red">//แสดงข้อความ "input score"</font> 
+    score = in.nextInt();                   <font color="red">//ทำการรับค่าจำนวนเต็มจากแป้นพิมพ์</font> 
+    
+    if (score >= 0 && score < 50) {         <font color="red">//ทำการเชคเงื่อนไขว่า score >= 0 และ score < 50 จริงไหม</font> 
+      grade = "F";                          <font color="red">//กำหนดให้ grade มีค่าเท่ากับ "F"</font> 
+    }else if(score >= 50 && score < 55){    <font color="red">//บลาๆๆ...</font> 
+      grade = "D";
+    }else if(score >= 55 && score < 60){
+      grade = "D+";
+    }else if(score >= 60 && score < 65){
+      grade = "C";
+    }else if(score >= 65 && score < 70){
+      grade = "C+";
+    }else if(score >= 70 && score < 75){
+      grade = "B";
+    }else if(score >= 75 && score < 80){
+      grade = "B+";
+    }else {
+      grade = "A";
+    }
+
+    System.out.println("Grade : " + grade);
+       
+  }
+}
 </pre>
 <div id="fb-root"></div>
 <div class="fb-comments" data-href="https://tirmizee.github.io/#java0001" data-width="100%" data-numposts="5"></div>

@@ -170,6 +170,7 @@ hr.style-two {
  		
 			var callArticleMenuJava = {
 				hello : function(){
+					$(window).scrollTop(0);
 					$(".body").load("menu-centent/article/article_menu_java/hello.html", function(data) {
 						$("#bnt_back").on('click',function(e){
 							e.preventDefault();
@@ -180,6 +181,7 @@ hr.style-two {
 				},
 				java0001 : function(){
 					window.location.hash = "java0001";
+					 $(window).scrollTop(0);
 					$("#main").removeClass("active");
 					$("#article").addClass("active");
 					$(".body").load("menu-centent/article/article_menu_java/calGrade.html", function(data) {
@@ -196,6 +198,7 @@ hr.style-two {
 				},
 				java0002 : function(){
 					window.location.hash = "java0002";
+					$(window).scrollTop(0);
 					$("#main").removeClass("active");
 					$("#article").addClass("active");
 					$(".body").load("menu-centent/article/article_menu_java/ceasar.html", function(data) {
@@ -214,7 +217,7 @@ hr.style-two {
 			
 			var callArticleMenu = {
 				article_menu_java : function(){
-
+					$(window).scrollTop(0);
 					$(".body").load("menu-centent/article/article_menu_java.html", function(data) {
 
 						if (firstLoadarticleMenuJava) {
@@ -243,6 +246,7 @@ hr.style-two {
 
 				},
 				article_menu_c : function(){
+					$(window).scrollTop(0);
 					$(".body").load("menu-centent/article/article_menu_c.html", function(data) {	
 						
 						// $('#myUL li').addClass('animated bounceInLeft');
@@ -287,6 +291,7 @@ hr.style-two {
 			
 			var callPage = {
 				about : function(){
+					window.location.hash = "";
 					$(".body").load("menu-centent/about.html", function(data) {
 						$('#img_person').addClass('animated bounceInDown');
 						$('[data-toggle="tooltip"]').tooltip();
@@ -326,7 +331,7 @@ hr.style-two {
 					});
 				},
 				main : function(){
-					// location.hash = '';
+					window.location.hash = "";
 					$(".body").load("menu-centent/main.html", function(data) {
 						$('#img_person').addClass('animated bounceInDown');	
 						$('#img_person').on('click',function(){
@@ -336,11 +341,12 @@ hr.style-two {
 					});
 				},
 				article : function(){
-					
+					window.location.hash = "";
+					$(window).scrollTop(0);
 					$(".body").load("menu-centent/article.html", function(data) {
 						// location.hash = 'article'
 						
-						$('html, body').animate({ scrollTop: $('#header-top').offset().top }, 'speed');
+						
 						
 						$('#article_menus a').on('click',function(e){
 							e.preventDefault();							
@@ -367,6 +373,7 @@ hr.style-two {
 					});
 				},
 				test : function(){
+					window.location.hash = "";
 					$(".body").load("menu-centent/test.html", function(data) {
 						Highcharts.chart('container', {
 							credits: {
@@ -451,6 +458,7 @@ hr.style-two {
 					});
 				},
 				report : function(){
+					window.location.hash = "";
 					$(".body").load("menu-centent/report.html", function(data) {
 						// Create the chart
 						Highcharts.chart('container', {
