@@ -27,7 +27,7 @@
  <label style="font-size:18px"> โปรแกรมในการเข้ารหัส</label><br>
 
 
-<pre style="padding:20px">
+<pre style="padding:20px;background-color:#F8F8FF">
  
     import java.util.Scanner;
 
@@ -50,27 +50,26 @@
       }
       
       public static String encript(String plainText,int key) {
-        String encript = "";
+        String cipherText = "";
         key = key % 26;
         for (int i = 0; i < plainText.length(); i++) {
           char temp = (char) (plainText.charAt(i) + key);
           if (temp > 90) {
-            encript += (char) ('A' + (temp - 91));
+            cipherText += (char) ('A' + (temp - 91));
           }else{
-            encript += temp;
+            cipherText += temp;
           }
         }
-        return encript;
+        return cipherText;
       }
+      
     }
-
-    
 </pre>
-<pre style="background-color:#CCFFCC">
+<pre class="pre-nomal">
   <label style="font-size:16px">
     input plain text : ABCDEFGXYZ
     input Key : 29
-    encript : DEFGHIJABC
+    cipher text : DEFGHIJABC
   </label>
 </pre>
 <div id="fb-root"></div>

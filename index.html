@@ -92,7 +92,12 @@ hr.style-two {
  		   	margin: 10px 0 15px;
   		  	clear: both;
 	}
-
+ .pre-nomal {
+  white-space: pre-wrap;
+  background-color:#fdfdfd;
+  border: 0px ;
+  
+}
 </style>
 
 </head>
@@ -116,7 +121,7 @@ hr.style-two {
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li id="main" class="li-border active"><a href="#" class="hvr-glow text-center"><label>หน้าหลัก</label></a></li>
-						<li id="article" class="li-border"><a href="#" class="hvr-glow text-center"><label>บทความ</label></a></li>
+						<li id="article" class="li-border"><a href="#" class="hvr-glow text-center"><label>บทเรียน</label></a></li>
 						<li  class="li-border"><a href="#" class="hvr-glow text-center"><label>ข่าวสาร</label></a></li>
 						<li id="report" class="li-border"><a href="#" class="hvr-glow text-center"><label>รายงาน</label></a></li>
 						<li id="test" class="li-border"><a href="#" class="hvr-glow text-center"><label>ทดสอบ</label></a></li>
@@ -168,6 +173,7 @@ hr.style-two {
 			var firstLoadarticleMenuJava = true;
 			var calGrade = true
  		
+ 			
 			var callArticleMenuJava = {
 				hello : function(){
 					$(window).scrollTop(0);

@@ -14,19 +14,19 @@
 
   <label style="font-size:20px">จงเขียนโปรแกรมคำนวณเกรด โดยมีเงื่อนไขดังนี้</label><br>
   <div class="container">
-    ถ้าคะแนนตั้งแต่ 0-49 ได้เกรด F<br>
+    ถ้าคะแนนน้อยกว่า 50 ได้เกรด F<br>
     ถ้าคะแนนตั้งแต่ 50-54 ได้เกรด D<br>
     ถ้าคะแนนตั้งแต่ 55-59 ได้เกรด D+<br>
     ถ้าคะแนนตั้งแต่ 60-64 ได้เกรด C<br>
     ถ้าคะแนนตั้งแต่ 65-69 ได้เกรด C+<br>
     ถ้าคะแนนตั้งแต่ 70-74 ได้เกรด B<br>
     ถ้าคะแนนตั้งแต่ 75-79 ได้เกรด B+<br>
-    ถ้าคะแนนตั้งแต่ 80-100 ได้เกรด A<br>
+    ถ้าคะแนนตั้งแต่ 80 ขึ้นไป ได้เกรด A<br>
   </div>
 <br>
 
  <label style="font-size:18px"> วิธีที่ 1 <br> เป็นการใช้คำสั่ง if-else-if</label><br>
-<pre style="padding:20px">
+<pre style="padding:20px;background-color:#F8F8FF">
 import java.util.Scanner;
 public class Grade {
 
@@ -38,8 +38,8 @@ public class Grade {
     System.out.print("input score : ");     <font color="red">//แสดงข้อความ "input score"</font> 
     score = in.nextInt();                   <font color="red">//ทำการรับค่าจำนวนเต็มจากแป้นพิมพ์</font> 
     
-    if (score >= 0 && score < 50) {         <font color="red">//ทำการเชคเงื่อนไขว่า score >= 0 และ score < 50 จริงไหม</font> 
-      grade = "F";                          <font color="red">//กำหนดให้ grade มีค่าเท่ากับ "F"</font> 
+    if (score < 50) {                       <font color="red">//ทำการเชคเงื่อนไขว่า score < 50 จริงไหม</font> 
+      grade = "F";                          <font color="red">//ถ้าเงื่อนไขด้านบนเป็นจริง กำหนดให้ grade มีค่าเท่ากับ "F"</font> 
     }else if(score >= 50 && score < 55){    <font color="red">//บลาๆๆ...</font> 
       grade = "D";
     }else if(score >= 55 && score < 60){
@@ -63,9 +63,20 @@ public class Grade {
 </pre>
 
 <br>
-...แต่เอ๊ะ !!! ดูเหมือนว่าการเชคเงื่อนไขมันทำงานซ้ำซ้อนกันอยู่
+...แต่เอ๊ะ !!! ดูเหมือนว่าการเชคเงื่อนไขมันทำงานซ้ำซ้อนกันอยู่ <br>
+<pre class="pre-nomal">
+  1.  if( score < 50) {         
+  2.    grade = "F";                          
+  3.  }else if(score >= 50 && score < 55){     
+  4.    grade = "D";
+  5.  }
+</pre>
+ถ้าเงื่อนไขบรรทัดที่ 1 เป็นเท็จ แสดงว่า score ต้องมีค่า >= 50 แล้วมันจะไปทำบรรทัดที่ 3<br>
+แต่ลองสังเกตบรรทัดที่ 3 ดู พบว่ามีมีการเชค  score >= 50 ซ้ำอีกรอบ<br>
+ซึ่งเราไม่จำเป็นต้องเชคอีก เพราะถ้าหากมันเข้าเงื่อนไขบรรทัดนี้แสดงว่า score ต้องมีค่า >= 50 อยู่แล้ว<br>
+ดังนั้นเราสามารถตัดการเชค score >= 50 ออกไปได้เลย
 <br><br>
-<pre style="padding:20px">
+<pre style="padding:20px;background-color:#F8F8FF">
  
    if (score < 50) {
       grade = "F";
@@ -87,16 +98,16 @@ public class Grade {
 
     
 </pre>
-<pre style="background-color:#CCFFCC">
-  <label style="font-size:16px">
+<pre class="pre-nomal">
+  <label style="font-size:16px" >
     output
     input score : 50
     Grade : D
   </label>
 </pre>
-<br>
+<hr>
 <label style="font-size:18px"> วิธีที่ 2 <br> เป็นการใช้คำสั่ง switch-case</label><br>
-<pre style="padding:20px">
+<pre style="padding:20px;background-color:#F8F8FF">
 import java.util.Scanner;
 public class Grade {
 
@@ -108,22 +119,27 @@ public class Grade {
     System.out.print("input score : ");     <font color="red">//แสดงข้อความ "input score"</font> 
     score = in.nextInt();                   <font color="red">//ทำการรับค่าจำนวนเต็มจากแป้นพิมพ์</font> 
     
-    if (score >= 0 && score < 50) {         <font color="red">//ทำการเชคเงื่อนไขว่า score >= 0 และ score < 50 จริงไหม</font> 
-      grade = "F";                          <font color="red">//กำหนดให้ grade มีค่าเท่ากับ "F"</font> 
-    }else if(score >= 50 && score < 55){    <font color="red">//บลาๆๆ...</font> 
-      grade = "D";
-    }else if(score >= 55 && score < 60){
-      grade = "D+";
-    }else if(score >= 60 && score < 65){
-      grade = "C";
-    }else if(score >= 65 && score < 70){
-      grade = "C+";
-    }else if(score >= 70 && score < 75){
-      grade = "B";
-    }else if(score >= 75 && score < 80){
-      grade = "B+";
-    }else {
-      grade = "A";
+      switch (score/5) {
+        case 20 :
+        case 19 :
+        case 18 :
+        case 17 :
+        case 16 : grade = "A";
+                  break;
+        case 15 : grade = "B+";
+                  break;
+        case 14 : grade = "B";
+                  break;
+        case 13 : grade = "C+";
+                  break;
+        case 12 : grade = "C";
+                  break;
+        case 11 : grade = "D+";
+                  break;
+        case 10 : grade = "D";
+                  break;  
+        default:  grade = "F";
+                  break;
     }
 
     System.out.println("Grade : " + grade);
