@@ -23,9 +23,11 @@
     ถ้าคะแนนตั้งแต่ 75-79 ได้เกรด B+<br>
     ถ้าคะแนนตั้งแต่ 80 ขึ้นไป ได้เกรด A<br>
   </div>
-<br>
+<hr>
 
  <label style="font-size:18px"> วิธีที่ 1 <br> เป็นการใช้คำสั่ง if-else-if</label><br>
+ <font>วิธีนี้เป็นการตรวจสอบเงื่อนไขเป็นชุด</font>
+ <br><br>
 <pre style="padding:20px;background-color:#F8F8FF">
 import java.util.Scanner;
 public class Grade {
@@ -67,12 +69,12 @@ public class Grade {
 <pre class="pre-nomal">
   1.  if( score < 50) {         
   2.    grade = "F";                          
-  3.  }else if(score >= 50 && score < 55){     
+  3.  }else if(<font color="red">score >= 50</font> && score < 55){     
   4.    grade = "D";
   5.  }
 </pre>
-ถ้าเงื่อนไขบรรทัดที่ 1 เป็นเท็จ แสดงว่า score ต้องมีค่า >= 50 แล้วมันจะไปทำบรรทัดที่ 3<br>
-แต่ลองสังเกตบรรทัดที่ 3 ดู พบว่ามีมีการเชค  score >= 50 ซ้ำอีกรอบ<br>
+ถ้าเงื่อนไขบรรทัดที่ 1 เป็นเท็จ แสดงว่า score ต้องมีค่า >= 50 แล้วโปรแกรมจะไปทำบรรทัดที่ 3<br>
+แต่ลองสังเกตบรรทัดที่ 3 ดู พบว่ามีการเชค  score >= 50 ซ้ำอีกรอบ<br>
 ซึ่งเราไม่จำเป็นต้องเชคอีก เพราะถ้าหากมันเข้าเงื่อนไขบรรทัดนี้แสดงว่า score ต้องมีค่า >= 50 อยู่แล้ว<br>
 ดังนั้นเราสามารถตัดการเชค score >= 50 ออกไปได้เลย
 <br><br>
@@ -117,7 +119,7 @@ public class Grade {
     String grade;                           <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บข้อความ</font> 
     Scanner in = new Scanner(System.in);    <font color="red">//ประกาศตัวแปรที่ใช้รับค่าที่แสกนจากแป้นพิมพ์</font> 
     System.out.print("input score : ");     <font color="red">//แสดงข้อความ "input score"</font> 
-    score = in.nextInt();                   <font color="red">//ทำการรับค่าจำนวนเต็มจากแป้นพิมพ์</font> 
+    score = in.nextInt();                   <font color="red">//ทำการรับค่าจำนวนเต็มจากแป้นพิมพ์เก็บไว้ในตัวแปร score</font> 
     
       switch (score/5) {
         case 20 :
@@ -147,6 +149,9 @@ public class Grade {
   }
 }
 </pre>
+ผู้อ่านที่กำลังเริ่มต้นศึกษาอาจจะตั้งคำถามว่าทำไมเงื่อนไขใน switch case ต้องทำการเชค A ก่อน<br>
+แล้วถ้าเริ่มต้นจากเชค F ก่อนมันไม่เหมือนกันเหรอ งั้นเรามาดูเหตผลว่าทำไมต้องทำการเชค F ก่อนจากโค้ดด่านล่าง
+
 <div id="fb-root"></div>
 <div class="fb-comments" data-href="https://tirmizee.github.io/#java0001" data-width="100%" data-numposts="5"></div>
 <script>(function(d, s, id) {
