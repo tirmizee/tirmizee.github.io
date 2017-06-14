@@ -38,7 +38,7 @@ public class Grade {
     String grade;                           <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บข้อความ</font> 
     Scanner in = new Scanner(System.in);    <font color="red">//ประกาศตัวแปรที่ใช้รับค่าที่แสกนจากแป้นพิมพ์</font> 
     System.out.print("input score : ");     <font color="red">//แสดงข้อความ "input score"</font> 
-    score = in.nextInt();                   <font color="red">//ทำการรับค่าจำนวนเต็มจากแป้นพิมพ์</font> 
+    score = in.nextInt();                   <font color="red">//ทำการรับค่าจำนวนเต็มจากแป้นพิมพ์เก็บไว้ในตัวแปร score</font> 
     
     if (score < 50) {                       <font color="red">//ทำการเชคเงื่อนไขว่า score < 50 จริงไหม</font> 
       grade = "F";                          <font color="red">//ถ้าเงื่อนไขด้านบนเป็นจริง กำหนดให้ grade มีค่าเท่ากับ "F"</font> 
@@ -65,8 +65,8 @@ public class Grade {
 </pre>
 
 <br>
-...แต่เอ๊ะ !!! ดูเหมือนว่าการเชคเงื่อนไขมันทำงานซ้ำซ้อนกันอยู่ <br>
-<pre class="pre-nomal">
+...แต่เอ๊ะ !!! ดูเหมือนว่าการเชคเงื่อนไขมันทำงานซ้ำซ้อนกันอยู่ ลองมาดูโค้ดด่านล่างกันครับ<br><br>
+<pre style="background-color:#F8F8FF;">
   1.  if( score < 50) {         
   2.    grade = "F";                          
   3.  }else if(<font color="red">score >= 50</font> && score < 55){     
@@ -100,13 +100,13 @@ public class Grade {
 
     
 </pre>
-<pre class="pre-nomal">
-  <label style="font-size:16px" >
-    output
-    input score : 50
-    Grade : D
-  </label>
-</pre>
+<a class="btn btn-info" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
+</a>
+<br><br>
+<div class="collapse" id="collapseExample">
+    <img src="resource/img_article/java0001_1.PNG">
+</div>
 <hr>
 <label style="font-size:18px"> วิธีที่ 2 <br> เป็นการใช้คำสั่ง switch-case</label><br>
 <pre style="padding:20px;background-color:#F8F8FF">
@@ -149,9 +149,24 @@ public class Grade {
   }
 }
 </pre>
+<br>
 ผู้อ่านที่กำลังเริ่มต้นศึกษาอาจจะตั้งคำถามว่าทำไมเงื่อนไขใน switch case ต้องทำการเชค A ก่อน<br>
 แล้วถ้าเริ่มต้นจากเชค F ก่อนมันไม่เหมือนกันเหรอ งั้นเรามาดูเหตผลว่าทำไมต้องทำการเชค F ก่อนจากโค้ดด่านล่าง
+<br><br>
+<a class="btn btn-info" role="button" data-toggle="collapse" href="#output2" aria-expanded="false" aria-controls="collapseExample">
+  <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
+</a>
+<br><br>
+<div class="collapse" id="output2">
+    <img src="resource/img_article/java0001_2.PNG">
+</div>
 
+
+<hr>
+<label style="font-size:18px"> วิธีที่ 3 <br> เป็นการใช้วิธีการอ้างอิง index</label><br>
+
+
+<br><br>
 <div id="fb-root"></div>
 <div class="fb-comments" data-href="https://tirmizee.github.io/#java0001" data-width="100%" data-numposts="5"></div>
 <script>(function(d, s, id) {

@@ -33,45 +33,54 @@
 
     public class Caesar {
 
-      public static void main(String[] args) {
+        public static void main(String[] args) {
         
-        String plainText;
-        int key;
-        Scanner in = new Scanner(System.in);
+            String plainText;
+            int key;
+            Scanner in = new Scanner(System.in);
 
-        System.out.print("input plain text : ");
-        plainText = in.next().toUpperCase();
+            System.out.print("input plain text : ");
+            plainText = in.next().toUpperCase();
 
-        System.out.print("input Key : ");
-        key = in.nextInt();
-      
-        System.out.println( "encript : " + encript(plainText,key));
+            System.out.print("input Key : ");
+            key = in.nextInt();
+          
+            System.out.println( "encript : " + encript(plainText,key));
         
-      }
-      
-      public static String encript(String plainText,int key) {
-        String cipherText = "";
-        key = key % 26;
-        for (int i = 0; i < plainText.length(); i++) {
-          char temp = (char) (plainText.charAt(i) + key);
-          if (temp > 90) {
-            cipherText += (char) ('A' + (temp - 91));
-          }else{
-            cipherText += temp;
-          }
         }
-        return cipherText;
-      }
+      
+        public static String encript(String plainText,int key) {
+            String cipherText = "";
+            key = key % 26;
+            for (int i = 0; i < plainText.length(); i++) {
+                char temp = (char) (plainText.charAt(i) + key);
+                if (temp > 90) {
+                    cipherText += (char) ('A' + (temp - 91));
+                }else{
+                    cipherText += temp;
+                }
+            }
+            return cipherText;
+        }
       
     }
 </pre>
-<pre class="pre-nomal">
-  <label style="font-size:16px">
-    input plain text : ABCDEFGXYZ
-    input Key : 29
-    cipher text : DEFGHIJABC
-  </label>
-</pre>
+
+<a class="btn btn-info" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
+</a>
+<br><br>
+<div class="collapse" id="collapseExample">
+  <pre style="border:0px">
+    <label style="font-size:16px">
+      input plain text : HELLOWORLD
+      input Key : 29
+      cipher text : KHOORZRUOG
+    </label>
+  </pre>
+</div>
+
+<br><br>
 <div id="fb-root"></div>
 <div class="fb-comments" data-href="https://tirmizee.github.io/#java0002" data-width="100%" data-numposts="5"></div>
 <script>(function(d, s, id) {

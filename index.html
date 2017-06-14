@@ -245,11 +245,12 @@ hr.style-two {
 							e.preventDefault();
 							callPage['article']();							
 						});
-						$( '#myUL li a' ).on('click',function(e){
+						$( '#myUL li a' ).not( ".header" ).on('click',function(e){
 							e.preventDefault();
 							callArticleMenuJava[$(this).attr('href')]();
 
 						});
+						
 						
 					});
 
