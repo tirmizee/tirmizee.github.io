@@ -26,7 +26,7 @@
 <hr>
 
  <label style="font-size:18px"> วิธีที่ 1 <br> เป็นการใช้คำสั่ง if-else-if</label><br>
- <font>วิธีนี้เป็นการตรวจสอบเงื่อนไขเป็นชุด</font>
+ <font>วิธีนี้เป็นการตรวจสอบเงื่อนไขเป็นชุดหลายทางเลือก หากเข้าเงื่อนไขใด โปรแกรมจะออกจากชุดของ if นั้นทันที</font>
  <br><br>
 <pre style="padding:20px;background-color:#F8F8FF">
 import java.util.Scanner;
@@ -107,8 +107,12 @@ public class Grade {
 <div class="collapse" id="collapseExample">
     <img src="resource/img_article/java0001_1.PNG">
 </div>
+<br>
 <hr>
 <label style="font-size:18px"> วิธีที่ 2 <br> เป็นการใช้คำสั่ง switch-case</label><br>
+วิธีการนี้เป็นการตรวจเงื่อนไขเป็นกรณี ไม่สามารถตรวจสอบหลายๆเงื่อนไขภายใน case เดียวกันได้ if ได้ เช่น<br>
+สมมุติว่า ต้องการตรวจสอบ score มีค่ามากกว่า<br>
+<br>
 <pre style="padding:20px;background-color:#F8F8FF">
 import java.util.Scanner;
 public class Grade {
@@ -126,9 +130,9 @@ public class Grade {
         case 19 :
         case 18 :
         case 17 :
-        case 16 : grade = "A";
-                  break;
-        case 15 : grade = "B+";
+        case 16 : grade = "A";              <font color="red">//หาก score มีค่า 20,19,18,17,16 กำหนดให้ grade มีค่าเท่ากับ "A"</font> 
+                  break;                    <font color="red">//หยุดการทำงานใน switch case เพื่อไม่ให้โปรแกรมทำคำสั่งถัดไป</font> 
+        case 15 : grade = "B+";             <font color="red">//บลาๆๆ...</font> 
                   break;
         case 14 : grade = "B";
                   break;
@@ -140,7 +144,7 @@ public class Grade {
                   break;
         case 10 : grade = "D";
                   break;  
-        default:  grade = "F";
+        default:  grade = "F";            <font color="red">//หากไม่เข้าเงื่อนไขใดๆ กำหนดให้ grade มีค่าเท่ากับ "F"</font> 
                   break;
     }
 
@@ -149,10 +153,6 @@ public class Grade {
   }
 }
 </pre>
-<br>
-ผู้อ่านที่กำลังเริ่มต้นศึกษาอาจจะตั้งคำถามว่าทำไมเงื่อนไขใน switch case ต้องทำการเชค A ก่อน<br>
-แล้วถ้าเริ่มต้นจากเชค F ก่อนมันไม่เหมือนกันเหรอ งั้นเรามาดูเหตผลว่าทำไมต้องทำการเชค F ก่อนจากโค้ดด่านล่าง
-<br><br>
 <a class="btn btn-info" role="button" data-toggle="collapse" href="#output2" aria-expanded="false" aria-controls="collapseExample">
   <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
 </a>
@@ -160,10 +160,35 @@ public class Grade {
 <div class="collapse" id="output2">
     <img src="resource/img_article/java0001_2.PNG">
 </div>
+<br>
+
+<br>
+
 
 
 <hr>
 <label style="font-size:18px"> วิธีที่ 3 <br> เป็นการใช้วิธีการอ้างอิง index</label><br>
+วิธีการนี้เป็นการแปลงจากคำสั่ง switch-case จากวิธีที่ 2 มาอ้างอิง index ใน Array แทน 
+โดยที่ไม่มีเงื่อนไขใดๆ มาเกี่ยวข้องเลย
+<br><br>
+<pre style="padding:20px;background-color:#F8F8FF">
+  public static void main(String[] args) {
+    
+      int index;
+      int score;
+      Scanner in = new Scanner(System.in);        <font color="red">//ประกาศตัวแปรที่ใช้รับค่าที่แสกนจากแป้นพิมพ์</font><font color="red">  
+      //ประกาศตัวแปรเป็น Array เก็บ grade </font> 
+      String grade[] = {  "F" , "F" , "F" , "F" , "F"  , "F" , "F" , "F" , "F" , "F" ,"D",
+                          "D+", "C" , "C+", "B" , "B+" , "A" , "A" , "A" , "A" , "A" };                           
+        
+      System.out.print("\n input score : ");       <font color="red">//แสดงข้อความ "input score" </font>
+      score = in.nextInt();                        <font color="red">//ทำการรับค่าจำนวนเต็มจากแป้นพิมพ์เก็บไว้ในตัวแปร score</font> 
+      index = score/5;                             <font color="red">//คำนวณหา index</font> 
+      System.out.println(" Grade : " + grade[index]);
+
+       
+  }
+</pre>
 
 
 <br><br>

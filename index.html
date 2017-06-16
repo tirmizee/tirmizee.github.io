@@ -7,7 +7,7 @@
   	<meta  content="สอนภาาษาซี">
   	<title>บทเรียนโปรแกรมคอมพิวเตอร์ ภาษาซี , จาวา</title>
 
-	<link rel="icon" href="resource/ico/ImageFactory.ico" />
+	<link rel="icon" href="resource/ico/favicon.ico" />
 	<link rel="stylesheet" href="css/bootstrap.min.css" >
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css" >
 	<link rel="stylesheet" href="css/bootstrap-select.min.css" >
@@ -101,6 +101,9 @@ hr.style-two {
   border: 0px ;
   
 }
+.fb-like{
+	 width: 100% !important;
+}
 </style>
 
 </head>
@@ -144,10 +147,9 @@ hr.style-two {
 
 <div class="fb-xfbml-parse-ignore">
 	<div
-	style="margin-left:100px"
+	style="margin-left:5%"
 	  class="fb-like"
 	  data-share="true"
-	  data-width="450"
 	  data-show-faces="true">
 	</div>
 </div>
@@ -241,6 +243,24 @@ hr.style-two {
 							$( '#myUL li' ).css('visibility','visible');
 						}
 						firstLoadarticleMenuJava = false;
+						$("#myInput").keyup(function(){
+							console.log('6');
+							$('#myUL li').removeClass('bounceInLeft');							
+						
+							var input, filter, ul, li, a, i;
+						    input = document.getElementById("myInput");
+						    filter = input.value.toUpperCase();
+						
+						    li = $("#myUL li").not('.title');
+						    for (i = 0; i < li.length; i++) {
+						        a = li[i].getElementsByTagName("a")[0];
+						        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+						            li[i].style.display = "";
+						        } else {
+						            li[i].style.display = "none";
+						        }
+						    }							
+						});
 						$("#bnt_back").on('click',function(e){
 							e.preventDefault();
 							callPage['article']();							
@@ -274,14 +294,13 @@ hr.style-two {
 						firstLoadarticleMenuC = false;
 						$("#myInput").keyup(function(){
 							console.log('6');
-							$('#myUL li').each(function( index ,el) {							 		 
-								$(el).removeClass('bounceInLeft');							
-							});
+							$('#myUL li').removeClass('bounceInLeft');							
+						
 							var input, filter, ul, li, a, i;
 						    input = document.getElementById("myInput");
 						    filter = input.value.toUpperCase();
-						    ul = document.getElementById("myUL");
-						    li = ul.getElementsByTagName("li");
+						
+						    li = $("#myUL li").not('.title');
 						    for (i = 0; i < li.length; i++) {
 						        a = li[i].getElementsByTagName("a")[0];
 						        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
