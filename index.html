@@ -101,11 +101,13 @@ hr.style-two {
   border: 0px ;
   
 }
-.facebook-comment,.fb-xfbml-parse-ignore,#footer{
-	position:relative;
-	z-index: -1;
-}
 
+#bnt_back {
+  	z-index: 99;
+    position: fixed !important;
+    bottom: 50px;
+    left: 0px; 
+}
 
 
 </style>
@@ -152,6 +154,7 @@ hr.style-two {
 	<div class="fb-xfbml-parse-ignore" >
 		<div style="margin-left:5%" class="fb-like" data-share="true"  data-show-faces="true"></div>
 	</div>
+	
 	<!-- footer -->
 	<div id="footer"></div>
 
@@ -189,6 +192,7 @@ hr.style-two {
 
 				},
 				java0001 : function(){
+
 					window.location.hash = "java0001";
 					 $(window).scrollTop(0);
 					$("#main").removeClass("active");
