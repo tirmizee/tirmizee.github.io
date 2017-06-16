@@ -101,9 +101,13 @@ hr.style-two {
   border: 0px ;
   
 }
-.fb-like{
-	 width: 100% !important;
+.facebook-comment,.fb-xfbml-parse-ignore,#footer{
+	position:relative;
+	z-index: -1;
 }
+
+
+
 </style>
 
 </head>
@@ -145,15 +149,9 @@ hr.style-two {
 	<div class="container body" style="min-height:500px"></div>
 
 
-<div class="fb-xfbml-parse-ignore">
-	<div
-	style="margin-left:5%"
-	  class="fb-like"
-	  data-share="true"
-	  data-show-faces="true">
+	<div class="fb-xfbml-parse-ignore" >
+		<div style="margin-left:5%" class="fb-like" data-share="true"  data-show-faces="true"></div>
 	</div>
-</div>
-
 	<!-- footer -->
 	<div id="footer"></div>
 
@@ -572,6 +570,9 @@ hr.style-two {
 
 			$(".nav a").on("click", function(e){	
 				e.preventDefault();
+				if($('.navbar-toggle').css('display') !='none'){
+		            $(".navbar-toggle").trigger( "click" );
+		        }
 				$(".nav").find(".active").removeClass("active");
 				$(this).parent().addClass("active");
 				page = $(this).parent().attr('id');
