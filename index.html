@@ -108,8 +108,14 @@ hr.style-two {
     bottom: 50px;
     left: 0px; 
 }
-
-
+.input-group-addon.info {
+    color: rgb(255, 255, 255);
+    background-color: rgb(57, 179, 215);
+    border-color: rgb(38, 154, 188);
+}
+.bootstrap-select > .btn {
+    height: 40px;
+}
 </style>
 
 </head>
@@ -232,8 +238,30 @@ hr.style-two {
 				article_menu_java : function(){
 					$(window).scrollTop(0);
 					$(".body").load("menu-centent/article/article_menu_java.html", function(data) {
+						$('.selectpicker').selectpicker({
+						  style: 'btn-info',
+						  size: 4
+						});
+						
 
+						$('.selectpicker').on('change',function(){
+							var select =  $('.selectpicker').selectpicker('val');
+							$( '#myUL li' ).removeClass('bounceInLeft');
+							if (select == 'ทั้งหมด') {
+								$('#oop,#problem,#basic').show();
+							}else if (select == 'OOP') {
+								$('#oop').show();
+								$('#problem,#basic').hide();
+							}else if (select == 'พื้นฐาน') {
+								$('#basic').show();
+								$('#OOP,#problem').hide();
+							}else if (select == 'โจทย์') {
+								$('#problem').show();
+								$('#OOP,#basic').hide();
+							};
+						});
 						if (firstLoadarticleMenuJava) {
+							
 							$( '#myUL li' ).each(function( index ,el) {
 							 	 console.log( index );	 
 								 setTimeout(function(){
@@ -249,7 +277,7 @@ hr.style-two {
 							console.log('6');
 							$('#myUL li').removeClass('bounceInLeft');							
 						
-							var input, filter, ul, li, a, i;
+							var input, filter, ul, li, a, i,found = 0;
 						    input = document.getElementById("myInput");
 						    filter = input.value.toUpperCase();
 						
@@ -258,10 +286,14 @@ hr.style-two {
 						        a = li[i].getElementsByTagName("a")[0];
 						        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
 						            li[i].style.display = "";
+						            
+						            found++;
 						        } else {
 						            li[i].style.display = "none";
 						        }
-						    }							
+						    }
+						   
+
 						});
 						$("#bnt_back").on('click',function(e){
 							e.preventDefault();
@@ -280,8 +312,26 @@ hr.style-two {
 				article_menu_c : function(){
 					$(window).scrollTop(0);
 					$(".body").load("menu-centent/article/article_menu_c.html", function(data) {	
-						
-						// $('#myUL li').addClass('animated bounceInLeft');
+						$('.selectpicker').selectpicker({
+						  style: 'btn-info',
+						  size: 4
+						});
+						$('.selectpicker').on('change',function(){
+							var select =  $('.selectpicker').selectpicker('val');
+							$( '#myUL li' ).removeClass('bounceInLeft');
+							if (select == 'ทั้งหมด') {
+								$('#exam,#problem,#basic').show();
+							}else if (select == 'แนวข้อสอบ') {
+								$('#exam').show();
+								$('#problem,#basic').hide();
+							}else if (select == 'พื้นฐาน') {
+								$('#basic').show();
+								$('#exam,#problem').hide();
+							}else if (select == 'โจทย์ปัญหา') {
+								$('#problem').show();
+								$('#exam,#basic').hide();
+							};
+						});
 						if (firstLoadarticleMenuC) {
 							$( '#myUL li' ).each(function( index ,el) {
 							 	 console.log( index );	 

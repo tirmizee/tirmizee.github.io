@@ -30,25 +30,31 @@
 #myUL li a:hover:not(.header) {
   background-color: #ADD8E6;
 }
+
 #myUL li a:not(.header) {
  padding-left:3em
 }
-#bnt_back {
-    position: fixed;
-    bottom: 50px;
-    left: 0px; 
-}
+
+
 </style>
 <br><br>
 <div class="row text-center">
     <label style="font-size:25px">ภาษา Java</label><hr>
 </div>
-<div class="row" style="padding-left:1em">
-    <label style="font-size:20px">ค้นหา</label>
-    <input type="text" id="myInput" style="width:50%;height:40px" class="form-control"  placeholder="ค้นหา..." title="Type in a name">
+<div class="row" style="width:40%;padding-left:1em" >
+    <div class="input-group">
+        <input type="text" id="myInput" style="height:40px" class="form-control"  placeholder="ค้นหา..." title="Type in a name" maxlength="50">
+        <select class="selectpicker">
+        <option> ทั้งหมด </option>
+        <option> พื้นฐาน </option>
+        <option> OOP </option>
+        <option> โจทย์ </option>
+      </select>
+    </div>   
 </div>
 <br>
 <ul id="myUL">
+  <div id="basic">
   <li class="title"><a href="#" class="header"><label style="font-size:18px"> พื้นฐาน</label></a></li>
   <li><a class="hvr-forward" href="hello" > ยังไม่มีข้อมูล</a></li>
   <li><a class="hvr-forward" href="#"> ยังไม่มีข้อมูล</a></li>
@@ -58,9 +64,25 @@
   <li><a class="hvr-forward" href="#"> ยังไม่มีข้อมูล</a></li>
   <li><a class="hvr-forward" href="#"> ยังไม่มีข้อมูล</a></li>
   <li><a class="hvr-forward" href="#"> ยังไม่มีข้อมูล</a></li>
+  
+  </div>
+  <div id="oop">
+  <li class="title"><a href="#" class="header"><label style="font-size:18px"> Object Oriented Programming(OOP)</label></a></li>
+  <li><a class="hvr-forward" href="#"> ยังไม่มีข้อมูล</a></li>
+  <li><a class="hvr-forward" href="#"> ยังไม่มีข้อมูล</a></li>
+  <li><a class="hvr-forward" href="#"> ยังไม่มีข้อมูล</a></li>
+  <li><a class="hvr-forward" href="#"> ยังไม่มีข้อมูล</a></li>
+  <li><a class="hvr-forward" href="#"> ยังไม่มีข้อมูล</a></li>
+  <li><a class="hvr-forward" href="#"> ยังไม่มีข้อมูล</a></li>
+  <li><a class="hvr-forward" href="#"> ยังไม่มีข้อมูล</a></li>
+
+  </div>
+  <div id="problem">
   <li class="title"><a href="#" class="header"><label style="font-size:18px"> โจทย์</label></a></li>
   <li><a class="hvr-forward" href="java0001" > จงเขียนโปรแกรมคำนวณเกรด</a></li>
   <li><a class="hvr-forward" href="java0002" > จงเขียนโปรแกรมการเข้ารหัสซีซ่า</a></li>
+
+  </div>
 </ul>
 <br><br>
 <a id="bnt_back" href=""><img width="100px;" src="resource/img/back.png"></img></a>
