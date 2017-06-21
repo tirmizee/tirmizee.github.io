@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="css/hover-min.css"  media="all">
 	<link rel="stylesheet" href="css/jquery.dataTables.min.css" >
 	<link rel="stylesheet" href="css/pace-theme-bounce.css" >
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
 	<script src="js/jquery-3.2.1.min.js" ></script>
 	<script src="js/jquery.dataTables.min.js" ></script>
@@ -38,7 +39,7 @@
 filter: grayscale(100%); 
 }*/
 body{
-	background-color:#fdfdfd;
+	background-color:#fdfdfc;
 	
 }
 html {
@@ -154,7 +155,7 @@ hr.style-two {
 	<br><br><br>
 
 	<!-- menu-content -->
-	<div class="container body" style="min-height:500px"></div>
+	<div class="body" style="min-height:500px"></div>
 
 
 	<div class="fb-xfbml-parse-ignore" >
@@ -243,9 +244,8 @@ hr.style-two {
 						  size: 4
 						});
 						
-
 						$('.selectpicker').on('change',function(){
-							var select =  $('.selectpicker').selectpicker('val');
+							select =  $('.selectpicker').selectpicker('val');
 							$( '#myUL li' ).removeClass('bounceInLeft');
 							if (select == 'ทั้งหมด') {
 								$('#oop,#problem,#basic').show();
@@ -297,7 +297,8 @@ hr.style-two {
 						});
 						$("#bnt_back").on('click',function(e){
 							e.preventDefault();
-							callPage['article']();							
+							callPage['article']();	
+												
 						});
 						$( '#myUL li a' ).not( ".header" ).on('click',function(e){
 							e.preventDefault();
@@ -406,9 +407,10 @@ hr.style-two {
 						setTimeout(function () {
 							$('#about_lb_jar').addClass('animated fadeInDown');
 						},1100);
-						$('#img_person').on('click',function(){
-							alert("s");
-						});
+						setTimeout(function () {
+							$('#about_know').addClass('animated fadeInDown');
+						},1500);
+						
 					});
 				},
 				main : function(){
@@ -666,9 +668,8 @@ hr.style-two {
 				setTimeout(function () {
 					defer.resolve();
 					$('#body').addClass('animated');
-					$("#body").load("menu-centent/main.html", function(data) {
-						$('.body').addClass('animated bounceInDown');
-					});
+					
+					
 				}, 300);
 
 				return defer;
@@ -696,6 +697,8 @@ hr.style-two {
 				var url = window.location.hash.replace('#','');
 				if (typeof callArticleMenuJava[url] === "function") {
 				  	callArticleMenuJava[url]();
+				}else{
+					callPage.main();
 				}
 
 			}

@@ -6,6 +6,7 @@
 
 </style>
 <br>
+<div class="container">
 <label style="font-size:25px">ภาษา Java</label>
 <hr>
 
@@ -107,8 +108,8 @@ public class Grade {
 <br>
 <hr>
 <label style="font-size:18px"> วิธีที่ 2 <br> เป็นการใช้คำสั่ง switch-case</label><br>
-วิธีการนี้เป็นการตรวจเงื่อนไขเป็นกรณี ไม่สามารถตรวจสอบหลายๆเงื่อนไขภายใน case เดียวกันได้ if ได้ เช่น<br>
-สมมุติว่า ต้องการตรวจสอบ score มีค่ามากกว่า<br>
+วิธีการนี้เป็นการตรวจสอบเงื่อนไขเป็นกรณี ซึ่งไม่สามารถตรวจสอบหลายๆเงื่อนไขภายใน case เดียวกันได้<br>
+
 <br>
 <pre style="padding:20px;background-color:#F8F8FF">
 import java.util.Scanner;
@@ -159,14 +160,10 @@ public class Grade {
 </div>
 <br>
 
-<br>
-
-
-
 <hr>
 <label style="font-size:18px"> วิธีที่ 3 <br> เป็นการใช้วิธีการอ้างอิง index</label><br>
-วิธีการนี้เป็นการแปลงจากคำสั่ง switch-case จากวิธีที่ 2 มาอ้างอิง index ใน Array แทน 
-โดยที่ไม่มีเงื่อนไขใดๆ มาเกี่ยวข้องเลย
+วิธีการนี้ หลายคนอาจจะไม่ค่อยได้เห็นสักเท่าไหร่ เป็นการแปลงเงื่อนไขใน switch-case จากวิธีที่ 2 มาอ้างอิง index ใน Array แทน 
+โดยที่ไม่มีเงื่อนไขใดๆ มาเกี่ยวข้องเลย 
 <br><br>
 <pre style="padding:20px;background-color:#F8F8FF">
   public static void main(String[] args) {
@@ -186,9 +183,24 @@ public class Grade {
        
   }
 </pre>
-
-
+<a class="btn btn-info" role="button" data-toggle="collapse" href="#output3" aria-expanded="false" aria-controls="collapseExample">
+  <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
+</a>
 <br><br>
+<div class="collapse" id="output3">
+    <img src="resource/img_article/java0001_3.PNG">
+</div>
+
+จากวิธีการข้างต้นจะสังเกตได้ว่า จะเก็บเกรดบางตัวซ้ำกันอยู่ เพื่อให้สามารถอ้างอิง index ได้<br>
+ถ้าต้องการเปลี่ยนเป็นแบบนี้ล่ะ <br><br>
+<pre style="padding:20px;background-color:#F8F8FF">
+   String grade[] = {  "F" ,"D", "D+", "C" , "C+", "B" , "B+" , "A" };     
+   index = score+-*/%;  
+</pre>
+แล้วใช้คณิตศาสตร์ มาช่วยคิดสมการในการหา index แทน โดยที่ไม่ต้องใช้เงื่อนไขใดๆ เลย จะสามารถทำได้หรือเปล่า ? <br>
+...ขอบอกเลยว่าสามารถทำได้ครับ แต่กว่าจะคิดวิธีการออก ทำเอาสมองแทบจะระเบิดเป็นโก้ๆ ครั้นกันเลยทีเดียว <br>
+ผู้อ่านคนไหนที่ชอบแนวโหดๆ แบบนี้ก็ไปลองดูกันเลยย
+<br><br><br>
 <div class="facebook-comment">
     <div id="fb-root"></div>
     <div class="fb-comments" data-href="https://tirmizee.github.io/#java0001" data-width="100%" data-numposts="5"></div>
@@ -201,6 +213,6 @@ public class Grade {
     }(document, 'script', 'facebook-jssdk'));</script>
 </div>
 <a id="bnt_back" href=""><img width="100px;" src="resource/img/back.png"></img></a>
-
+</div>
 
 <br><br><br>
