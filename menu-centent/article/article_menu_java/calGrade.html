@@ -1,218 +1,221 @@
 <style >
-
 .font-red{
   font-color : red;
 }
-
 </style>
 <br>
 <div class="container">
-<label style="font-size:25px">ภาษา Java</label>
-<hr>
+    <label style="font-size:25px">ภาษา Java</label>
+    <hr>
+    <label style="font-size:20px">จงเขียนโปรแกรมคำนวณเกรด โดยมีเงื่อนไขดังนี้</label>
+    <br>
+    <div class="container">
+        ถ้าคะแนนน้อยกว่า 50 ได้เกรด F<br>
+        ถ้าคะแนนตั้งแต่ 50-54 ได้เกรด D<br>
+        ถ้าคะแนนตั้งแต่ 55-59 ได้เกรด D+<br>
+        ถ้าคะแนนตั้งแต่ 60-64 ได้เกรด C<br>
+        ถ้าคะแนนตั้งแต่ 65-69 ได้เกรด C+<br>                                                         
+        ถ้าคะแนนตั้งแต่ 70-74 ได้เกรด B<br>                                         
+        ถ้าคะแนนตั้งแต่ 75-79 ได้เกรด B+<br>                                            
+        ถ้าคะแนนตั้งแต่ 80 ขึ้นไป ได้เกรด A<br>
+    </div>
+    <hr>
+    <label style="font-size:18px"> วิธีที่ 1 <br> เป็นการใช้คำสั่ง if-else-if</label>
+    <br>
+    <font>วิธีนี้เป็นการตรวจสอบเงื่อนไขเป็นชุดหลายทางเลือก หากเข้าเงื่อนไขใด โปรแกรมจะออกจากชุดของ if นั้นทันที</font>
+    <br><br>
+    <pre style="padding:20px;background-color:#F8F8FF">
+      import java.util.Scanner;
+      public class Grade {
 
-  <label style="font-size:20px">จงเขียนโปรแกรมคำนวณเกรด โดยมีเงื่อนไขดังนี้</label><br>
-  <div class="container">
-    ถ้าคะแนนน้อยกว่า 50 ได้เกรด F<br>
-    ถ้าคะแนนตั้งแต่ 50-54 ได้เกรด D<br>
-    ถ้าคะแนนตั้งแต่ 55-59 ได้เกรด D+<br>
-    ถ้าคะแนนตั้งแต่ 60-64 ได้เกรด C<br>
-    ถ้าคะแนนตั้งแต่ 65-69 ได้เกรด C+<br>
-    ถ้าคะแนนตั้งแต่ 70-74 ได้เกรด B<br>
-    ถ้าคะแนนตั้งแต่ 75-79 ได้เกรด B+<br>
-    ถ้าคะแนนตั้งแต่ 80 ขึ้นไป ได้เกรด A<br>
-  </div>
-<hr>
+        public static void main(String[] args) {
 
- <label style="font-size:18px"> วิธีที่ 1 <br> เป็นการใช้คำสั่ง if-else-if</label><br>
- <font>วิธีนี้เป็นการตรวจสอบเงื่อนไขเป็นชุดหลายทางเลือก หากเข้าเงื่อนไขใด โปรแกรมจะออกจากชุดของ if นั้นทันที</font>
- <br><br>
-<pre style="padding:20px;background-color:#F8F8FF">
-import java.util.Scanner;
-public class Grade {
+          int score;                              <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บจำนวนเต็ม</font> 
+          String grade;                           <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บข้อความ</font> 
+          Scanner in = new Scanner(System.in);    <font color="red">//ประกาศตัวแปรที่ใช้รับค่าที่แสกนจากแป้นพิมพ์</font> 
+          System.out.print("input score : ");     <font color="red">//แสดงข้อความ "input score"</font> 
+          score = in.nextInt();                   <font color="red">//ทำการรับค่าจำนวนเต็มจากแป้นพิมพ์เก็บไว้ในตัวแปร score</font> 
+          
+          if (score < 50) {                       <font color="red">//ทำการเชคเงื่อนไขว่า score < 50 จริงไหม</font> 
+            grade = "F";                          <font color="red">//ถ้าเงื่อนไขด้านบนเป็นจริง กำหนดให้ grade มีค่าเท่ากับ "F"</font> 
+          }else if(score >= 50 && score < 55){    <font color="red">//บลาๆๆ...</font> 
+            grade = "D";
+          }else if(score >= 55 && score < 60){
+            grade = "D+";
+          }else if(score >= 60 && score < 65){
+            grade = "C";
+          }else if(score >= 65 && score < 70){
+            grade = "C+";
+          }else if(score >= 70 && score < 75){
+            grade = "B";
+          }else if(score >= 75 && score < 80){
+            grade = "B+";
+          }else {
+            grade = "A";
+          }
 
-  public static void main(String[] args) {
+          System.out.println("Grade : " + grade);
+             
+        }
+      }
+    </pre>
+    <br>
+     <a class="btn btn-info" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
+    </a>
+    <br><br>
+    <div class="collapse" id="collapseExample">
+        <img src="resource/img_article/java0001_1.PNG">
+    </div>
+    <br>
+    ...แต่เอ๊ะ !!! ดูเหมือนว่าการเชคเงื่อนไขมันทำงานซ้ำซ้อนกันอยู่ ลองมาดูโค้ดด่านล่างกันครับ
+    <br><br>
+    <pre style="background-color:#F8F8FF;">
+      1.  if( score < 50) {         
+      2.    grade = "F";                          
+      3.  }else if(<font color="red">score >= 50</font> && score < 55){     
+      4.    grade = "D";
+      5.  }
+    </pre>
+      ถ้าเงื่อนไขบรรทัดที่ 1 เป็นเท็จ แสดงว่า score ต้องมีค่า >= 50 แล้วโปรแกรมจะไปทำบรรทัดที่ 3<br>
+      แต่ลองสังเกตบรรทัดที่ 3 ดู พบว่ามีการเชค  score >= 50 ซ้ำอีกรอบ<br>
+      ซึ่งเราไม่จำเป็นต้องเชคอีก เพราะถ้าหากมันเข้าเงื่อนไขบรรทัดนี้แสดงว่า score ต้องมีค่า >= 50 อยู่แล้ว<br>
+      ดังนั้นเราสามารถตัดการเชค score >= 50 ออกไปได้เลย
+    <br><br>
+    <pre style="padding:20px;background-color:#F8F8FF">
+     
+       if (score < 50) {
+          grade = "F";
+        }else if(score < 55){
+          grade = "D";
+        }else if(score < 60){
+          grade = "D+";
+        }else if(score < 65){
+          grade = "C";
+        }else if(score < 70){
+          grade = "C+";
+        }else if(score < 75){
+          grade = "B";
+        }else if(score < 80){
+          grade = "B+";
+        }else {
+          grade = "A";
+        }
 
-    int score;                              <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บจำนวนเต็ม</font> 
-    String grade;                           <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บข้อความ</font> 
-    Scanner in = new Scanner(System.in);    <font color="red">//ประกาศตัวแปรที่ใช้รับค่าที่แสกนจากแป้นพิมพ์</font> 
-    System.out.print("input score : ");     <font color="red">//แสดงข้อความ "input score"</font> 
-    score = in.nextInt();                   <font color="red">//ทำการรับค่าจำนวนเต็มจากแป้นพิมพ์เก็บไว้ในตัวแปร score</font> 
-    
-    if (score < 50) {                       <font color="red">//ทำการเชคเงื่อนไขว่า score < 50 จริงไหม</font> 
-      grade = "F";                          <font color="red">//ถ้าเงื่อนไขด้านบนเป็นจริง กำหนดให้ grade มีค่าเท่ากับ "F"</font> 
-    }else if(score >= 50 && score < 55){    <font color="red">//บลาๆๆ...</font> 
-      grade = "D";
-    }else if(score >= 55 && score < 60){
-      grade = "D+";
-    }else if(score >= 60 && score < 65){
-      grade = "C";
-    }else if(score >= 65 && score < 70){
-      grade = "C+";
-    }else if(score >= 70 && score < 75){
-      grade = "B";
-    }else if(score >= 75 && score < 80){
-      grade = "B+";
-    }else {
-      grade = "A";
-    }
-
-    System.out.println("Grade : " + grade);
-       
-  }
-}
-</pre>
-
-<br>
-...แต่เอ๊ะ !!! ดูเหมือนว่าการเชคเงื่อนไขมันทำงานซ้ำซ้อนกันอยู่ ลองมาดูโค้ดด่านล่างกันครับ<br><br>
-<pre style="background-color:#F8F8FF;">
-  1.  if( score < 50) {         
-  2.    grade = "F";                          
-  3.  }else if(<font color="red">score >= 50</font> && score < 55){     
-  4.    grade = "D";
-  5.  }
-</pre>
-ถ้าเงื่อนไขบรรทัดที่ 1 เป็นเท็จ แสดงว่า score ต้องมีค่า >= 50 แล้วโปรแกรมจะไปทำบรรทัดที่ 3<br>
-แต่ลองสังเกตบรรทัดที่ 3 ดู พบว่ามีการเชค  score >= 50 ซ้ำอีกรอบ<br>
-ซึ่งเราไม่จำเป็นต้องเชคอีก เพราะถ้าหากมันเข้าเงื่อนไขบรรทัดนี้แสดงว่า score ต้องมีค่า >= 50 อยู่แล้ว<br>
-ดังนั้นเราสามารถตัดการเชค score >= 50 ออกไปได้เลย
-<br><br>
-<pre style="padding:20px;background-color:#F8F8FF">
- 
-   if (score < 50) {
-      grade = "F";
-    }else if(score < 55){
-      grade = "D";
-    }else if(score < 60){
-      grade = "D+";
-    }else if(score < 65){
-      grade = "C";
-    }else if(score < 70){
-      grade = "C+";
-    }else if(score < 75){
-      grade = "B";
-    }else if(score < 80){
-      grade = "B+";
-    }else {
-      grade = "A";
-    }
-
-    
-</pre>
-<a class="btn btn-info" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-  <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
-</a>
-<br><br>
-<div class="collapse" id="collapseExample">
-    <img src="resource/img_article/java0001_1.PNG">
-</div>
-<br>
-<hr>
-<label style="font-size:18px"> วิธีที่ 2 <br> เป็นการใช้คำสั่ง switch-case</label><br>
-วิธีการนี้เป็นการตรวจสอบเงื่อนไขเป็นกรณี ซึ่งไม่สามารถตรวจสอบหลายๆเงื่อนไขภายใน case เดียวกันได้<br>
-
-<br>
-<pre style="padding:20px;background-color:#F8F8FF">
-import java.util.Scanner;
-public class Grade {
-
-  public static void main(String[] args) {
-
-    int score;                              <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บจำนวนเต็ม</font> 
-    String grade;                           <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บข้อความ</font> 
-    Scanner in = new Scanner(System.in);    <font color="red">//ประกาศตัวแปรที่ใช้รับค่าที่แสกนจากแป้นพิมพ์</font> 
-    System.out.print("input score : ");     <font color="red">//แสดงข้อความ "input score"</font> 
-    score = in.nextInt();                   <font color="red">//ทำการรับค่าจำนวนเต็มจากแป้นพิมพ์เก็บไว้ในตัวแปร score</font> 
-    
-      switch (score/5) {
-        case 20 :
-        case 19 :
-        case 18 :
-        case 17 :
-        case 16 : grade = "A";              <font color="red">//หาก score มีค่า 20,19,18,17,16 กำหนดให้ grade มีค่าเท่ากับ "A"</font> 
-                  break;                    <font color="red">//หยุดการทำงานใน switch case เพื่อไม่ให้โปรแกรมทำคำสั่งถัดไป</font> 
-        case 15 : grade = "B+";             <font color="red">//บลาๆๆ...</font> 
-                  break;
-        case 14 : grade = "B";
-                  break;
-        case 13 : grade = "C+";
-                  break;
-        case 12 : grade = "C";
-                  break;
-        case 11 : grade = "D+";
-                  break;
-        case 10 : grade = "D";
-                  break;  
-        default:  grade = "F";            <font color="red">//หากไม่เข้าเงื่อนไขใดๆ กำหนดให้ grade มีค่าเท่ากับ "F"</font> 
-                  break;
-    }
-
-    System.out.println("Grade : " + grade);
-       
-  }
-}
-</pre>
-<a class="btn btn-info" role="button" data-toggle="collapse" href="#output2" aria-expanded="false" aria-controls="collapseExample">
-  <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
-</a>
-<br><br>
-<div class="collapse" id="output2">
-    <img src="resource/img_article/java0001_2.PNG">
-</div>
-<br>
-
-<hr>
-<label style="font-size:18px"> วิธีที่ 3 <br> เป็นการใช้วิธีการอ้างอิง index</label><br>
-วิธีการนี้ หลายคนอาจจะไม่ค่อยได้เห็นสักเท่าไหร่ เป็นการแปลงเงื่อนไขใน switch-case จากวิธีที่ 2 มาอ้างอิง index ใน Array แทน 
-โดยที่ไม่มีเงื่อนไขใดๆ มาเกี่ยวข้องเลย 
-<br><br>
-<pre style="padding:20px;background-color:#F8F8FF">
-  public static void main(String[] args) {
-    
-      int index;
-      int score;
-      Scanner in = new Scanner(System.in);        <font color="red">//ประกาศตัวแปรที่ใช้รับค่าที่แสกนจากแป้นพิมพ์</font><font color="red">  
-      //ประกาศตัวแปรเป็น Array เก็บ grade </font> 
-      String grade[] = {  "F" , "F" , "F" , "F" , "F"  , "F" , "F" , "F" , "F" , "F" ,"D",
-                          "D+", "C" , "C+", "B" , "B+" , "A" , "A" , "A" , "A" , "A" };                           
         
-      System.out.print("\n input score : ");       <font color="red">//แสดงข้อความ "input score" </font>
-      score = in.nextInt();                        <font color="red">//ทำการรับค่าจำนวนเต็มจากแป้นพิมพ์เก็บไว้ในตัวแปร score</font> 
-      index = score/5;                             <font color="red">//คำนวณหา index</font> 
-      System.out.println(" Grade : " + grade[index]);
+    </pre>
+   
 
-       
-  }
-</pre>
-<a class="btn btn-info" role="button" data-toggle="collapse" href="#output3" aria-expanded="false" aria-controls="collapseExample">
-  <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
-</a>
-<br><br>
-<div class="collapse" id="output3">
-    <img src="resource/img_article/java0001_3.PNG">
-</div>
+    แต่อย่าลืมจัดลำดับการเชคให้ถูกต้องด้วยน่ะครับ
+    <br>
+    <hr>
+    <label style="font-size:18px"> วิธีที่ 2 <br> เป็นการใช้คำสั่ง switch-case</label>
+    <br>
+    วิธีการนี้เป็นการตรวจสอบเงื่อนไขกรณีที่เป็นจำนวนเต็มเท่านั้น<br>
+    <br>
+    <pre style="padding:20px;background-color:#F8F8FF">
+    import java.util.Scanner;
+    public class Grade {
 
-จากวิธีการข้างต้นจะสังเกตได้ว่า จะเก็บเกรดบางตัวซ้ำกันอยู่ เพื่อให้สามารถอ้างอิง index ได้<br>
-ถ้าต้องการเปลี่ยนเป็นแบบนี้ล่ะ <br><br>
-<pre style="padding:20px;background-color:#F8F8FF">
-   String grade[] = {  "F" ,"D", "D+", "C" , "C+", "B" , "B+" , "A" };     
-   index = score+-*/%;  
-</pre>
-แล้วใช้คณิตศาสตร์ มาช่วยคิดสมการในการหา index แทน โดยที่ไม่ต้องใช้เงื่อนไขใดๆ เลย จะสามารถทำได้หรือเปล่า ? <br>
-...ขอบอกเลยว่าสามารถทำได้ครับ แต่กว่าจะคิดวิธีการออก ทำเอาสมองแทบจะระเบิดเป็นโก้ๆ ครั้นกันเลยทีเดียว <br>
-ผู้อ่านคนไหนที่ชอบแนวโหดๆ แบบนี้ก็ไปลองดูกันเลยย
-<br><br><br>
-<div class="facebook-comment">
-    <div id="fb-root"></div>
-    <div class="fb-comments" data-href="https://tirmizee.github.io/#java0001" data-width="100%" data-numposts="5"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.9&appId=1721532414810864";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-</div>
-<a id="bnt_back" href=""><img width="100px;" src="resource/img/back.png"></img></a>
-</div>
+      public static void main(String[] args) {
 
+        int score;                              <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บจำนวนเต็ม</font> 
+        String grade;                           <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บข้อความ</font> 
+        Scanner in = new Scanner(System.in);    <font color="red">//ประกาศตัวแปรที่ใช้รับค่าที่แสกนจากแป้นพิมพ์</font> 
+        System.out.print("input score : ");     <font color="red">//แสดงข้อความ "input score"</font> 
+        score = in.nextInt();                   <font color="red">//ทำการรับค่าจำนวนเต็มจากแป้นพิมพ์เก็บไว้ในตัวแปร score</font> 
+        
+          switch (score/5) {
+            case 20 :
+            case 19 :
+            case 18 :
+            case 17 :
+            case 16 : grade = "A";              <font color="red">//หาก score มีค่า 20,19,18,17,16 กำหนดให้ grade มีค่าเท่ากับ "A"</font> 
+                      break;                    <font color="red">//หยุดการทำงานใน switch case เพื่อไม่ให้โปรแกรมทำคำสั่งถัดไป</font> 
+            case 15 : grade = "B+";             <font color="red">//บลาๆๆ...</font> 
+                      break;
+            case 14 : grade = "B";
+                      break;
+            case 13 : grade = "C+";
+                      break;
+            case 12 : grade = "C";
+                      break;
+            case 11 : grade = "D+";
+                      break;
+            case 10 : grade = "D";
+                      break;  
+            default:  grade = "F";            <font color="red">//หากไม่เข้าเงื่อนไขใดๆ กำหนดให้ grade มีค่าเท่ากับ "F"</font> 
+                      break;
+        }
+
+        System.out.println("Grade : " + grade);
+           
+      }
+    }
+    </pre>
+    <a class="btn btn-info" role="button" data-toggle="collapse" href="#output2" aria-expanded="false" aria-controls="collapseExample">
+      <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
+    </a>
+    <br><br>
+    <div class="collapse" id="output2">
+        <img src="resource/img_article/java0001_2.PNG">
+    </div>
+    <br>
+
+    <hr>
+    <label style="font-size:18px"> วิธีที่ 3 <br> เป็นการใช้วิธีการอ้างอิง index</label><br>
+    วิธีการนี้ หลายคนอาจจะไม่ค่อยได้เห็นสักเท่าไหร่ เป็นการแปลงเงื่อนไขใน switch-case จากวิธีที่  2 มาอ้างอิง index ใน Array แทน 
+    โดยที่ไม่มีเงื่อนไขใดๆ มาเกี่ยวข้องเลย 
+    <br><br>
+    <pre style="padding:20px;background-color:#F8F8FF">
+      public static void main(String[] args) {
+        
+          int index;
+          int score;
+          Scanner in = new Scanner(System.in);        <font color="red">//ประกาศตัวแปรที่ใช้รับค่าที่แสกนจากแป้นพิมพ์</font><font color="red">  
+          //ประกาศตัวแปรเป็น Array เก็บ grade </font> 
+          String grade[] = {  "F" , "F" , "F" , "F" , "F"  , "F" , "F" , "F" , "F" , "F" ,"D",
+                              "D+", "C" , "C+", "B" , "B+" , "A" , "A" , "A" , "A" , "A" };                           
+            
+          System.out.print("\n input score : ");       <font color="red">//แสดงข้อความ "input score" </font>
+          score = in.nextInt();                        <font color="red">//ทำการรับค่าจำนวนเต็มจากแป้นพิมพ์เก็บไว้ในตัวแปร score</font> 
+          index = score/5;                             <font color="red">//คำนวณหา index</font> 
+          System.out.println(" Grade : " + grade[index]);
+
+           
+      }
+    </pre>
+    <a class="btn btn-info" role="button" data-toggle="collapse" href="#output3" aria-expanded="false" aria-controls="collapseExample">
+      <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
+    </a>
+    <br><br>
+    <div class="collapse" id="output3">
+        <img src="resource/img_article/java0001_3.PNG">
+    </div>
+    <br>
+    จากวิธีการข้างต้นจะสังเกตได้ว่ามีการก็บเกรดบางตัวซ้ำกันอยู่ เพื่อให้สามารถอ้างอิง index ได้<br>
+    ถ้าต้องการเปลี่ยนเป็นแบบนี้ล่ะ <br><br>
+    <pre style="padding:20px;background-color:#F8F8FF">
+       String grade[] = {  "F" ,"D", "D+", "C" , "C+", "B" , "B+" , "A" };     
+       index = score+-*/%;  
+    </pre>
+    แล้วใช้คณิตศาสตร์ มาช่วยคิดสมการในการหา index แทน โดยที่ไม่ต้องใช้เงื่อนไขพวก if-else switch-case ใดๆเลย จะสามารถทำได้หรือเปล่า ? <br>
+    ...ขอบอกเลยว่าสามารถทำได้ครับ แต่กว่าจะคิดสมการออก ทำเอาสมองแทบจะระเบิดเป็นโก้โก้ครั้นกันเลยทีเดียว <br>
+    ผู้อ่านท่านใดที่ชอบแนวโหดๆ แบบนี้ก็ไปลองดูกันได้เลยย
+    <br><br><br>
+    <div class="facebook-comment">
+        <div id="fb-root"></div>
+        <div class="fb-comments" data-href="https://tirmizee.github.io/#java0001" data-width="100%" data-numposts="5"></div>
+        <script>
+              (function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "//connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.9&appId=1721532414810864";
+                  fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));
+        </script>
+    </div>
+    <a id="bnt_back" href=""><img width="100px;" src="resource/img/back.png"></img></a>
+</div>
 <br><br><br>

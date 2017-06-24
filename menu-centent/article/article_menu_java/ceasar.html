@@ -32,12 +32,12 @@
 
         public static void main(String[] args) {
         
-            String plainText;
-            int key;
-            Scanner in = new Scanner(System.in);
+            String plainText;                               <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บข้อความ</font> 
+            int key;                                        <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บจำนวนเต็ม</font> 
+            Scanner in = new Scanner(System.in);            <font color="red">//ประกาศตัวแปรที่ใช้รับค่าที่แสกนจากแป้นพิมพ์</font> 
 
-            System.out.print("input plain text : ");
-            plainText = in.next().toUpperCase();
+            System.out.print("input plain text : ");        <font color="red">//แสดงข้อความ "input plain text : "</font>
+            plainText = in.next().toUpperCase();            <font color="red">//ทำการรับข้อความจากแป้นพิมพ์พร้อมกับแปลงเป็นตัวอักษรพิมพ์ใหญ่เก็บไว้ในตัวแปร plainText</font>
 
             System.out.print("input Key : ");
             key = in.nextInt();
@@ -49,7 +49,7 @@
         public static String encript(String plainText,int key) {
             String cipherText = "";
             key = key % 26;
-            for (int i = 0; i < plainText.length(); i++) {
+            for (int i = 0 , length = plainText.length(); i < length; i++) {
                 char temp = (char) (plainText.charAt(i) + key);
                 if (temp > 90) {
                     cipherText += (char) ('A' + (temp - 91));
