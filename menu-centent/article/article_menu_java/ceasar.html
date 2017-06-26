@@ -8,7 +8,6 @@
 <div class="container">
 <label style="font-size:25px">ภาษา Java</label>
 <hr>
-
   <label style="font-size:20px">จงเขียนโปรแกรมในการเข้ารหัส Encrypt และถอดรหัส Decrypt แบบ Caesar</label><br>
   <div class="container">
     <label style="font-size:16px">การเข้ารหัส</label><br>
@@ -21,9 +20,7 @@
   
 <br>
 
- <label style="font-size:18px"> โปรแกรมในการเข้ารหัส</label><br>
-
-
+<label style="font-size:18px"> โปรแกรมในการเข้ารหัส</label><br>
 <pre style="padding:20px;background-color:#F8F8FF">
  
     import java.util.Scanner;
@@ -39,8 +36,8 @@
             System.out.print("input plain text : ");        <font color="red">//แสดงข้อความ "input plain text : "</font>
             plainText = in.next().toUpperCase();            <font color="red">//ทำการรับข้อความจากแป้นพิมพ์พร้อมกับแปลงเป็นตัวอักษรพิมพ์ใหญ่เก็บไว้ในตัวแปร plainText</font>
 
-            System.out.print("input Key : ");
-            key = in.nextInt();
+            System.out.print("input Key : ");               <font color="red">//แสดงข้อความ "input Key : "</font>
+            key = in.nextInt();                             <font color="red">//ทำการรับเลขจำนวนเต็มจากแป้นพิมพ์เก็บไว้ในตัวแปร key</font>
           
             System.out.println( "encript : " + encript(plainText,key));
         
@@ -76,6 +73,46 @@
     </label>
   </pre>
 </div>
+
+<label style="font-size:18px"> โปรแกรมในการถอดรหัส</label><br>
+<pre style="padding:20px;background-color:#F8F8FF">
+ 
+    import java.util.Scanner;
+
+    public class Caesar {
+
+        public static void main(String[] args) {
+        
+            String cipherText;                               <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บข้อความ</font> 
+            int key;                                         <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บจำนวนเต็ม</font> 
+            Scanner in = new Scanner(System.in);             <font color="red">//ประกาศตัวแปรที่ใช้รับค่าที่แสกนจากแป้นพิมพ์</font> 
+
+            System.out.print("input CipherText text : ");    <font color="red">//แสดงข้อความ "input CipherText text : "</font>
+            cipherText = in.next().toUpperCase();            <font color="red">//ทำการรับข้อความจากแป้นพิมพ์พร้อมกับแปลงเป็นตัวอักษรพิมพ์ใหญ่เก็บไว้ในตัวแปร cipherText</font>
+
+            System.out.print("input Key : ");                <font color="red">//แสดงข้อความ "input Key : "</font>
+            key = in.nextInt();                              <font color="red">//ทำการรับเลขจำนวนเต็มจากแป้นพิมพ์เก็บไว้ในตัวแปร key</font>
+          
+            System.out.println( "decrypt : " + decrypt(cipherText,key));
+        
+        }
+      
+       public static String decrypt(String cipherText,int key) {
+        String plainText = "";
+        key = key % 26;
+        for (int i = 0; i < cipherText.length(); i++) {
+            char temp = (char) (cipherText.charAt(i) - key);
+            if (temp < 65) {
+                plainText += (char) ('Z' - (64 - temp));
+            }else{
+                plainText += temp;
+            }
+        }
+        return plainText;
+      }
+      
+    }
+</pre>
 
 <br><br>
 <div id="fb-root"></div>
