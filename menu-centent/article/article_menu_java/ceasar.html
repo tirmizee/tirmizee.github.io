@@ -20,6 +20,36 @@
   
 <br>
 
+<div>
+    <center>
+        <div style="max-width:500px">
+            <img width="100%" src="resource/img_article/caesar.png">
+        </div>
+    </center>
+</div>
+
+
+
+<br><br>
+<div>
+....ก่อนที่เราจะเริ่มต้นเขียนโปรแกรมกัน เราลองมาทราบที่มาของการเข้ารหัสแบบซีซ่ากันก่อนดีกว่า<br>
+ในสมัยจูเลียส ซีซาร์ เขาต้องการที่จะส่งสารความลับไปยังแม่ทัพนายกองของเขา<br>
+โดยใช้หลักการแทนตัวอักษรสองตำแหน่งถัดไปมาแทนที่ <br>
+แต่ทั้งซีซาร์(ผู้ส่ง)และแม่ทัพ(ผู้รับ)ต้องรู้ว่าจะเลื่อนตัวอักษรไปกี่ตำแหน่ง<br>
+เช่น ต้องการส่งข้อความ "HELLO " <br>
+เมื่อเลื่อนไป 2 ตำแหน่ง<br>
+H กลายเป็น J<br>
+E กลายเป็น G<br>
+L กลายเป็น N<br>
+L กลายเป็น N<br>
+O กลายเป็น Q<br>
+ดังนั้นคำว่า HELLO ถูกแปลงกายเป็น JGGNQ<br>
+เมื่อแม่ทัพของซีซาร์ได้รับข้อความ ก็ต้องเลื่อนตัวอักษรกลับมา 2 ตำแหน่งจึงจะอ่านข้อความนั้นได้<br>
+และถ้าหากว่าข้อความดังกล่าวถูกแย่งชิงระหว่างทางโดยข้าศึก และข้าศึกไม่รู้กุญแจในการถอดรหัสก็ไม่สามารถรู้ได้ว่าข้อความดังกล่าวคืออะไร <br>
+ทั้งนี้ทั้งนั้นการเข้ารหัสซีซาร์เป็นการเข้ารหัสอย่างง่าย มักจะไม่ได้ช่วยในการรักษาความปลอดภัยของข้อความนั้นเลย<br>
+</div>
+<font color="red">References : </font><a target="_BLANK" href="https://th.wikipedia.org/wiki/รหัสซีซาร์">รหัสซีซาร์ wikipedia</a>
+<hr>
 <label style="font-size:18px"> โปรแกรมในการเข้ารหัส</label><br>
 <pre style="padding:20px;background-color:#F8F8FF">
  
@@ -39,41 +69,48 @@
             System.out.print("input Key : ");               <font color="red">//แสดงข้อความ "input Key : "</font>
             key = in.nextInt();                             <font color="red">//ทำการรับเลขจำนวนเต็มจากแป้นพิมพ์เก็บไว้ในตัวแปร key</font>
           
-            System.out.println( "encript : " + encript(plainText,key));
+            System.out.println( "encript : " + encript(plainText,key));        <font color="red">//แสดงข้อความที่ถูก encript</font>
         
         }
       
         public static String encript(String plainText,int key) {
-            String cipherText = "";
-            key = key % 26;
-            for (int i = 0 , length = plainText.length(); i < length; i++) {
-                char temp = (char) (plainText.charAt(i) + key);
-                if (temp > 90) {
-                    cipherText += (char) ('A' + (temp - 91));
-                }else{
-                    cipherText += temp;
+            String cipherText = "";         
+            char temp;
+            key = key % 26;                 
+            for (int i = 0 , length = plainText.length(); i < length; i++) {         <font color="red">//ทำการวนลูปตามจำนวนตัวอักษรใน plainText</font>
+                temp = (char) (plainText.charAt(i) + key);          <font color="red">//ทำการเลือนตัวอักษรตามจำนวนของ key </font>
+                if (temp > 'Z') {                    <font color="red">//ทำการเชคเงื่อนไขว่าตัวอักษรที่ถูกเลื่อนมีค่ามากกว่า 'Z' หรือเปล่า</font>
+                    <font color="red">//ถ้า temp > 'Z' ทำการเลื่อนตัวอักษรตามจำนวนที่เกิน 'Z' โดยเริ่มต้นเลื่อนไปยังตัวอักษร 'A' อีกครั้ง</font>
+                    temp = (char) (temp - 26);         
                 }
+                cipherText += temp; 
             }
             return cipherText;
         }
       
     }
 </pre>
-
+<br>
+ <pre style="background-color:#F8F8FF"> key = key % 26;</pre>
+ นำ key มาหารเอาเศษด้วย 26 <br>
+ สำหรับผู้อ่านที่กำลังเริ่มต้นศึกษาและไม่ได้ผ่านโจทย์ปัญหามาเยอะ อาจจะตั้งคำถามว่า แล้วทำไมต้องนำ key มาหารเอาเศษด้วย 26 ด้วยล่ะ ?<br>
+ สมมุติว่า key ที่รับเข้ามาในฟังก์ชันมีค่าเป็น 28 แสดงว่าต้องเลื่อนตัวอักษรไปข้างหน้า 28 ตัว<br>
+ แต่เนื่องจากตัวอักษรในภาษาอังกฤษมีทั้งหมด 26 ตัว หากเลื่อนไป 28 เท่ากับว่าวนรอบตัวเองได้ 1 รอบและเลื่อนถัดไป 2 ตำแห่ง<br>
+ วิธีคิด 28-26 = 2<br>
+ เราจึงต้องทำการเชคว่า key มีค่าเกิน 26 หรือเปล่า ดังนี้<br>
+ <pre style="background-color:#F8F8FF"> if(key > 26){
+      key = key - 26;
+  }</pre>
 <a class="btn btn-info" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
   <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
 </a>
 <br><br>
 <div class="collapse" id="collapseExample">
   <pre style="border:0px">
-    <label style="font-size:16px">
-      input plain text : HELLOWORLD
-      input Key : 29
-      cipher text : KHOORZRUOG
-    </label>
+    
   </pre>
 </div>
-
+<hr>
 <label style="font-size:18px"> โปรแกรมในการถอดรหัส</label><br>
 <pre style="padding:20px;background-color:#F8F8FF">
  
@@ -102,10 +139,9 @@
         key = key % 26;
         for (int i = 0; i < cipherText.length(); i++) {
             char temp = (char) (cipherText.charAt(i) - key);
-            if (temp < 65) {
+            plainText += temp;
+            if (temp < 'A') {
                 plainText += (char) ('Z' - (64 - temp));
-            }else{
-                plainText += temp;
             }
         }
         return plainText;
@@ -113,7 +149,7 @@
       
     }
 </pre>
-
+<script src="https://gist.github.com/tirmizee/d22ee168b2695012468bd96c86dd6611.js"></script>
 <br><br>
 <div id="fb-root"></div>
 <div class="fb-comments" data-href="https://tirmizee.github.io/#java0002" data-width="100%" data-numposts="5"></div>

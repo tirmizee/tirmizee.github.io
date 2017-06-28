@@ -184,6 +184,7 @@ hr.style-two {
 			var route = location.hash.replace('#',''),
 			page,
 			firstLoadArticle = true,
+			firstLoadAbount = true,
 			firstLoadarticleMenuC = true,
 			firstLoadarticleMenuJava = true,
 			calGrade = true;
@@ -257,7 +258,7 @@ hr.style-two {
 							}else if (select == 'พื้นฐาน') {
 								$('#basic').show();
 								$('#OOP,#problem').hide();
-							}else if (select == 'โจทย์') {
+							}else if (select == 'โจทย์ปัญหา') {
 								$('#problem').show();
 								$('#OOP,#basic').hide();
 							};
@@ -377,41 +378,50 @@ hr.style-two {
 				about : function(){
 					window.location.hash = "";
 					$(".body").load("menu-centent/about.html", function(data) {
-						$('#img_person').addClass('animated bounceInDown');
 						$('[data-toggle="tooltip"]').tooltip();
-						setTimeout(function () {
-							$('#about_fname').addClass('animated fadeInDown');
-						},500);
-						setTimeout(function () {
-							$('.style-one').addClass('animated fadeInDown');
-						},1500);
-						setTimeout(function () {
-							$('#about_sp_edu').addClass('animated fadeInDown');
-						},800);
-						setTimeout(function () {
-							$('#about_lb_bac').addClass('animated fadeInDown');
-						},1100);
-						setTimeout(function () {
-							$('#about_lb_pro').addClass('animated fadeInDown');
-						},1200);
-						setTimeout(function () {
-							$('#about_sp_add').addClass('animated fadeInDown');
-						},800);
-						setTimeout(function () {
-							$('#about_lb_song').addClass('animated fadeInDown');
-						},1100);
-						setTimeout(function () {
-							$('#about_lb_na').addClass('animated fadeInDown');
-						},1400);
-						setTimeout(function () {
-							$('#about_sp_car').addClass('animated fadeInDown');
-						},800);
-						setTimeout(function () {
-							$('#about_lb_jar').addClass('animated fadeInDown');
-						},1100);
-						setTimeout(function () {
-							$('#about_know').addClass('animated fadeInDown');
-						},1500);
+						
+						if (firstLoadAbount) {
+							$('#img_person').addClass('animated bounceInDown');
+							setTimeout(function () {
+								$('#about_fname').addClass('animated fadeInDown');
+							},500);
+							setTimeout(function () {
+								$('hr').addClass('animated fadeInDown');
+							},1500);
+							setTimeout(function () {
+								$('#about_sp_edu').addClass('animated fadeInDown');
+							},800);
+							setTimeout(function () {
+								$('#about_lb_bac').addClass('animated fadeInDown');
+							},1100);
+							setTimeout(function () {
+								$('#about_lb_pro').addClass('animated fadeInDown');
+							},1200);
+							setTimeout(function () {
+								$('#about_sp_add').addClass('animated fadeInDown');
+							},800);
+							setTimeout(function () {
+								$('#about_lb_song').addClass('animated fadeInDown');
+							},1100);
+							setTimeout(function () {
+								$('#about_lb_na').addClass('animated fadeInDown');
+							},1400);
+							setTimeout(function () {
+								$('#about_sp_car').addClass('animated fadeInDown');
+							},800);
+							setTimeout(function () {
+								$('#about_lb_jar').addClass('animated fadeInDown');
+							},1100);
+							setTimeout(function () {
+								$('#about_know').addClass('animated bounceInUp');
+							},1500);
+							firstLoadAbount = false;
+						}else{
+							$('#about_know,#about_lb_jar,#about_sp_car,#about_lb_na,#about_lb_song,#about_sp_add,#about_lb_pro,#about_lb_bac,#about_sp_edu,hr,#about_fname,#img_person').css('visibility','visible');
+						}
+						
+						
+						
 						
 					});
 				},
@@ -422,7 +432,7 @@ hr.style-two {
 						$('#img_person').on('click',function(){
 							alert("s");
 						});
-						 SyntaxHighlighter.all();
+						 
 					});
 				},
 				article : function(){
@@ -440,7 +450,7 @@ hr.style-two {
 						
 						
 						if (firstLoadArticle) {
-							$('#article_title').addClass('animated fadeInLeft');
+							
 							$( '#article_menus .col-md-4 .col-margin' ).each(function( index ,el) {
 							 	 console.log( index );	 
 								 setTimeout(function(){
