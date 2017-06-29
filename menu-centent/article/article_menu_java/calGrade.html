@@ -69,7 +69,7 @@
     </div>
     <br>
     <div class="text">
-      ...แต่เอ๊ะ !!! ดูเหมือนว่าการเชคเงื่อนไขมันทำงานซ้ำซ้อนกันอยู่ ลองมาดูโค้ดด่านล่างกันครับ
+      ...แต่เอ๊ะ !!! ดูเหมือนว่าการตรวจสอบเงื่อนไขมันทำงานซ้ำซ้อนกันอยู่ ลองมาดูโค้ดด่านล่างกันครับ
     </div>
     <br>
     <pre style="background-color:#F8F8FF;">
@@ -82,9 +82,9 @@
     </pre>
     <div class="text">
       ถ้าเงื่อนไขบรรทัดที่ 1 เป็นเท็จ แสดงว่า score ต้องมีค่า >= 50 แล้วโปรแกรมจะไปทำบรรทัดที่ 3<br>
-      แต่ลองสังเกตบรรทัดที่ 3 ดู พบว่ามีการเชค  score >= 50 ซ้ำอีกรอบ<br>
-      ซึ่งเราไม่จำเป็นต้องเชคอีก เพราะถ้าหากมันเข้าเงื่อนไขบรรทัดนี้แสดงว่า score ต้องมีค่า >= 50 อยู่แล้ว<br>
-      ดังนั้นเราสามารถตัดการเชค score >= 50 ออกไปได้เลย
+      แต่ลองสังเกตบรรทัดที่ 3 ดู พบว่ามีการตรวจสอบเงื่อนไข  score >= 50 ซ้ำอีกรอบ<br>
+      ซึ่งเราไม่จำเป็นต้องตรวจสอบอีก เพราะถ้าหากมันเข้าเงื่อนไขบรรทัดนี้แสดงว่า score ต้องมีค่า >= 50 อยู่แล้ว<br>
+      ดังนั้นเราสามารถตัดการตรวจสอบเงื่อนไข score >= 50 ออกไปได้เลย
     </div>  
     <br>
     <pre style="padding:20px;background-color:#F8F8FF">
@@ -253,15 +253,16 @@
     <br><br><br>
     <div class="facebook-comment">
         <div id="fb-root"></div>
-        <div class="fb-comments" data-href="https://tirmizee.github.io/#java0001" data-width="100%" data-numposts="5"></div>
+       <div class="fb-comment-embed" data-href="https://tirmizee.github.io/#/java0001" data-width="100%" data-include-parent="false"></div>
+       
         <script>
-              (function(d, s, id) {
-                  var js, fjs = d.getElementsByTagName(s)[0];
-                  if (d.getElementById(id)) return;
-                  js = d.createElement(s); js.id = id;
-                  js.src = "//connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.9&appId=1721532414810864";
-                  fjs.parentNode.insertBefore(js, fjs);
-              }(document, 'script', 'facebook-jssdk'));
+          (function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.9";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
         </script>
     </div>
     <a id="bnt_back" href=""><img width="100px;" src="resource/img/back.png"></img></a>

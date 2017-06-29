@@ -99,33 +99,42 @@ O กลายเป็น Q<br>
       
     }
 </pre>
+<a class="btn btn-info" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
+</a>
+<br><br>
+<div class="collapse" id="collapseExample">
+  าทาสทสาทาสท
+</div>
 <br>
 <div class="text">
   สำหรับผู้อ่านที่กำลังเริ่มต้นศึกษาและไม่ได้ผ่านโจทย์ปัญหามาเยอะ อาจจะตั้งคำถามว่า แล้วทำไมต้องนำ shift มาหารเอาเศษด้วย 26 ด้วยล่ะ ?<br>
  สมมุติว่า shift ที่รับเข้ามาในฟังก์ชันมีค่าเป็น 28 แสดงว่าต้องเลื่อนตัวอักษรไปข้างหน้า 28 ตัว<br>
  แต่เนื่องจากตัวอักษรในภาษาอังกฤษมีทั้งหมด 26 ตัว หากเลื่อนไป 28 ตำแหน่ง เท่ากับว่าเลื่อนวนรอบตัวเองได้ 1 รอบ แล้วเลื่อนไปอีก 2 ตำแหน่ง<br>
  วิธีคิด 28-26 = 2<br>
- เราจึงต้องทำการเชคว่า shift มีค่าเกิน 26 หรือเปล่า ซึ่งเราอาจจะเขียนเชคเงื่อนไขดังนี้
+ เราจึงต้องทำการตรวจสอบว่า shift มีค่าเกิน 26 หรือเปล่า ซึ่งเราอาจจะเขียนตรวจสอบเงื่อนไขดังนี้
 </div>
 <br>
  <pre style="background-color:#F8F8FF"> if(shift > 26){
       shift = shift - 26;
   }</pre>
-  แล้วถ้าหากว่า shift มีค่าเป็น 55 ล่ะ เราจะทำการเชค shift > 26 ก็ไม่ได้แล้วสิ จึงต้องเชคเงื่อนไขเพิ่มอีกดังนี้<br><br>
+  <div class="text">
+     แล้วถ้าหากว่า shift มีค่าเป็น 55 ล่ะ เราจะทำการตรวจสอบ shift > 26 ก็ไม่ได้แล้วสิ จึงต้องเขียนตรวจสอบเงื่อนไขเพิ่มอีกดังนี้
+  </div>
+ <br>
   <pre style="background-color:#F8F8FF"> if(shift > 52){
       shift = shift - 52;
   }</pre>
-  ขืนเป็นแบบนี้เราคงเขียนเชคเงื่อนไขกันไม่รู้จบแน่ แล้วเราจะมีวิธีแก้ปัญหายังไงล่ะ ?<br>
-  ก็นำ shift มาหารเอาเศษด้วย 26 ไง ซึ่งเศษที่เหลือก็คือ จำนวนที่ถูกเลื่อนจริงๆ นั่นเอง<br><br>
+  <div class="text">
+    ขืนเป็นแบบนี้เราคงตรวจสอบเงื่อนไขกันไม่รู้จบแน่ แล้วเราจะมีวิธีแก้ปัญหายังไงล่ะ ?<br>
+  ก็นำ shift มาหารเอาเศษด้วย 26 ไง ซึ่งเศษที่เหลือก็คือ จำนวนที่ถูกเลื่อนจริงๆ นั่นเอง<br>
+  </div>
+  <br>
   <pre style="background-color:#F8F8FF"> shift = 55;
  shift = shift % 26;      <font color="red">//shift = 3</font></pre>
-<a class="btn btn-info" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-  <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
-</a>
-<br><br>
-<div class="collapse" id="collapseExample">
-  
-</div>
+
+
+
 <hr>
 <label style="font-size:18px"> โปรแกรมในการถอดรหัส</label><br>
 <pre style="padding:20px;background-color:#F8F8FF">
