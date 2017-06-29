@@ -45,7 +45,9 @@ body{
 html{
 	min-width: 480px;
 }
-
+pre{
+	font-size:14px;
+}
 
 div.container .body{
 	margin-top: 50px;
@@ -118,7 +120,9 @@ hr.style-two {
 .bootstrap-select > .btn {
     height: 40px;
 }
-
+.text{
+  font-size: 15.5px;
+}
 </style>
 
 </head>
@@ -203,7 +207,7 @@ hr.style-two {
 				},
 				java0001 : function(){
 
-					window.location.hash = "java0001";
+					window.location.hash = "/java0001";
 					 $(window).scrollTop(0);
 					$("#main").removeClass("active");
 					$("#article").addClass("active");
@@ -220,7 +224,7 @@ hr.style-two {
 
 				},
 				java0002 : function(){
-					window.location.hash = "java0002";
+					window.location.hash = "/java0002";
 					$(window).scrollTop(0);
 					$("#main").removeClass("active");
 					$("#article").addClass("active");
@@ -706,7 +710,7 @@ hr.style-two {
 			a().then(b).then(c);
 
 			function init(){
-				var url = window.location.hash.replace('#','');
+				var url = window.location.hash.replace('#/','');
 				if (typeof callArticleMenuJava[url] === "function") {
 				  	callArticleMenuJava[url]();
 				}else{

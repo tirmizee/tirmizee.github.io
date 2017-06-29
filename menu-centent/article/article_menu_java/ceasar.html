@@ -10,14 +10,19 @@
 <hr>
   <label style="font-size:20px">จงเขียนโปรแกรมในการเข้ารหัส Encrypt และถอดรหัส Decrypt แบบ Caesar</label><br>
   <div class="container">
-    <label style="font-size:16px">การเข้ารหัส</label><br>
-    - ทำการรับ Plain Text (ข้อมูลที่สามารถอ่านได้)<br>
-    - ทำการรับ Key (จำนวนในการเลื่อนตำแหน่ง)<br>
-     <label style="font-size:16px">การถอดรหัส</label><br>
-    - ทำการรับ Cipher Text (ข้อมูลที่ถูกเข้ารหัสเอาไว้ไม่สามารถอ่านได้)<br>
-    - ทำการรับ Key<br>
+    <label style="font-size:18px">การเข้ารหัส</label><br>
+    <div class="text">
+      - ทำการรับ Plain Text (ข้อมูลที่สามารถอ่านได้)<br>
+      - ทำการรับ Shift (จำนวนในการเลื่อนตำแหน่ง)<br>
+    </div>
+    
+     <label style="font-size:18px">การถอดรหัส</label><br>
+     <div class="text">
+       - ทำการรับ Cipher Text (ข้อมูลที่ถูกเข้ารหัสเอาไว้ไม่สามารถอ่านได้)<br>
+       - ทำการรับ Shift<br>
+     </div> 
   </div>
-  
+ <br> 
 <br>
 
 <div>
@@ -31,7 +36,7 @@
 
 
 <br><br>
-<div>
+<div class="text">
 ....ก่อนที่เราจะเริ่มต้นเขียนโปรแกรมกัน เราลองมาทราบที่มาของการเข้ารหัสแบบซีซ่ากันก่อนดีกว่า<br>
 ในสมัยจูเลียส ซีซาร์ เขาต้องการที่จะส่งสารความลับไปยังแม่ทัพนายกองของเขา<br>
 โดยใช้หลักการแทนตัวอักษรสองตำแหน่งถัดไปมาแทนที่ <br>
@@ -47,10 +52,15 @@ O กลายเป็น Q<br>
 เมื่อแม่ทัพของซีซาร์ได้รับข้อความ ก็ต้องเลื่อนตัวอักษรกลับมา 2 ตำแหน่งจึงจะอ่านข้อความนั้นได้<br>
 และถ้าหากว่าข้อความดังกล่าวถูกแย่งชิงระหว่างทางโดยข้าศึก และข้าศึกไม่รู้กุญแจในการถอดรหัสก็ไม่สามารถรู้ได้ว่าข้อความดังกล่าวคืออะไร <br>
 ทั้งนี้ทั้งนั้นการเข้ารหัสซีซาร์เป็นการเข้ารหัสอย่างง่าย มักจะไม่ได้ช่วยในการรักษาความปลอดภัยของข้อความนั้นเลย<br>
-</div>
+
 <font color="red">References : </font><a target="_BLANK" href="https://th.wikipedia.org/wiki/รหัสซีซาร์">รหัสซีซาร์ wikipedia</a>
+</div>
 <hr>
-<label style="font-size:18px"> โปรแกรมในการเข้ารหัส</label><br>
+<label style="font-size:20px"> โปรแกรมในการเข้ารหัส</label><br>
+<div class="text">
+  เราจะใช้วิธีการเลื่อน  <a target="_BLANK" href="https://th.wikipedia.org/wiki/%E0%B9%81%E0%B8%AD%E0%B8%AA%E0%B8%81%E0%B8%B5">ASCII</a>
+</div>
+<br>
 <pre style="padding:20px;background-color:#F8F8FF">
  
     import java.util.Scanner;
@@ -60,30 +70,29 @@ O กลายเป็น Q<br>
         public static void main(String[] args) {
         
             String plainText;                               <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บข้อความ</font> 
-            int key;                                        <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บจำนวนเต็ม</font> 
+            int shift;                                      <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บจำนวนเต็ม</font> 
             Scanner in = new Scanner(System.in);            <font color="red">//ประกาศตัวแปรที่ใช้รับค่าที่แสกนจากแป้นพิมพ์</font> 
 
             System.out.print("input plain text : ");        <font color="red">//แสดงข้อความ "input plain text : "</font>
             plainText = in.next().toUpperCase();            <font color="red">//ทำการรับข้อความจากแป้นพิมพ์พร้อมกับแปลงเป็นตัวอักษรพิมพ์ใหญ่เก็บไว้ในตัวแปร plainText</font>
 
-            System.out.print("input Key : ");               <font color="red">//แสดงข้อความ "input Key : "</font>
-            key = in.nextInt();                             <font color="red">//ทำการรับเลขจำนวนเต็มจากแป้นพิมพ์เก็บไว้ในตัวแปร key</font>
+            System.out.print("input shift : ");             <font color="red">//แสดงข้อความ "input shift : "</font>
+            shift = in.nextInt();                           <font color="red">//ทำการรับเลขจำนวนเต็มจากแป้นพิมพ์เก็บไว้ในตัวแปร shift</font>
           
-            System.out.println( "encript : " + encript(plainText,key));        <font color="red">//แสดงข้อความที่ถูก encript</font>
+            System.out.println( "encript : " + encript(plainText,shift));        <font color="red">//แสดงข้อความที่ถูก encript</font>
         
         }
       
-        public static String encript(String plainText,int key) {
+        public static String encript(String plainText,int shift) {
             String cipherText = "";         
             char temp;
-            key = key % 26;                 
-            for (int i = 0 , length = plainText.length(); i < length; i++) {         <font color="red">//ทำการวนลูปตามจำนวนตัวอักษรใน plainText</font>
-                temp = (char) (plainText.charAt(i) + key);          <font color="red">//ทำการเลือนตัวอักษรตามจำนวนของ key </font>
+            shift = shift % 26;                                                 <font color="red">//นำ shift มาหารเอาเศษด้วย 26</font>
+            for (int i = 0 , length = plainText.length(); i < length; i++) {    <font color="red">//ทำการวนลูปตามจำนวนตัวอักษรในตัวแปร plainText</font>
+                temp = (char) (plainText.charAt(i) + shift);                    <font color="red">//ทำการเลือนตัวอักษรตามจำนวนของ shift เก็บไว้ในตัวแปร temp</font>
                 if (temp > 'Z') {                    <font color="red">//ทำการเชคเงื่อนไขว่าตัวอักษรที่ถูกเลื่อนมีค่ามากกว่า 'Z' หรือเปล่า</font>
-                    <font color="red">//ถ้า temp > 'Z' ทำการเลื่อนตัวอักษรตามจำนวนที่เกิน 'Z' โดยเริ่มต้นเลื่อนไปยังตัวอักษร 'A' อีกครั้ง</font>
-                    temp = (char) (temp - 26);         
+                    temp = (char) (temp - 26);       <font color="red">//ถ้า temp > 'Z' ทำการเลื่อนตัวอักษรตามจำนวนที่เกิน 'Z' โดยเริ่มต้นเลื่อนที่ตัวอักษร 'A' </font>
                 }
-                cipherText += temp; 
+                cipherText += temp;                  <font color="red">//ทำการต่อตัวอักษร temp เก็บไว้ในตัวแปร cipherText</font>
             }
             return cipherText;
         }
@@ -91,24 +100,31 @@ O กลายเป็น Q<br>
     }
 </pre>
 <br>
- <pre style="background-color:#F8F8FF"> key = key % 26;</pre>
- นำ key มาหารเอาเศษด้วย 26 <br>
- สำหรับผู้อ่านที่กำลังเริ่มต้นศึกษาและไม่ได้ผ่านโจทย์ปัญหามาเยอะ อาจจะตั้งคำถามว่า แล้วทำไมต้องนำ key มาหารเอาเศษด้วย 26 ด้วยล่ะ ?<br>
- สมมุติว่า key ที่รับเข้ามาในฟังก์ชันมีค่าเป็น 28 แสดงว่าต้องเลื่อนตัวอักษรไปข้างหน้า 28 ตัว<br>
- แต่เนื่องจากตัวอักษรในภาษาอังกฤษมีทั้งหมด 26 ตัว หากเลื่อนไป 28 เท่ากับว่าวนรอบตัวเองได้ 1 รอบและเลื่อนถัดไป 2 ตำแห่ง<br>
+<div class="text">
+  สำหรับผู้อ่านที่กำลังเริ่มต้นศึกษาและไม่ได้ผ่านโจทย์ปัญหามาเยอะ อาจจะตั้งคำถามว่า แล้วทำไมต้องนำ shift มาหารเอาเศษด้วย 26 ด้วยล่ะ ?<br>
+ สมมุติว่า shift ที่รับเข้ามาในฟังก์ชันมีค่าเป็น 28 แสดงว่าต้องเลื่อนตัวอักษรไปข้างหน้า 28 ตัว<br>
+ แต่เนื่องจากตัวอักษรในภาษาอังกฤษมีทั้งหมด 26 ตัว หากเลื่อนไป 28 ตำแหน่ง เท่ากับว่าเลื่อนวนรอบตัวเองได้ 1 รอบ แล้วเลื่อนไปอีก 2 ตำแหน่ง<br>
  วิธีคิด 28-26 = 2<br>
- เราจึงต้องทำการเชคว่า key มีค่าเกิน 26 หรือเปล่า ดังนี้<br>
- <pre style="background-color:#F8F8FF"> if(key > 26){
-      key = key - 26;
+ เราจึงต้องทำการเชคว่า shift มีค่าเกิน 26 หรือเปล่า ซึ่งเราอาจจะเขียนเชคเงื่อนไขดังนี้
+</div>
+<br>
+ <pre style="background-color:#F8F8FF"> if(shift > 26){
+      shift = shift - 26;
   }</pre>
+  แล้วถ้าหากว่า shift มีค่าเป็น 55 ล่ะ เราจะทำการเชค shift > 26 ก็ไม่ได้แล้วสิ จึงต้องเชคเงื่อนไขเพิ่มอีกดังนี้<br><br>
+  <pre style="background-color:#F8F8FF"> if(shift > 52){
+      shift = shift - 52;
+  }</pre>
+  ขืนเป็นแบบนี้เราคงเขียนเชคเงื่อนไขกันไม่รู้จบแน่ แล้วเราจะมีวิธีแก้ปัญหายังไงล่ะ ?<br>
+  ก็นำ shift มาหารเอาเศษด้วย 26 ไง ซึ่งเศษที่เหลือก็คือ จำนวนที่ถูกเลื่อนจริงๆ นั่นเอง<br><br>
+  <pre style="background-color:#F8F8FF"> shift = 55;
+ shift = shift % 26;      <font color="red">//shift = 3</font></pre>
 <a class="btn btn-info" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
   <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
 </a>
 <br><br>
 <div class="collapse" id="collapseExample">
-  <pre style="border:0px">
-    
-  </pre>
+  
 </div>
 <hr>
 <label style="font-size:18px"> โปรแกรมในการถอดรหัส</label><br>

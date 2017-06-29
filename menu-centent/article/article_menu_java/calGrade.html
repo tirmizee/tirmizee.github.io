@@ -2,14 +2,15 @@
 .font-red{
   font-color : red;
 }
+
 </style>
 <br>
 <div class="container">
     <label style="font-size:25px">ภาษา Java</label>
     <hr>
-    <label style="font-size:20px">จงเขียนโปรแกรมคำนวณเกรด โดยมีเงื่อนไขดังนี้</label>
+    <label style="font-size:23px">จงเขียนโปรแกรมคำนวณเกรด โดยมีเงื่อนไขดังนี้</label>
     <br>
-    <div class="container">
+    <div class="text container">
         ถ้าคะแนนน้อยกว่า 50 ได้เกรด F<br>
         ถ้าคะแนนตั้งแต่ 50-54 ได้เกรด D<br>
         ถ้าคะแนนตั้งแต่ 55-59 ได้เกรด D+<br>
@@ -20,11 +21,11 @@
         ถ้าคะแนนตั้งแต่ 80 ขึ้นไป ได้เกรด A<br>
     </div>
     <hr>
-    <label style="font-size:18px"> วิธีที่ 1 <br> เป็นการใช้คำสั่ง if-else-if</label>
+    <label style="font-size:20px"> วิธีที่ 1 <br> เป็นการใช้คำสั่ง if-else-if</label>
     <br>
-    <font>วิธีนี้เป็นการตรวจสอบเงื่อนไขเป็นชุดหลายทางเลือก </font>
-    <br><br>
-    <pre style="padding:20px;background-color:#F8F8FF">
+    <div class="text">วิธีนี้เป็นการตรวจสอบเงื่อนไขเป็นชุดหลายทางเลือก</div> 
+    <br>
+    <pre style="padding:20px;background-color:#F8F8FF;">
       import java.util.Scanner;
       public class Grade {
 
@@ -59,7 +60,6 @@
         }
       }
     </pre>
-    <br>
      <a class="btn btn-info" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
         <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
     </a>
@@ -68,20 +68,25 @@
         <img src="resource/img_article/java0001_1.PNG">
     </div>
     <br>
-    ...แต่เอ๊ะ !!! ดูเหมือนว่าการเชคเงื่อนไขมันทำงานซ้ำซ้อนกันอยู่ ลองมาดูโค้ดด่านล่างกันครับ
-    <br><br>
+    <div class="text">
+      ...แต่เอ๊ะ !!! ดูเหมือนว่าการเชคเงื่อนไขมันทำงานซ้ำซ้อนกันอยู่ ลองมาดูโค้ดด่านล่างกันครับ
+    </div>
+    <br>
     <pre style="background-color:#F8F8FF;">
+
       1.  if( score < 50) {         
       2.    grade = "F";                          
       3.  }else if(<font color="red">score >= 50</font> && score < 55){     
       4.    grade = "D";
       5.  }
     </pre>
+    <div class="text">
       ถ้าเงื่อนไขบรรทัดที่ 1 เป็นเท็จ แสดงว่า score ต้องมีค่า >= 50 แล้วโปรแกรมจะไปทำบรรทัดที่ 3<br>
       แต่ลองสังเกตบรรทัดที่ 3 ดู พบว่ามีการเชค  score >= 50 ซ้ำอีกรอบ<br>
       ซึ่งเราไม่จำเป็นต้องเชคอีก เพราะถ้าหากมันเข้าเงื่อนไขบรรทัดนี้แสดงว่า score ต้องมีค่า >= 50 อยู่แล้ว<br>
       ดังนั้นเราสามารถตัดการเชค score >= 50 ออกไปได้เลย
-    <br><br>
+    </div>  
+    <br>
     <pre style="padding:20px;background-color:#F8F8FF">
      
        if (score < 50) {
@@ -100,18 +105,21 @@
           grade = "B+";
         }else {
           grade = "A";
-        }
-
-        
+        }   
     </pre>
    
-
-    แต่อย่าลืมจัดลำดับการเชคให้ถูกต้องด้วยน่ะครับ
+    <div class="text">
+      แต่อย่าลืมจัดลำดับการเชคให้ถูกต้องด้วยน่ะครับ
+    </div>
+    
     <br>
     <hr>
-    <label style="font-size:18px"> วิธีที่ 2 <br> เป็นการใช้คำสั่ง switch-case</label>
+    <label style="font-size:20px"> วิธีที่ 2 <br> เป็นการใช้คำสั่ง switch-case</label>
     <br>
-    วิธีการนี้เป็นการตรวจสอบเงื่อนไขกรณีที่เป็นจำนวนเต็มเท่านั้น โดยนำ score มาหารด้วย 5 แล้วจึงทำการตรวจสอบเงื่อนไข<br>
+    <div class="text">
+      วิธีการนี้เป็นวิธีการที่ใช้ในการตรวจสอบค่าเท่านั้น โดยนำ score มาหารด้วย 5 แล้วจึงทำการตรวจสอบค่าของ score ว่าตรงกับ case ใด
+    </div>
+    
     <br>
     <pre style="padding:20px;background-color:#F8F8FF">
     import java.util.Scanner;
@@ -161,10 +169,12 @@
         <img src="resource/img_article/java0001_2.PNG">
     </div>
     <br>
-    ผู้อ่านอาจจะตั้งคำถามว่าทำไมจึงต้องเอา score มาหาร 5 ด้วยล่ะ!!!
+    <div class="text">
+      ผู้อ่านอาจจะตั้งคำถามว่า <b>ทำไมจึงต้องเอา score มาหาร 5 ด้วยล่ะ!!!</b>
+      <br>
+      ซึ่งถ้าหากเราไม่นำเอา score มาหาร 5 ก่อน อาจจะต้องตรวจสอบค่าของ score ยาวกันเลยทีเดียว ดังตัวอย่างด่านล่าง
+    </div>
     <br>
-    ซึ่งถ้าหากเราไม่นำเอา score มาหาร 5 ก่อน อาจจะต้องตรวจสอบเงื่อนไขยาวกันเลยทีเดียว ดังตัวอย่างด่านล่าง
-    <br><br>
       <pre style="padding:20px;background-color:#F8F8FF">
         
           switch (score) {                    
@@ -193,10 +203,13 @@
 
     </pre>
     <hr>
-    <label style="font-size:18px"> วิธีที่ 3 <br> เป็นการใช้วิธีการอ้างอิง index</label><br>
-    วิธีการนี้ หลายคนอาจจะไม่ค่อยได้เห็นสักเท่าไหร่ เป็นการแปลงเงื่อนไขใน switch-case จากวิธีที่  2 มาอ้างอิง index ใน Array แทน 
+    <label style="font-size:20px"> วิธีที่ 3 <br> เป็นการใช้วิธีการอ้างอิง index</label><br>
+    <div class="text">
+      วิธีการนี้ หลายคนอาจจะไม่ค่อยได้เห็นสักเท่าไหร่ เป็นการแปลงเงื่อนไขใน switch-case จากวิธีที่  2 มาอ้างอิง index ใน Array แทน 
     โดยที่ไม่มีเงื่อนไขใดๆ มาเกี่ยวข้องเลย 
-    <br><br>
+    </div>
+    
+    <br>
     <pre style="padding:20px;background-color:#F8F8FF">
       public static void main(String[] args) {
         
@@ -223,15 +236,20 @@
         <img src="resource/img_article/java0001_3.PNG">
     </div>
     <br>
-    จากวิธีการข้างต้นจะสังเกตได้ว่ามีการก็บเกรดบางตัวซ้ำกันอยู่ เพื่อให้สามารถอ้างอิง index ได้<br>
-    ถ้าต้องการเปลี่ยนเป็นแบบนี้ล่ะ <br><br>
+    <div class="text">
+      จากวิธีการข้างต้นจะสังเกตได้ว่ามีการก็บเกรดบางตัวซ้ำกันอยู่ เพื่อให้สามารถอ้างอิง index ได้<br>
+    ถ้าต้องการเปลี่ยนเป็นแบบนี้ล่ะ
+    </div>  
+    <br>
     <pre style="padding:20px;background-color:#F8F8FF">
        String grade[] = {  "F" ,"D", "D+", "C" , "C+", "B" , "B+" , "A" };     
-       index = score+-*/%;  
-    </pre>
-    แล้วใช้คณิตศาสตร์ มาช่วยคิดสมการในการหา index แทน โดยที่ไม่ต้องใช้เงื่อนไขพวก if-else switch-case ใดๆเลย จะสามารถทำได้หรือเปล่า ? <br>
+       index = score+-*/%;  </pre>
+    <div class="text">
+       แล้วใช้คณิตศาสตร์ มาช่วยคิดสมการในการหา index แทน โดยที่ไม่ต้องใช้เงื่อนไขพวก if-else switch-case ใดๆเลย จะสามารถทำได้หรือเปล่า ? <br>
     ...ผู้เขียนขอบอกเลยว่าสามารถทำได้ครับ แต่กว่าจะคิดสมการออก ทำเอาสมองแทบจะระเบิดเป็นโก้โก้ครั้นกันเลยทีเดียว <br>
     ผู้อ่านท่านใดที่ชอบแนวโหดๆ แบบนี้ก็ไปลองดูกันได้เลยย
+    </div>
+   
     <br><br><br>
     <div class="facebook-comment">
         <div id="fb-root"></div>
