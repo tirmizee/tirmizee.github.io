@@ -8,6 +8,7 @@
   	<title>บทเรียนโปรแกรมคอมพิวเตอร์ ภาษาซี , จาวา</title>
 
 	<link rel="icon" href="resource/ico/favicon.ico" />
+	
 	<link rel="stylesheet" href="css/bootstrap.min.css" >
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css" >
 	<link rel="stylesheet" href="css/bootstrap-select.min.css" >
@@ -28,11 +29,16 @@
 	<script src="js/offline-exporting.js" ></script>
 	<script src="js/all.js" ></script>
 	<script src="js/pace.js" ></script>
+	<script src="js/typeit.min.js"></script>
 	<style>
 	@import url("css/hover-min.css");
 		@font-face {
 			font-family: 'super';
 			src: url('font/supermarket.ttf');
+		}
+		@font-face {
+			font-family: 'mplus';
+			src: url('font/mplus-2m-regular.ttf');
 		}
 /*body {
 -webkit-filter: grayscale(90%);
@@ -436,6 +442,61 @@ hr.style-two {
 						$('#img_person').on('click',function(){
 							alert("s");
 						});
+
+$('#example4').typeIt({
+     speed: 50,
+     autoStart: false
+})
+.tiPause(1500)
+.tiType('public class Demo {')
+.tiBreak() 
+.tiPause(500)
+.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;  public static void main(String[] args) {')
+.tiPause(1000)
+.tiBreak() 
+.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;  &nbsp; ')
+.tiPause(750)
+.tiType(' Man man = new Man("A");')
+.tiBreak() .tiPause(750)
+.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;  &nbsp; ')
+.tiPause(750)
+.tiType(' Woman woman = new Woman("someone");')
+.tiBreak() .tiPause(750)
+.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;  &nbsp; ')
+.tiPause(750)
+.tiType(' if( woman.isBueatifull() ) {')
+.tiBreak().tiPause(750)
+.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp; &nbsp; ')
+.tiPause(750)
+.tiType(' man.propose(woman);')
+.tiBreak().tiPause(750)
+.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp; &nbsp; ')
+.tiPause(750).tiType(' if( man.isRich() ) {')
+.tiBreak().tiPause(700)
+.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; ')
+.tiPause(700)
+.tiType(' woman.acceptProposal(man);')
+.tiBreak().tiPause(700)
+.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; ')
+.tiPause(700)
+.tiType(' man.insertInto(woman);')
+.tiBreak().tiPause(750)
+.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp; &nbsp; ')
+.tiPause(750).tiType('} else {')
+.tiBreak().tiPause(750)
+.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; ')
+.tiPause(700)
+.tiType(' man.fap();')
+.tiBreak().tiPause(750)
+.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp; &nbsp; ')
+.tiPause(750).tiType('}') 
+.tiBreak() 
+.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;  &nbsp; ')
+.tiType('}')
+.tiBreak()
+.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;  }')
+.tiBreak()
+.tiType('}');
 						 
 					});
 				},
