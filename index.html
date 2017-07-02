@@ -30,6 +30,9 @@
 	<script src="js/all.js" ></script>
 	<script src="js/pace.js" ></script>
 	<script src="js/typeit.min.js"></script>
+	<link rel="stylesheet" href="css/styles/googlecode.css">
+	<script src="js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
 	<style>
 	@import url("css/hover-min.css");
 		@font-face {
@@ -129,6 +132,7 @@ hr.style-two {
 .text{
   font-size: 15.5px;
 }
+
 </style>
 
 </head>
@@ -153,8 +157,6 @@ hr.style-two {
 					<ul class="nav navbar-nav">
 						<li id="main" class="li-border active"><a href="#" class="hvr-glow text-center"><label>หน้าหลัก</label></a></li>
 						<li id="article" class="li-border"><a href="#" class="hvr-glow text-center"><label>บทเรียน</label></a></li>
-						<li  class="li-border"><a href="#" class="hvr-glow text-center"><label>ข่าวสาร</label></a></li>
-						<li id="report" class="li-border"><a href="#" class="hvr-glow text-center"><label>รายงาน</label></a></li>
 						<li id="test" class="li-border"><a href="#" class="hvr-glow text-center"><label>ทดสอบ</label></a></li>
 					</ul>  
 					<ul class="nav navbar-nav navbar-right">
@@ -223,8 +225,10 @@ hr.style-two {
 							e.preventDefault();
 							callArticleMenu.article_menu_java();							
 						});
-						
-						  FB.XFBML.parse();
+						$('pre code').each(function(i, block) {
+						    hljs.highlightBlock(block);
+						 });
+						FB.XFBML.parse();
 
 					});
 
@@ -235,7 +239,9 @@ hr.style-two {
 					$("#main").removeClass("active");
 					$("#article").addClass("active");
 					$(".body").load("menu-centent/article/article_menu_java/ceasar.html", function(data) {
-
+						$('pre code').each(function(i, block) {
+						    hljs.highlightBlock(block);
+						 });
 						$("#bnt_back").on('click',function(e){
 							e.preventDefault();
 							callArticleMenu.article_menu_java();							
@@ -456,44 +462,12 @@ $('#example4').typeIt({
 .tiBreak() 
 .tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;  &nbsp; ')
 .tiPause(750)
-.tiType(' Man man = new Man("A");')
+.tiType(' System.out.println("Hello World !");')
 .tiBreak() .tiPause(750)
 .tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;  &nbsp; ')
 .tiPause(750)
-.tiType(' Woman woman = new Woman("someone");')
+.tiType(' System.out.println("Programming is funny");')
 .tiBreak() .tiPause(750)
-.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;  &nbsp; ')
-.tiPause(750)
-.tiType(' if( woman.isBueatifull() ) {')
-.tiBreak().tiPause(750)
-.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp; &nbsp; ')
-.tiPause(750)
-.tiType(' man.propose(woman);')
-.tiBreak().tiPause(750)
-.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp; &nbsp; ')
-.tiPause(750).tiType(' if( man.isRich() ) {')
-.tiBreak().tiPause(700)
-.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; ')
-.tiPause(700)
-.tiType(' woman.acceptProposal(man);')
-.tiBreak().tiPause(700)
-.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; ')
-.tiPause(700)
-.tiType(' man.insertInto(woman);')
-.tiBreak().tiPause(750)
-.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp; &nbsp; ')
-.tiPause(750).tiType('} else {')
-.tiBreak().tiPause(750)
-.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; ')
-.tiPause(700)
-.tiType(' man.fap();')
-.tiBreak().tiPause(750)
-.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp; &nbsp; ')
-.tiPause(750).tiType('}') 
-.tiBreak() 
-.tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;  &nbsp; ')
-.tiType('}')
-.tiBreak()
 .tiType(' &nbsp;  &nbsp;  &nbsp;  &nbsp;  }')
 .tiBreak()
 .tiType('}');
@@ -535,93 +509,7 @@ $('#example4').typeIt({
 				test : function(){
 					window.location.hash = "";
 					$(".body").load("menu-centent/test.html", function(data) {
-						Highcharts.chart('container', {
-							credits: {
-					            enabled: false
-					        },
-						    chart: {
-						        type: 'column'
-						    },
-						    title: {
-						        text: 'Monthly Average Rainfall'
-						    },
-						    subtitle: {
-						        text: 'Source: WorldClimate.com'
-						    },
-						    xAxis: {
-						        categories: [
-						            'Jan',
-						            'Feb',
-						            'Mar',
-						            'Apr',
-						            'May',
-						            'Jun',
-						            'Jul',
-						            'Aug',
-						            'Sep',
-						            'Oct',
-						            'Nov',
-						            'Dec'
-						        ],
-						        crosshair: true
-						    },
-						    yAxis: {
-						        min: 0,
-						        title: {
-						            text: 'Rainfall (mm)'
-						        }
-						    },
-						    tooltip: {
-						        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-						        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-						            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-						        footerFormat: '</table>',
-						        shared: true,
-						        useHTML: true
-						    },
-						    plotOptions: {
-						        column: {
-						            pointPadding: 0.2,
-						            borderWidth: 0
-						        },
-						        series: {
-					                cursor: 'pointer',
-					                point: {
-					                    events: {
-					                        click: function() {
-					                            alert(this.series.name );
-					                        }
-					                    }
-					                }
-			                    }
-              
-
-						    },
-						    series: [{
-						        name: 'Tokyo',
-						        data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
-
-						    }, {
-						        name: 'New York',
-						        data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
-
-						    }, {
-						        name: 'London',
-						        data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
-
-						    }, {
-						        name: 'Berlin',
-						        data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
-
-						    }]
-						});
-					});
-				},
-				report : function(){
-					window.location.hash = "";
-					$(".body").load("menu-centent/report.html", function(data) {
-						// Create the chart
-						Highcharts.chart('container', {
+							Highcharts.chart('container', {
 							credits: {
 					            enabled: false
 					        },
@@ -697,7 +585,7 @@ $('#example4').typeIt({
 						        
 						});
 					});
-				}		
+				}	
 			};
 			
 

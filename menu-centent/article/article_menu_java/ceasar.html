@@ -58,11 +58,11 @@ O กลายเป็น Q<br>
 <hr>
 <label style="font-size:20px"> โปรแกรมในการเข้ารหัส</label><br>
 <div class="text">
-  เราจะใช้วิธีการเลื่อน  <a target="_BLANK" href="https://th.wikipedia.org/wiki/%E0%B9%81%E0%B8%AD%E0%B8%AA%E0%B8%81%E0%B8%B5">ASCII</a>
+  เราจะใช้วิธีการเลื่อน  <a target="_BLANK" href="https://th.wikipedia.org/wiki/%E0%B9%81%E0%B8%AD%E0%B8%AA%E0%B8%81%E0%B8%B5">ASCII</a> 
 </div>
 <br>
 <pre style="padding:20px;background-color:#F8F8FF">
- 
+  <code style="background-color:#F8F8FF" class="java">
     import java.util.Scanner;
 
     public class Caesar {
@@ -90,94 +90,141 @@ O กลายเป็น Q<br>
             for (int i = 0 , length = plainText.length(); i < length; i++) {    <font color="red">//ทำการวนลูปตามจำนวนตัวอักษรในตัวแปร plainText</font>
                 temp = (char) (plainText.charAt(i) + shift);                    <font color="red">//ทำการเลือนตัวอักษรตามจำนวนของ shift เก็บไว้ในตัวแปร temp</font>
                 if (temp > 'Z') {                    <font color="red">//ทำการเชคเงื่อนไขว่าตัวอักษรที่ถูกเลื่อนมีค่ามากกว่า 'Z' หรือเปล่า</font>
-                    temp = (char) (temp - 26);       <font color="red">//ถ้า temp > 'Z' ทำการเลื่อนตัวอักษรตามจำนวนที่เกิน 'Z' โดยเริ่มต้นเลื่อนที่ตัวอักษร 'A' </font>
+                    temp = (char) (temp - 26);       <font color="red">//ทำการเลื่อนตัวอักษรตามจำนวนที่เกิน 'Z' โดยเริ่มต้นเลื่อนที่ตัวอักษร 'A' </font>
                 }
                 cipherText += temp;                  <font color="red">//ทำการต่อตัวอักษร temp เก็บไว้ในตัวแปร cipherText</font>
             }
             return cipherText;
         }
       
-    }
+    }</code >
 </pre>
 <a class="btn btn-info" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
   <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
 </a>
 <br><br>
 <div class="collapse" id="collapseExample">
-  าทาสทสาทาสท
+  <img src="resource/img_article/java0002_1.PNG">
 </div>
 <br>
 <div class="text">
-  สำหรับผู้อ่านที่กำลังเริ่มต้นศึกษาและไม่ได้ผ่านโจทย์ปัญหามาเยอะ อาจจะตั้งคำถามว่า แล้วทำไมต้องนำ shift มาหารเอาเศษด้วย 26 ด้วยล่ะ ?<br>
+  สำหรับผู้อ่านที่กำลังเริ่มต้นศึกษาและไม่ได้ผ่านโจทย์ปัญหามาเยอะ อาจจะตั้งคำถามว่า แล้วทำไมต้องนำ shift มาหารเอาเศษด้วย 26 ด้วยล่ะ ? <br>
  สมมุติว่า shift ที่รับเข้ามาในฟังก์ชันมีค่าเป็น 28 แสดงว่าต้องเลื่อนตัวอักษรไปข้างหน้า 28 ตัว<br>
  แต่เนื่องจากตัวอักษรในภาษาอังกฤษมีทั้งหมด 26 ตัว หากเลื่อนไป 28 ตำแหน่ง เท่ากับว่าเลื่อนวนรอบตัวเองได้ 1 รอบ แล้วเลื่อนไปอีก 2 ตำแหน่ง<br>
  วิธีคิด 28-26 = 2<br>
  เราจึงต้องทำการตรวจสอบว่า shift มีค่าเกิน 26 หรือเปล่า ซึ่งเราอาจจะเขียนตรวจสอบเงื่อนไขดังนี้
 </div>
 <br>
- <pre style="background-color:#F8F8FF"> if(shift > 26){
+ <pre style="background-color:#F8F8FF"> <code style="background-color:#F8F8FF" class="java">if(shift > 26){
       shift = shift - 26;
-  }</pre>
+  }</code ></pre>
   <div class="text">
      แล้วถ้าหากว่า shift มีค่าเป็น 55 ล่ะ เราจะทำการตรวจสอบ shift > 26 ก็ไม่ได้แล้วสิ จึงต้องเขียนตรวจสอบเงื่อนไขเพิ่มอีกดังนี้
   </div>
  <br>
-  <pre style="background-color:#F8F8FF"> if(shift > 52){
+  <pre style="background-color:#F8F8FF"> <code style="background-color:#F8F8FF" class="java">  if(shift > 52){
       shift = shift - 52;
-  }</pre>
+  }</code ></pre>
   <div class="text">
     ขืนเป็นแบบนี้เราคงตรวจสอบเงื่อนไขกันไม่รู้จบแน่ แล้วเราจะมีวิธีแก้ปัญหายังไงล่ะ ?<br>
-  ก็นำ shift มาหารเอาเศษด้วย 26 ไง ซึ่งเศษที่เหลือก็คือ จำนวนที่ถูกเลื่อนจริงๆ นั่นเอง<br>
+  ก็นำ shift มาหารเอาเศษด้วย 26 ส่ะเลย ซึ่งเศษที่เหลือก็คือ จำนวนที่ถูกเลื่อนจริงๆ นั่นเอง<br>
+
   </div>
   <br>
-  <pre style="background-color:#F8F8FF"> shift = 55;
- shift = shift % 26;      <font color="red">//shift = 3</font></pre>
-
-
-
+  <pre style="background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java"> shift = 55;
+ shift = shift % 26;      <font color="red">//shift = 3</font></code ></pre>
+ <div class="text">
+     หรือไม่ก็ต้องตรวจสอบตั้งแต่ตอนรับ shift เข้ามาว่าต้องอยู่ระหว่าง 1-25
+ </div>
+<br>
+<br>
+<br>
 <hr>
+<br>
 <label style="font-size:20px"> โปรแกรมในการถอดรหัส</label><br>
+<div class="text">
+  การเขียนโปรแกรมถอดรหัสมันก็จะคล้ายๆกัน กับการเข้ารหัส เพียงแค่สลับวิธีคิดกลับกัน
+</div><br>
 <pre style="padding:20px;background-color:#F8F8FF">
- 
+  <code style="background-color:#F8F8FF" class="java"> 
     import java.util.Scanner;
 
     public class Caesar {
 
         public static void main(String[] args) {
         
-            String cipherText;                               <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บข้อความ</font> 
-            int key;                                         <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บจำนวนเต็ม</font> 
-            Scanner in = new Scanner(System.in);             <font color="red">//ประกาศตัวแปรที่ใช้รับค่าที่แสกนจากแป้นพิมพ์</font> 
+            String cipherText;                               
+            int shift;                                          
+            Scanner in = new Scanner(System.in);             
 
-            System.out.print("input CipherText text : ");    <font color="red">//แสดงข้อความ "input CipherText text : "</font>
-            cipherText = in.next().toUpperCase();            <font color="red">//ทำการรับข้อความจากแป้นพิมพ์พร้อมกับแปลงเป็นตัวอักษรพิมพ์ใหญ่เก็บไว้ในตัวแปร cipherText</font>
+            System.out.print("input CipherText text : ");    
+            cipherText = in.next().toUpperCase();            
 
-            System.out.print("input Key : ");                <font color="red">//แสดงข้อความ "input Key : "</font>
-            key = in.nextInt();                              <font color="red">//ทำการรับเลขจำนวนเต็มจากแป้นพิมพ์เก็บไว้ในตัวแปร key</font>
+            System.out.print("input shift : ");                
+            shift = in.nextInt();                              
           
-            System.out.println( "decrypt : " + decrypt(cipherText,key));
+            System.out.println( "decrypt : " + decrypt(cipherText,shift));
         
         }
-      
-       public static String decrypt(String cipherText,int key) {
-        String plainText = "";
-        key = key % 26;
-        for (int i = 0; i < cipherText.length(); i++) {
-            char temp = (char) (cipherText.charAt(i) - key);
-            plainText += temp;
-            if (temp < 'A') {
-                plainText += (char) ('Z' - (64 - temp));
+
+        public static String decrypt(String cipherText,int shift) {
+            String plainText = "";
+            shift = shift % 26;
+            for (int i = 0; i < cipherText.length(); i++) {
+                char temp = (char) (cipherText.charAt(i) - shift);         <font color="red">//ทำการถอยตัวอักษรกลับไปตามค่าของ shift เก็บไว้ในตัวแปร temp</font>
+                if (temp < 'A') {                                          <font color="red">//ตรวจสอบว่าตัวอักษรที่ถอยกลับไปมีค่าน้อยกว่า 'A' หรือเปล่า</font>
+                    temp = (char) (temp + 26);                             <font color="red">//ทำการถอยตัวอักษรใหม่ โดยเริ่มต้นที่ 'Z' </font>
+                }
+                plainText += temp;
             }
+            return plainText;
         }
-        return plainText;
-      }
       
-    }
+    }</code>
 </pre>
-<script src="https://gist.github.com/tirmizee/d22ee168b2695012468bd96c86dd6611.js"></script>
+<a class="btn btn-info" role="button" data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+  <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
+</a>
+<br><br>
+<div class="collapse" id="collapseExample2">
+  <img src="resource/img_article/java0002_2.PNG">
+</div>
+<br>
+<div class="text">
+  ผู้เขียนคิดว่ามันน่าจะมีวิธีการแบบอื่นที่เราไม่ต้องมาตรวจสอบเงื่อนไขในลูปทุกครั้ง ทั้งส่วนของฟังก์ชัน encript และ decrypt และเมื่อได้ไปลองหาวิธีดูก็สามารถทำได้ครับ ดังนี้
+</div>
+
+<br>
+<pre style="padding:20px;background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java"> 
+    public static String encript(String plainText,int shift) {
+        String cipherText = "";         
+        char temp;
+        shift = shift % 26;                                                
+        for (int i = 0 , length = plainText.length(); i < length; i++) {    
+            temp = (char)( 'A' +  ((plainText.charAt(i) + shift) - 'A' ) % 26) ;                     
+            cipherText += temp;  
+        }
+        return cipherText;
+    }
+
+    public static String decrypt(String cipherText,int shift) {
+        String plainText = "";
+        shift = shift % 26;
+        char temp;
+        for (int i = 0; i < cipherText.length(); i++) {
+             temp = (char)( 'Z' -  ('Z' % cipherText.charAt(i) + shift ) % 26 ) ;      
+             plainText += temp;
+         }
+         return plainText;
+     }  </code></pre>
+     <br>
+     <div class="text">
+       จะใช้วิธีการคำนวณหา index ของตัวอักษรที่จัดเรียงตาม ASCII ...เชื่อว่าผู้อ่านคงมองไม่เห็นภาพ งั้นลองมาดูที่มาของวิธีดังกล่าวกัน
+     </div>
 <br><br>
 <div id="fb-root"></div>
 <div class="fb-comments" data-href="https://tirmizee.github.io/#java0002" data-width="100%" data-numposts="5"></div>
+
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;

@@ -26,21 +26,21 @@
     <br>
     <div class="text">วิธีนี้เป็นการตรวจสอบเงื่อนไขเป็นชุดหลายทางเลือก</div> 
     <br>
-    <pre style="padding:20px;background-color:#F8F8FF;">
+    <pre style="padding:20px;background-color:#F8F8FF;"><code style="background-color:#F8F8FF" class="java">
       import java.util.Scanner;
       public class Grade {
 
         public static void main(String[] args) {
 
-          int score;                              <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บจำนวนเต็ม</font> 
-          String grade;                           <font color="red">//ประกาศตัวแปรเป็นชนิดข้อมูลเก็บข้อความ</font> 
-          Scanner in = new Scanner(System.in);    <font color="red">//ประกาศตัวแปรที่ใช้รับค่าที่แสกนจากแป้นพิมพ์</font> 
-          System.out.print("input score : ");     <font color="red">//แสดงข้อความ "input score"</font> 
-          score = in.nextInt();                   <font color="red">//ทำการรับค่าจำนวนเต็มจากแป้นพิมพ์เก็บไว้ในตัวแปร score</font> 
+          int score;                              <font color="red">// ประกาศตัวแปรเป็นชนิดข้อมูลเก็บจำนวนเต็ม</font> 
+          String grade;                           <font color="red">// ประกาศตัวแปรเป็นชนิดข้อมูลเก็บข้อความ</font> 
+          Scanner in = new Scanner(System.in);    <font color="red">// ประกาศตัวแปรที่ใช้รับค่าที่แสกนจากแป้นพิมพ์</font> 
+          System.out.print("input score : ");     <font color="red">// แสดงข้อความ "input score"</font> 
+          score = in.nextInt();                   <font color="red">// ทำการรับค่าจำนวนเต็มจากแป้นพิมพ์เก็บไว้ในตัวแปร score</font> 
           
-          if (score < 50) {                       <font color="red">//ทำการเชคเงื่อนไขว่า score < 50 จริงไหม</font> 
-            grade = "F";                          <font color="red">//ถ้าเงื่อนไขด้านบนเป็นจริง กำหนดให้ grade มีค่าเท่ากับ "F"</font> 
-          }else if(score >= 50 && score < 55){    <font color="red">//บลาๆๆ...</font> 
+          if (score < 50) {                       <font color="red">// ทำการตรวจสอบเงื่อนไขว่า score < 50 จริงไหม</font> 
+            grade = "F";                          <font color="red">// ถ้าเงื่อนไขด้านบนเป็นจริง กำหนดให้ grade มีค่าเท่ากับ "F"</font> 
+          }else if(score >= 50 && score < 55){    <font color="red">// บลาๆๆ...</font> 
             grade = "D";
           }else if(score >= 55 && score < 60){
             grade = "D+";
@@ -59,7 +59,7 @@
           System.out.println("Grade : " + grade);
              
         }
-      }
+      }</code>
     </pre>
      <a class="btn btn-info" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
         <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
@@ -73,13 +73,13 @@
       ...แต่เอ๊ะ !!! ดูเหมือนว่าการตรวจสอบเงื่อนไขมันทำงานซ้ำซ้อนกันอยู่ ลองมาดูโค้ดด่านล่างกันครับ
     </div>
     <br>
-    <pre style="background-color:#F8F8FF;">
+    <pre style="background-color:#F8F8FF;"><code style="background-color:#F8F8FF" class="java">
 
       1.  if( score < 50) {         
       2.    grade = "F";                          
       3.  }else if(<font color="red">score >= 50</font> && score < 55){     
       4.    grade = "D";
-      5.  }
+      5.  }</code>
     </pre>
     <div class="text">
       ถ้าเงื่อนไขบรรทัดที่ 1 เป็นเท็จ แสดงว่า score ต้องมีค่า >= 50 แล้วโปรแกรมจะไปทำบรรทัดที่ 3<br>
@@ -89,7 +89,7 @@
     </div>  
     <br>
     <pre style="padding:20px;background-color:#F8F8FF">
-     
+     <code style="background-color:#F8F8FF" class="java">
        if (score < 50) {
           grade = "F";
         }else if(score < 55){
@@ -106,7 +106,7 @@
           grade = "B+";
         }else {
           grade = "A";
-        }   
+        }</code>   
     </pre>
    
     <div class="text">
@@ -122,7 +122,7 @@
     </div>
     
     <br>
-    <pre style="padding:20px;background-color:#F8F8FF">
+    <pre style="padding:20px;background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java">
     import java.util.Scanner;
     public class Grade {
 
@@ -160,7 +160,7 @@
         System.out.println("Grade : " + grade);
            
       }
-    }
+    }</code>
     </pre>
     <a class="btn btn-info" role="button" data-toggle="collapse" href="#output2" aria-expanded="false" aria-controls="collapseExample">
       <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
@@ -177,7 +177,7 @@
     </div>
     <br>
       <pre style="padding:20px;background-color:#F8F8FF">
-        
+        <code style="background-color:#F8F8FF" class="java">
           switch (score) {                    
             case 0 :
             case 1 :
@@ -201,7 +201,7 @@
                       break;
             <font color="red">//บลาๆๆ...</font> 
         }
-
+        </code>
     </pre>
     <hr>
     <label style="font-size:20px"> วิธีที่ 3 <br> เป็นการใช้วิธีการอ้างอิง index</label><br>
@@ -211,7 +211,7 @@
     </div>
     
     <br>
-    <pre style="padding:20px;background-color:#F8F8FF">
+    <pre style="padding:20px;background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java">
       public static void main(String[] args) {
         
           int index;
@@ -227,7 +227,7 @@
           System.out.println(" Grade : " + grade[index]);
 
            
-      }
+      }</code>
     </pre>
     <a class="btn btn-info" role="button" data-toggle="collapse" href="#output3" aria-expanded="false" aria-controls="collapseExample">
       <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
@@ -242,9 +242,9 @@
     ถ้าต้องการเปลี่ยนเป็นแบบนี้ล่ะ
     </div>  
     <br>
-    <pre style="padding:20px;background-color:#F8F8FF">
+    <pre style="padding:20px;background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java">
        String grade[] = {  "F" ,"D", "D+", "C" , "C+", "B" , "B+" , "A" };     
-       index = score+-*/%;  </pre>
+       index = score+-*/%; </code> </pre>
     <div class="text">
        แล้วใช้คณิตศาสตร์ มาช่วยคิดสมการในการหา index แทน โดยที่ไม่ต้องใช้เงื่อนไขพวก if-else switch-case ใดๆเลย จะสามารถทำได้หรือเปล่า ? <br>
     ...ผู้เขียนขอบอกเลยว่าสามารถทำได้ครับ แต่กว่าจะคิดสมการออก ทำเอาสมองแทบจะระเบิดเป็นโกโก้ครั้นกันเลยทีเดียว <br>
