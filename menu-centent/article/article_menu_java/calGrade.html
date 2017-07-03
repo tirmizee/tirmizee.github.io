@@ -2,6 +2,52 @@
 .font-red{
   font-color : red;
 }
+  
+
+.fakeButtons {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  position: relative;
+  top: 6px;
+  left: 6px;
+  background-color: #ff3b47;
+  border-color: #9d252b;
+  display: inline-block;
+}
+
+.fakeMinimize {
+  left: 11px;
+  background-color: #ffc100;
+  border-color: #9d802c;
+}
+
+.fakeZoom {
+  left: 16px;
+  background-color: #00d742;
+  border-color: #049931;
+}
+
+.fakeMenu {
+  width: 100%;
+  box-sizing: border-box;
+  height: 25px;
+  background-color: #bbb;
+  margin: 0 auto;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.fakeScreen {
+  background-color: #F8F8FF;
+  box-sizing: border-box;
+  width: 100%;
+
+  padding: 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
 
 </style>
 <br>
@@ -22,11 +68,17 @@
     </div>
     การเขียนโปรแกรมคำนวณเกรดมีหลายวิธีให้เลือกใช้ จะมีวิธีใดบ้าง มาดูกันครับ
     <hr>
-    <label style="font-size:20px"> วิธีที่ 1 <br> เป็นการใช้คำสั่ง if-else-if</label>
+    <label style="font-size:20px;color: #FF8C00"> วิธีที่ 1 <br> เป็นการใช้คำสั่ง if-else-if</label>
     <br>
     <div class="text">วิธีนี้เป็นการตรวจสอบเงื่อนไขเป็นชุดหลายทางเลือก</div> 
     <br>
-    <pre style="padding:20px;background-color:#F8F8FF;"><code style="background-color:#F8F8FF" class="java">
+    <div class=fakeMenu>
+      <div class="fakeButtons fakeClose"></div>
+      <div class="fakeButtons fakeMinimize"></div>
+      <div class="fakeButtons fakeZoom"></div>
+    </div>
+  
+       <pre style="border:0px;background-color:#F8F8FF;"><code style="background-color:#F8F8FF" class="java">
       import java.util.Scanner;
       public class Grade {
 
@@ -61,6 +113,8 @@
         }
       }</code>
     </pre>
+
+    
      <a class="btn btn-info" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
         <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
     </a>
@@ -73,14 +127,16 @@
       ...แต่เอ๊ะ !!! ดูเหมือนว่าการตรวจสอบเงื่อนไขมันทำงานซ้ำซ้อนกันอยู่ ลองมาดูโค้ดด่านล่างกันครับ
     </div>
     <br>
-    <pre style="background-color:#F8F8FF;"><code style="background-color:#F8F8FF" class="java">
-
-      1.  if( score < 50) {         
+     <div class=fakeMenu>
+      <div class="fakeButtons fakeClose"></div>
+      <div class="fakeButtons fakeMinimize"></div>
+      <div class="fakeButtons fakeZoom"></div>
+    </div>
+    <pre style="overflow: hidden;border:0px;background-color:#F8F8FF;"><code style="background-color:#F8F8FF" class="java">      1.  if( score < 50) {         
       2.    grade = "F";                          
       3.  }else if(<font color="red">score >= 50</font> && score < 55){     
       4.    grade = "D";
-      5.  }</code>
-    </pre>
+      5.  }</code></pre>
     <div class="text">
       ถ้าเงื่อนไขบรรทัดที่ 1 เป็นเท็จ แสดงว่า score ต้องมีค่า >= 50 แล้วโปรแกรมจะไปทำบรรทัดที่ 3<br>
       แต่ลองสังเกตบรรทัดที่ 3 ดู พบว่ามีการตรวจสอบเงื่อนไข  score >= 50 ซ้ำอีกรอบ<br>
@@ -88,8 +144,12 @@
       ดังนั้นเราสามารถตัดการตรวจสอบเงื่อนไข score >= 50 ออกไปได้เลย
     </div>  
     <br>
-    <pre style="padding:20px;background-color:#F8F8FF">
-     <code style="background-color:#F8F8FF" class="java">
+     <div class=fakeMenu>
+      <div class="fakeButtons fakeClose"></div>
+      <div class="fakeButtons fakeMinimize"></div>
+      <div class="fakeButtons fakeZoom"></div>
+    </div>
+    <pre style="border:0px;background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java">
        if (score < 50) {
           grade = "F";
         }else if(score < 55){
@@ -106,8 +166,8 @@
           grade = "B+";
         }else {
           grade = "A";
-        }</code>   
-    </pre>
+        }</code>
+        </pre>
    
     <div class="text">
       แต่อย่าลืมจัดลำดับการเชคให้ถูกต้องด้วยน่ะครับ
@@ -115,14 +175,19 @@
     
     <br>
     <hr>
-    <label style="font-size:20px"> วิธีที่ 2 <br> เป็นการใช้คำสั่ง switch-case</label>
+    <label style="font-size:20px;color: #FF8C00"> วิธีที่ 2 <br> เป็นการใช้คำสั่ง switch-case</label>
     <br>
     <div class="text">
       วิธีการนี้เป็นวิธีการที่ใช้ในการตรวจสอบค่าเท่านั้น โดยนำ score มาหารด้วย 5 แล้วจึงทำการตรวจสอบค่าของ score ว่าตรงกับ case ใด
     </div>
     
     <br>
-    <pre style="padding:20px;background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java">
+    <div class=fakeMenu>
+      <div class="fakeButtons fakeClose"></div>
+      <div class="fakeButtons fakeMinimize"></div>
+      <div class="fakeButtons fakeZoom"></div>
+    </div>
+    <pre style="border:0px;padding:20px;background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java">
     import java.util.Scanner;
     public class Grade {
 
@@ -160,8 +225,7 @@
         System.out.println("Grade : " + grade);
            
       }
-    }</code>
-    </pre>
+    }</code></pre>
     <a class="btn btn-info" role="button" data-toggle="collapse" href="#output2" aria-expanded="false" aria-controls="collapseExample">
       <span class="glyphicon glyphicon-eye-open"></span> &ensp;Output&ensp;
     </a>
@@ -176,7 +240,12 @@
       ซึ่งถ้าหากเราไม่นำเอา score มาหารด้วย 5 ก่อน อาจจะต้องตรวจสอบค่าของ score ยาวกันเลยทีเดียว ดังตัวอย่างด่านล่าง
     </div>
     <br>
-      <pre style="padding:20px;background-color:#F8F8FF">
+    <div class=fakeMenu>
+      <div class="fakeButtons fakeClose"></div>
+      <div class="fakeButtons fakeMinimize"></div>
+      <div class="fakeButtons fakeZoom"></div>
+    </div>
+      <pre style="border:0px;padding:20px;background-color:#F8F8FF">
         <code style="background-color:#F8F8FF" class="java">
           switch (score) {                    
             case 0 :
@@ -204,14 +273,19 @@
         </code>
     </pre>
     <hr>
-    <label style="font-size:20px"> วิธีที่ 3 <br> เป็นการใช้วิธีการอ้างอิง index</label><br>
+    <label style="font-size:20px;color: #FF8C00"> วิธีที่ 3 <br> เป็นการใช้วิธีการอ้างอิง index</label><br>
     <div class="text">
       วิธีการนี้ หลายคนอาจจะไม่ค่อยได้เห็นสักเท่าไหร่ เป็นการแปลงเงื่อนไขใน switch-case จากวิธีที่  2 มาอ้างอิง index ใน Array แทน 
     โดยที่ไม่มีเงื่อนไขใดๆ มาเกี่ยวข้องเลย 
     </div>
     
     <br>
-    <pre style="padding:20px;background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java">
+    <div class=fakeMenu>
+      <div class="fakeButtons fakeClose"></div>
+      <div class="fakeButtons fakeMinimize"></div>
+      <div class="fakeButtons fakeZoom"></div>
+    </div>
+    <pre style="border:0px;padding:20px;background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java">
       public static void main(String[] args) {
         
           int index;
@@ -225,8 +299,7 @@
           score = in.nextInt();                        <font color="red">//ทำการรับค่าจำนวนเต็มจากแป้นพิมพ์เก็บไว้ในตัวแปร score</font> 
           index = score/5;                             <font color="red">//นำ score หารด้วย 5 เก็บไว้ในตัวแปร index</font> 
           System.out.println(" Grade : " + grade[index]);
-
-           
+        
       }</code>
     </pre>
     <a class="btn btn-info" role="button" data-toggle="collapse" href="#output3" aria-expanded="false" aria-controls="collapseExample">
@@ -242,7 +315,12 @@
     ถ้าต้องการเปลี่ยนเป็นแบบนี้ล่ะ
     </div>  
     <br>
-    <pre style="padding:20px;background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java">
+    <div class=fakeMenu>
+      <div class="fakeButtons fakeClose"></div>
+      <div class="fakeButtons fakeMinimize"></div>
+      <div class="fakeButtons fakeZoom"></div>
+    </div>
+    <pre style="border:0px;overflow: hidden;padding:20px;background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java">
        String grade[] = {  "F" ,"D", "D+", "C" , "C+", "B" , "B+" , "A" };     
        index = score+-*/%; </code> </pre>
     <div class="text">

@@ -3,20 +3,65 @@
 .font-red{
   font-color : red;
 }
+
+.fakeButtons {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  position: relative;
+  top: 6px;
+  left: 6px;
+  background-color: #ff3b47;
+  border-color: #9d252b;
+  display: inline-block;
+}
+
+.fakeMinimize {
+  left: 11px;
+  background-color: #ffc100;
+  border-color: #9d802c;
+}
+
+.fakeZoom {
+  left: 16px;
+  background-color: #00d742;
+  border-color: #049931;
+}
+
+.fakeMenu {
+  width: 100%;
+  box-sizing: border-box;
+  height: 25px;
+  background-color: #bbb;
+  margin: 0 auto;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.fakeScreen {
+  background-color: #F8F8FF;
+  box-sizing: border-box;
+  width: 100%;
+
+  padding: 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
 </style>
 <br>
 <div class="container">
 <label style="font-size:25px">ภาษา Java</label>
 <hr>
-  <label style="font-size:20px">จงเขียนโปรแกรมในการเข้ารหัส Encrypt และถอดรหัส Decrypt แบบ Caesar</label><br>
+  <label style="font-size:20px;">จงเขียนโปรแกรมในการเข้ารหัส Encrypt และถอดรหัส Decrypt แบบ Caesar</label><br>
   <div class="container">
-    <label style="font-size:18px">การเข้ารหัส</label><br>
+    <label style="font-size:18px;color: #FF8C00">การเข้ารหัส</label><br>
     <div class="text">
       - ทำการรับ Plain Text (ข้อมูลที่สามารถอ่านได้)<br>
       - ทำการรับ Shift (จำนวนในการเลื่อนตำแหน่ง)<br>
     </div>
     
-     <label style="font-size:18px">การถอดรหัส</label><br>
+     <label style="font-size:18px;color: #FF8C00">การถอดรหัส</label><br>
      <div class="text">
        - ทำการรับ Cipher Text (ข้อมูลที่ถูกเข้ารหัสเอาไว้ไม่สามารถอ่านได้)<br>
        - ทำการรับ Shift<br>
@@ -56,12 +101,17 @@ O กลายเป็น Q<br>
 <font color="red">References : </font><a target="_BLANK" href="https://th.wikipedia.org/wiki/รหัสซีซาร์">รหัสซีซาร์ wikipedia</a>
 </div>
 <hr>
-<label style="font-size:20px"> โปรแกรมในการเข้ารหัส</label><br>
+<label style="font-size:20px;color: #FF8C00"> โปรแกรมในการเข้ารหัส</label><br>
 <div class="text">
   เราจะใช้วิธีการเลื่อน  <a target="_BLANK" href="https://th.wikipedia.org/wiki/%E0%B9%81%E0%B8%AD%E0%B8%AA%E0%B8%81%E0%B8%B5">ASCII</a> 
 </div>
 <br>
-<pre style="padding:20px;background-color:#F8F8FF">
+ <div class=fakeMenu>
+      <div class="fakeButtons fakeClose"></div>
+      <div class="fakeButtons fakeMinimize"></div>
+      <div class="fakeButtons fakeZoom"></div>
+  </div>
+<pre style="border:0px;padding:20px;background-color:#F8F8FF">
   <code style="background-color:#F8F8FF" class="java">
     import java.util.Scanner;
 
@@ -115,37 +165,56 @@ O กลายเป็น Q<br>
  เราจึงต้องทำการตรวจสอบว่า shift มีค่าเกิน 26 หรือเปล่า ซึ่งเราอาจจะเขียนตรวจสอบเงื่อนไขดังนี้
 </div>
 <br>
- <pre style="background-color:#F8F8FF"> <code style="background-color:#F8F8FF" class="java">if(shift > 26){
+ <div class=fakeMenu>
+      <div class="fakeButtons fakeClose"></div>
+      <div class="fakeButtons fakeMinimize"></div>
+      <div class="fakeButtons fakeZoom"></div>
+  </div>
+ <pre style="overflow: hidden;border:0px;background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java">if(shift > 26){
       shift = shift - 26;
   }</code ></pre>
   <div class="text">
      แล้วถ้าหากว่า shift มีค่าเป็น 55 ล่ะ เราจะทำการตรวจสอบ shift > 26 ก็ไม่ได้แล้วสิ จึงต้องเขียนตรวจสอบเงื่อนไขเพิ่มอีกดังนี้
   </div>
  <br>
-  <pre style="background-color:#F8F8FF"> <code style="background-color:#F8F8FF" class="java">  if(shift > 52){
+  <div class=fakeMenu>
+      <div class="fakeButtons fakeClose"></div>
+      <div class="fakeButtons fakeMinimize"></div>
+      <div class="fakeButtons fakeZoom"></div>
+  </div>
+  <pre style="overflow: hidden;border:0px;background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java">  if(shift > 52){
       shift = shift - 52;
   }</code ></pre>
   <div class="text">
-    ขืนเป็นแบบนี้เราคงตรวจสอบเงื่อนไขกันไม่รู้จบแน่ แล้วเราจะมีวิธีแก้ปัญหายังไงล่ะ ?<br>
+    ขืนเป็นแบบนี้เราคงตรวจสอบเงื่อนไขกันไม่รู้จบแน่ๆ แล้วเราจะมีวิธีแก้ปัญหายังไงล่ะ ?<br>
   ก็นำ shift มาหารเอาเศษด้วย 26 ส่ะเลย ซึ่งเศษที่เหลือก็คือ จำนวนที่ถูกเลื่อนจริงๆ นั่นเอง<br>
 
   </div>
   <br>
-  <pre style="background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java"> shift = 55;
+   <div class=fakeMenu>
+      <div class="fakeButtons fakeClose"></div>
+      <div class="fakeButtons fakeMinimize"></div>
+      <div class="fakeButtons fakeZoom"></div>
+  </div>
+  <pre style="overflow: hidden;border:0px;background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java"> shift = 55;
  shift = shift % 26;      <font color="red">//shift = 3</font></code ></pre>
  <div class="text">
-     หรือไม่ก็ต้องตรวจสอบตั้งแต่ตอนรับ shift เข้ามาว่าต้องอยู่ระหว่าง 1-25
+     หรือไม่ก็ต้องตรวจสอบตั้งแต่ตอนรับ shift เข้ามาว่าค่าต้องอยู่ระหว่าง 1-25
  </div>
 <br>
-<br>
-<br>
+
 <hr>
 <br>
-<label style="font-size:20px"> โปรแกรมในการถอดรหัส</label><br>
+<label style="font-size:20px;color: #FF8C00"> โปรแกรมในการถอดรหัส</label><br>
 <div class="text">
   การเขียนโปรแกรมถอดรหัสมันก็จะคล้ายๆกัน กับการเข้ารหัส เพียงแค่สลับวิธีคิดกลับกัน
 </div><br>
-<pre style="padding:20px;background-color:#F8F8FF">
+ <div class=fakeMenu>
+      <div class="fakeButtons fakeClose"></div>
+      <div class="fakeButtons fakeMinimize"></div>
+      <div class="fakeButtons fakeZoom"></div>
+  </div>
+<pre style="border:0px;padding:20px;background-color:#F8F8FF">
   <code style="background-color:#F8F8FF" class="java"> 
     import java.util.Scanner;
 
@@ -195,7 +264,12 @@ O กลายเป็น Q<br>
 </div>
 
 <br>
-<pre style="padding:20px;background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java"> 
+ <div class=fakeMenu>
+      <div class="fakeButtons fakeClose"></div>
+      <div class="fakeButtons fakeMinimize"></div>
+      <div class="fakeButtons fakeZoom"></div>
+  </div>
+<pre style="border:0px;padding:20px;background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java"> 
     public static String encript(String plainText,int shift) {
         String cipherText = "";         
         char temp;
@@ -219,17 +293,112 @@ O กลายเป็น Q<br>
      }  </code></pre>
      <br>
      <div class="text">
-       จะใช้วิธีการคำนวณหา index ของตัวอักษรที่จัดเรียงตาม ASCII ...เชื่อว่าผู้อ่านคงมองไม่เห็นภาพ งั้นลองมาดูที่มาของวิธีดังกล่าวกัน
+       จากโค้ดข้างต้นจะคล้ายๆ กับการคำนวณหา index ของตัวอักษรที่จัดเรียงตาม ASCII โดยเริ่มต้น index 0 ที่ตัวอักษร 'A' เชื่อว่าผู้อ่านคงมองไม่เห็นภาพ<br> งั้นลองมาดูที่มาของวิธีดังกล่าวกัน
      </div>
-<br><br>
-<div id="fb-root"></div>
-<div class="fb-comments" data-href="https://tirmizee.github.io/#java0002" data-width="100%" data-numposts="5"></div>
+<br>
+<div class=fakeMenu>
+      <div class="fakeButtons fakeClose"></div>
+      <div class="fakeButtons fakeMinimize"></div>
+      <div class="fakeButtons fakeZoom"></div>
+  </div>
+<pre style="border:0px;padding:20px;background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java"> 
+    <font color="red">//สร้างตัวแปรชื่อ chars เป็น array เก็บตัวอักษรต่างๆ เพื่อใช้ในการอ้างอิง index</font>
+    static final char CHARS[] = { 'A','B','C','D','E','F','G','H','I','J','K','L','M',
+                                  'N','O','P','Q','R','S','T','U','V','U','X','Y','Z'};
 
+  
+    public static String encript(String plainText,int shift) {
+          String cipherText = "";         
+          int index;
+          shift = shift % 26;                                                
+          for (int i = 0 , length = plainText.length(); i < length; i++) {   
+              index = (((plainText.charAt(i) + shift) - 'A' ) % 26) ;     <font color="red">//สร้างสมการคำนวณหา index</font>      
+              cipherText += CHARS[index];                                 <font color="red">//ดึงตัวอักษรในตัวแปร CHARS โดยใช้ index ระบุ</font>
+          }
+          return cipherText;
+      }
+
+      public static String decrypt(String cipherText,int shift) {
+         String plainText = "";
+         shift = shift % 26;
+         int index;
+         for (int i = 0; i < cipherText.length(); i++) {
+             index = ( 'Z' -  ( 'Z' % cipherText.charAt(i) + shift ) % 26) % 'A' ;   
+             plainText += CHARS[index];
+         }
+         return plainText;
+     }</code>
+</pre>
+<div class="text">
+  จากวิธีการข้างต้นเราจะต้องสร้างตัวแปร chars เป็นข้อมูลแบบ array และเก็บตัวอักษรที่เรียงกันจาก A-Z <br> 
+  แล้วทำการสร้างสมาการหา index ของตัวอักษรที่ถูกเลื่อน และดึงค่ามาต่อกัน<br>
+  แต่ว่าเราไม่จำเป็นต้องสร้างตัวแปร CHARS มาเก็บตัวอักษรก็ได้<br>
+</div>
+<br>
+<div class=fakeMenu>
+      <div class="fakeButtons fakeClose"></div>
+      <div class="fakeButtons fakeMinimize"></div>
+      <div class="fakeButtons fakeZoom"></div>
+  </div>
+<pre style="border:0px;padding:20px;background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java">
+    static final char CHARS[] = { 'A','B','C','D','E','F','G','H','I','J','K','L','M',
+                                  'N','O','P','Q','R','S','T','U','V','U','X','Y','Z'};
+
+<font color="red">    //สมมุติว่าเลื่อนตัวอักษร 'Z' ไป 3 ตำแหน่ง </font>
+    char Z = 'Z';
+    int shift = 3;   
+    int index = (((Z + shift) - 'A' ) % 26) ;             <font color="red">//จะได้ค่า index เท่ากับ 2 </font>
+    char cipherText = CHARS[index];                       <font color="red">//เมื่อดึงค่าจาก CHARS โดยระบุ index จะได้ 'C'</font>
+   
+    <font color="red">//เปลี่ยนมาเป็น</font>
+    char cipherText =  (char)('A' + index);               <font color="red">//นำค่า 'A' มาบวกกับ index จะได้ 'C' เหมือนกัน เหมือนกับการเลื่อน ASCII ของ 'A' ตามค่า index นั่นเอง</font>
+    </code></pre>
+<div class="text">
+จากตัวอย่างข้างต้น หวังว่าผู้อ่านคงเข้าใจที่มาของวิธีการดังกล่าวที่ไม่จำเป็นต้องตรวจสอบเงื่อนไขในลูปน่ะครับ <br>
+ฝากให้คิดอีกนิดนึงน่ะครับ ถ้าหากว่าต้องการเข้ารหัวตัวอักษรพิมพ์เล็กด้วยล่ะ อาจจะต้องปรับอัลกอริทึมเดิมนิดนึง<br>
+และตรวจสอบเงื่อนไขว่าเป็นตัวอักษรพิมพ์เล็กหรือพิมพ์ใหญ่หรือเปล่า
+</div>
+<br>
+<div class=fakeMenu>
+      <div class="fakeButtons fakeClose"></div>
+      <div class="fakeButtons fakeMinimize"></div>
+      <div class="fakeButtons fakeZoom"></div>
+  </div>
+<pre style="border:0px;padding:20px;background-color:#F8F8FF"><code style="background-color:#F8F8FF" class="java"> 
+     public static String encript(String plainText,int shift) {
+          String cipherText = "";         
+          char temp;
+          shift = shift % 26;                                                
+          for (int i = 0 , length = plainText.length(); i < length; i++) {  
+              if (Character.isLowerCase(plainText.charAt(i))) {
+                  temp = (char)( 'a' +  ((plainText.charAt(i) + shift) - 'a' ) % 26) ; 
+              }else {
+                  temp = (char)( 'A' +  ((plainText.charAt(i) + shift) - 'A' ) % 26) ; 
+              }                                 
+              cipherText += temp;  
+          }
+          return cipherText;
+      }</code>
+</pre>
+<div class="text">
+  แล้วมันจะเป็นไปได้ไหมครับที่เราไม่ต้องตรวจสอบเงื่อนไข if ว่าเป็นตัวอักษรพิมพ์เล็กหรือพิมพ์ใหญ่ แต่ใช้วิธีการทางคณิตศาสตร์มาช่วย<br>
+  temp = plainText.charAt(i)+-*/% อะไรก็ว่ากันไป<br>
+ผู้เขียนคิดว่ามันอาจจะเป็นไปได้ก็ได้น่ะ 
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<div id="fb-root"></div>
+<div class="fb-comments" data-href="https://tirmizee.github.io/#/java0002"  data-width="100%" data-numposts="5"></div>
+
+<div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.9";
+  js.src = "//connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.9&appId=1721532414810864";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
