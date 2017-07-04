@@ -3,8 +3,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta  content="สอน">
-  	<meta  content="สอนภาาษาซี">
+	<meta name="description" content="บทเรียนโปรแกรมภาษาซี จาวา" />
+	<meta name="keywords" content="สอนเขียนโปรแกรม โจทย์ ภาษาซี จาวา" />
   	<title>บทเรียนโปรแกรมคอมพิวเตอร์ ภาษาซี จาวา</title>
 
 	<link rel="icon" href="resource/ico/favicon.ico" />
@@ -214,11 +214,15 @@ hr.style-two {
 				java0001 : function(){
 
 					window.location.hash = "/java0001";
+				
+	
 					 $(window).scrollTop(0);
 					$("#main").removeClass("active");
 					$("#article").addClass("active");
 					$(".body").load("menu-centent/article/article_menu_java/calGrade.html", function(data) {
-
+	
+    				
+    				$('head').append( '<meta name="description" content="สอนเขียนโปรแกรมคำนวณเกรด จาวา">' );
 						$("#bnt_back").on('click',function(e){
 							e.preventDefault();
 							callArticleMenu.article_menu_java();							
