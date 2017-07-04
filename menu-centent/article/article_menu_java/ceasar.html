@@ -370,7 +370,7 @@ O กลายเป็น Q<br>
           char temp;
           shift = shift % 26;                                                
           for (int i = 0 , length = plainText.length(); i < length; i++) {  
-              if (Character.isLowerCase(plainText.charAt(i))) {
+              if (Character.isLowerCase(plainText.charAt(i))) {                            <font color="red">//ตรวจสอบว่าเป็นตัวอักษรพิมพ์เล็กหรือเปล่า</font>
                   temp = (char)( 'a' +  ((plainText.charAt(i) + shift) - 'a' ) % 26) ; 
               }else {
                   temp = (char)( 'A' +  ((plainText.charAt(i) + shift) - 'A' ) % 26) ; 
